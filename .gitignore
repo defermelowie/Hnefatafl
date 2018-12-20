@@ -1,6 +1,5 @@
 #IDE specific
-Hnefatafl/nbproject/*
-Hnefatafl/nbproject/private/*.*
+#Hnefatafl/nbproject/*
 Hnefatafl/.idea/*
 
 #Builded files
