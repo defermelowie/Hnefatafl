@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author mikaz
  */
 public class Player {
-    private Boolean color;
+    private Color color;
     private int Pawns;
     private int Kings;
     private  ArrayList<Piece> pieces = new ArrayList<>();
@@ -21,17 +21,17 @@ public class Player {
      *  Constructor for player
      * @param color true if White, false if Black
      */
-     public Player(Boolean color){
+     public Player(Color color){
          this.color = color;
-         if(color == true){
+         if(color == Color.WHITE){
              for( int i = 0; i < 9; i++){
-                 pieces.add(new Pawn(0,0,color));
+                 pieces.add(new Pawn(0,0, Color.WHITE));
              }
              pieces.add(new King(5,5));
          }
          else {
              for (int i = 0; i < 17; i++) {
-                 pieces.add(new Pawn(0, 0, false));
+                 pieces.add(new Pawn(0, 0, Color.BLACK));
              }
 
          }

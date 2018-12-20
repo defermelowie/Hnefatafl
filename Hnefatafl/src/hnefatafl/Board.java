@@ -32,12 +32,12 @@ public class Board {
     public Board() {
 
         for (int i = 0; i < 8; i++){
-            whitePieces.add(new Pawn(whiteStartLayout[i], true));
+            whitePieces.add(new Pawn(whiteStartLayout[i], Color.WHITE));
         }
         whitePieces.add(new King(whiteStartLayout[8]));
 
         for (int i = 0; i < 16; i++){
-            blackPieces.add(new Pawn(blackStartLayout[i], false));
+            blackPieces.add(new Pawn(blackStartLayout[i], Color.BLACK));
         }
     }
 }

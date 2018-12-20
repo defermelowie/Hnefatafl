@@ -12,7 +12,7 @@ package hnefatafl;
 public class Piece {
     int row;
     int column;
-    Boolean color;
+    Color color;
     Boolean alive;
 
     /**
@@ -21,7 +21,7 @@ public class Piece {
      * @param column Column on the board for the new piece
      * @param color true if White, false if Black
      */
-    public Piece(int row, int column, Boolean color) {
+    public Piece(int row, int column, Color color) {
         this.row = row;
         this.column = column;
         this.color = color;
@@ -33,7 +33,7 @@ public class Piece {
      * @param coordinates Array with {row, column}
      * @param color true if White, false if Black
      */
-    public Piece(int coordinates[], Boolean color) {
+    public Piece(int coordinates[], Color color) {
         this.row = coordinates[0];
         this.column = coordinates[1];
         this.color = color;

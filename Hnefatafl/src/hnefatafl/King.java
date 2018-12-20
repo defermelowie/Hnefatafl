@@ -17,7 +17,7 @@ public class King extends Piece{
      * @param column Column on the board for the new pawn
      */
     public King(int row, int column) {
-        super(row, column, true);   //color of the king is always white
+        super(row, column, Color.WHITE);   //color of the king is always white
     }
 
     /**
@@ -25,6 +25,6 @@ public class King extends Piece{
      * @param coordinates Array with {row, column}
      */
     public King(int coordinates[]) {
-        super(coordinates, true);
+        super(coordinates, Color.WHITE);
     }
 }
