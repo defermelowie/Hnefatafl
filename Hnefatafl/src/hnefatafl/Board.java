@@ -12,17 +12,17 @@ import java.util.ArrayList;
  * @author mikaz
  */
 public class Board {
-    private ArrayList<Piece> whitePieces = new ArrayList<>();
-    private ArrayList<Piece> blackPieces = new ArrayList<>();
+    private ArrayList<Piece> pieces = new ArrayList<>();
 
-    private int whiteStartLayout[][] = {
+    private int whitePawnStartCoordinates[][] = {
             {6,4} , {6,5} , {6,6} ,
             {5,4} , {5,6} ,
-            {4,4} , {4,5} , {4,6} ,
-            {5,5}
+            {4,4} , {4,5} , {4,6}
     };
 
-    private int blackStartLayout[][] = {
+    private int whiteKingStartCoordinate[] = {5, 5,};
+
+    private int blackPawnStartCoordinates[][] = {
             {1,4} , {1,5} , {1,6} , {2,5} ,
             {4,1} , {5,1} , {6,1} , {5,2} ,
             {9,4} , {9,5} , {9,6} , {8,5} ,
@@ -32,12 +32,11 @@ public class Board {
     public Board() {
 
         for (int i = 0; i < 8; i++){
-            whitePieces.add(new Pawn(whiteStartLayout[i], Color.WHITE));
+            pieces.add(new Pawn(whitePawnStartCoordinates[i], Color.WHITE));
         }
-        whitePieces.add(new King(whiteStartLayout[8]));
-
+        pieces.add(new King(whiteKingStartCoordinate));
         for (int i = 0; i < 16; i++){
-            blackPieces.add(new Pawn(blackStartLayout[i], Color.BLACK));
+            pieces.add(new Pawn(blackPawnStartCoordinates[i], Color.BLACK));
         }
     }
 }
