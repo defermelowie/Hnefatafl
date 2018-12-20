@@ -10,5 +10,8 @@ package hnefatafl;
  * @author mikaz
  */
 public class Hnefatafl {
+private Board board;
+private Player white;
+private Player black;
     
 }

@@ -10,5 +10,7 @@ package hnefatafl;
  * @author mikaz
  */
 public class Player {
+    private int Pawns;
+    private int Kings;
     
 }
