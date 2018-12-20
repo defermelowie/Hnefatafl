@@ -10,7 +10,7 @@ package hnefatafl;
  * @author mikaz
  */
 public class Hnefatafl {
-private Board board;
+private Board board = new Board();
 private Player white;
 private Player black;
     
