@@ -6,7 +6,7 @@
 package hnefatafl;
 
 /**
- *
+ *class voor king piece
  * @author mikaz
  */
 public class King extends Piece{
