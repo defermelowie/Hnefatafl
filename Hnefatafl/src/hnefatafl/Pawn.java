@@ -9,6 +9,9 @@ package hnefatafl;
  *
  * @author mikaz
  */
-public class Pawn {
-    
+public class Pawn extends Piece {
+
+    public Pawn(int row, int column, Boolean color) {
+        super(row, column, color);
+    }
 }

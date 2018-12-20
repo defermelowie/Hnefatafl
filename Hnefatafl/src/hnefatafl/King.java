@@ -9,6 +9,9 @@ package hnefatafl;
  *
  * @author mikaz
  */
-public class King {
-    
+public class King extends Piece{
+
+    public King(int row, int column) {
+        super(row, column, true);
+    }
 }
