@@ -15,10 +15,10 @@ public class Player {
     private Boolean color;
     private int Pawns;
     private int Kings;
-    private  ArrayList<Piece> pieces=new ArrayList<>();
+    private  ArrayList<Piece> pieces = new ArrayList<>();
 
     /**
-     *
+     *  Constructor for player
      * @param color true if White, false if Black
      */
      public Player(Boolean color){
