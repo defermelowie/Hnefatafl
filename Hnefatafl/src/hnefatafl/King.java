@@ -10,7 +10,11 @@ package hnefatafl;
  * @author mikaz
  */
 public class King extends Piece{
-
+    /**
+     * constructor for King
+     * @param row Row on the board for the new pawn
+     * @param column Column on the board for the new pawn
+     */
     public King(int row, int column) {
         super(row, column, true);
     }
