@@ -6,8 +6,8 @@
 package hnefatafl;
 
 /**
- *
- * @author mikaz
+ * class for Pawn piece
+ * @author Stef, Mika, Lowie
  */
 public class Pawn extends Piece {
 
