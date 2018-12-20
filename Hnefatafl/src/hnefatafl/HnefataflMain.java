@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 /**
  *
- * @author Stef
+ * @author Stef, Mika, Lowie
  */
 public class HnefataflMain extends Application {
     

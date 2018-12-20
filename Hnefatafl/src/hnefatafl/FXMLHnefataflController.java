@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 
 /**
  *
- * @author Stef
+ * @author Stef, Mika, Lowie
  */
 public class FXMLHnefataflController implements Initializable {
     
