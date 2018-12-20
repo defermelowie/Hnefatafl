@@ -16,6 +16,6 @@ public class King extends Piece{
      * @param column Column on the board for the new pawn
      */
     public King(int row, int column) {
-        super(row, column, true);
+        super(row, column, true);   //color of the king is always white
     }
 }
