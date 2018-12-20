@@ -30,7 +30,7 @@ public class Piece {
 
     /**
      * Constructor for piece
-     * @param coordinates an array with {row, column}
+     * @param coordinates Array with {row, column}
      * @param color true if White, false if Black
      */
     public Piece(int coordinates[], Boolean color) {

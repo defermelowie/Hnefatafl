@@ -23,7 +23,7 @@ public class Pawn extends Piece {
 
     /**
      * Constructor for pawn
-     * @param coordinates an array with {row, column}
+     * @param coordinates Array with {row, column}
      * @param color true if White, false if Black
      */
     public Pawn(int coordinates[], Boolean color) {
