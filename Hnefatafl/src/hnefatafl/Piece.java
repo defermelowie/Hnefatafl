@@ -13,6 +13,7 @@ public class Piece {
     int row;
     int column;
     Boolean color;
+    Boolean alive;
 
     /**
      * Constructor for piece
@@ -24,5 +25,10 @@ public class Piece {
         this.row = row;
         this.column = column;
         this.color = color;
+        this.alive = true;
+    }
+
+    public Boolean isAlive() {
+        return alive;
     }
 }
