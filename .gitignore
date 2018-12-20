@@ -1,5 +1,5 @@
 #IDE specific
-Hnefatafl/nbproject/*
+#Hnefatafl/nbproject/*
 Hnefatafl/.idea/*
 
 #Builded files
