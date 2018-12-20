@@ -27,6 +27,6 @@ public class Pawn extends Piece {
      * @param color true if White, false if Black
      */
     public Pawn(int coordinates[], Boolean color) {
-        super(coordinates[0], coordinates[1], color);
+        super(coordinates, color);
     }
 }

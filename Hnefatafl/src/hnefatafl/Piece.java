@@ -28,6 +28,19 @@ public class Piece {
         this.alive = true;
     }
 
+    /**
+     * Constructor for piece
+     * @param coordinates an array with {row, column}
+     * @param color true if White, false if Black
+     */
+    public Piece(int coordinates[], Boolean color) {
+        this.row = coordinates[0];
+        this.column = coordinates[1];
+        this.color = color;
+        this.alive = true;
+    }
+
+
     public Boolean isAlive() {
         return alive;
     }
