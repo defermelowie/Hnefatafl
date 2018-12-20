@@ -25,3 +25,6 @@ Hnefatafl/.idea/*
 *.zip
 *.tar.gz
 *.rar
+Hnefatafl/nbproject/private/private.xml
+Hnefatafl/nbproject/private/private.properties
+Hnefatafl/nbproject/private/config.properties
