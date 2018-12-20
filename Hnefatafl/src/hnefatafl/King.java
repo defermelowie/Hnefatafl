@@ -6,8 +6,8 @@
 package hnefatafl;
 
 /**
- *class voor king piece
- * @author mikaz
+ *class for King piece
+ * @author Stef, Mika, Lowie
  */
 public class King extends Piece{
     /**
