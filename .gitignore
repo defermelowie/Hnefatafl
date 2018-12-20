@@ -6,6 +6,8 @@ Hnefatafl/.idea/*
 #Builded files
 /Hnefatafl/build/
 /Hnefatafl/dist/
+/Hnefatafl/out/
+
 
 # Compiled class file
 *.class
