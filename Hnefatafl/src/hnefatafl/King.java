@@ -10,6 +10,7 @@ package hnefatafl;
  * @author Stef, Mika, Lowie
  */
 public class King extends Piece{
+
     /**
      * constructor for King
      * @param row Row on the board for the new pawn
