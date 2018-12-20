@@ -13,16 +13,22 @@ public class Piece {
     int row;
     int column;
     Boolean color;
+    Boolean alive;
 
     /**
      * Constructor for piece
      * @param row Row on the board for the new piece
      * @param column Column on the board for the new piece
-     * @param color 1 if White, 0 if Black
+     * @param color true if White, false if Black
      */
     public Piece(int row, int column, Boolean color) {
         this.row = row;
         this.column = column;
         this.color = color;
+        this.alive = true;
+    }
+
+    public Boolean isAlive() {
+        return alive;
     }
 }
