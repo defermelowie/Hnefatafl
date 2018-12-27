@@ -12,12 +12,6 @@ public class HnefataflController {
     HnefataflView hnefataflView;
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private AnchorPane gamePane;
 
     @FXML
@@ -38,7 +32,7 @@ public class HnefataflController {
         int y = (int)mouseEvent.getY();
         Piece clickedPiece = hnefataflModel.getBoard().getPieceOn(hnefataflView.getRow(x),hnefataflView.getColumn(y));
         if (clickedPiece != null){
-            System.out.println(clickedPiece.getRow() + ", " + clickedPiece.getColumn());
+            System.out.println(clickedPiece.toString());
         }
     }
 }
