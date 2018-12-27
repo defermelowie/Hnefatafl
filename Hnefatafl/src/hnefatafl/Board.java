@@ -8,14 +8,9 @@ import java.util.ArrayList;
 public class Board {
     private ArrayList<Piece> pieces = new ArrayList<>();
     private int whitePawnStartCoordinates[][] = {
-            {3,3},
-            {4,3},
-            {5,3},
-            {5,4},
-            {5,5},
-            {4,5},
-            {3,5},
-            {3,4}
+            {3,3},{3,4},{3,5},
+            {4,3},      {4,5},
+            {5,3},{5,4},{5,5}
     };
     private int whiteKingStartCoordinate[] = {4, 4};
     private int blackPawnStartCoordinates[][] = {
@@ -36,6 +31,7 @@ public class Board {
         }
     }
 
+    //getters
     public ArrayList<Piece> getPieces() {
         return pieces;
     }
@@ -48,5 +44,14 @@ public class Board {
             }
         }
         return pieces;
+    }
+
+    public Piece getPieceOn(int row, int column){
+        for (Piece p : pieces){
+            if (p.getRow() == row && p.getColumn() == column){
+                return p;
+            }
+        }
+        return null;
     }
 }
