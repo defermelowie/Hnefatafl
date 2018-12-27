@@ -3,8 +3,10 @@ package hnefatafl;
 public class BlackPlayer extends Player {
 
     public BlackPlayer() {
+        this.color = Color.BLACK;
     }
 
+    //other methods
     public boolean isAlive() {
         boolean alive = true;
         for (Piece p : pieces) {
@@ -13,5 +15,14 @@ public class BlackPlayer extends Player {
             }
         }
         return false;
+    }
+
+    public boolean updateTo(Player player) {
+        if (player instanceof BlackPlayer) {
+            this.pieces = player.getPieces();
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Player {
     protected ArrayList<Piece> pieces = new ArrayList<>();
+    protected Color color;
 
     public Player() {
     }
@@ -13,14 +14,15 @@ public class Player {
         this.pieces = pieces;
     }
 
+    public Color getColor() {
+        return color;
+    }
+
     //getters
     public ArrayList<Piece> getPieces() {
         return pieces;
     }
 
     //other methods
-    public boolean updateTo(Player player) {
-        return false; //TODO
-    }
 
 }
