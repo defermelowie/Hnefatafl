@@ -1,25 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hnefatafl;
 
 /**
- *
  * @author mikaz
  */
 public class Piece {
-    int row;
-    int column;
-    Color color;
-    Boolean alive;
+    private int row;
+    private int column;
+    private Color color;
+    private Boolean alive;
 
     /**
      * Constructor for piece
-     * @param row Row on the board for the new piece
+     *
+     * @param row    Row on the board for the new piece
      * @param column Column on the board for the new piece
-     * @param color true if White, false if Black
+     * @param color  true if White, false if Black
      */
     public Piece(int row, int column, Color color) {
         this.row = row;
@@ -30,17 +25,18 @@ public class Piece {
 
     /**
      * Constructor for piece
+     *
      * @param coordinates Array with {row, column}
-     * @param color true if White, false if Black
+     * @param color       true if White, false if Black
      */
-    public Piece(int coordinates[], Color color) {
+    public Piece(int[] coordinates, Color color) {
         this.row = coordinates[0];
         this.column = coordinates[1];
         this.color = color;
         this.alive = true;
     }
 
-
+    //getters
     public Boolean isAlive() {
         return alive;
     }
@@ -53,16 +49,26 @@ public class Piece {
         return column;
     }
 
-    public void setCoordinates(int row, int column) {
+    public Color getColor() {
+        return this.color;
+    }
+
+    //setters
+    private void setCoordinates(int row, int column) {
         this.row = row;
         this.column = column;
     }
-    
-    
-    
-    
-    
+
+    //other methods
+    public boolean moveTo(int row, int column) {
+        if (this.row == row || this.column == column) {
+            setCoordinates(row, column);
+            return true;
+        } else {
+            return false;
+        }
     }
+}
     
     
 
