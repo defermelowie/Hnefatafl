@@ -2,32 +2,25 @@ package hnefatafl;
 
 import java.util.ArrayList;
 
-/**
- * @author mikaz
- */
 public class Player {
-    private Color color;
-    private ArrayList<Piece> pieces = new ArrayList<>();
+    protected ArrayList<Piece> pieces = new ArrayList<>();
 
-    /**
-     * Constructor for player
-     *
-     * @param color true if White, false if Black
-     */
-    public Player(Color color) {
-        this.color = color;
+    public Player() {
     }
 
+    //setters
     public void setPieces(ArrayList<Piece> pieces) {
         this.pieces = pieces;
     }
 
-    public boolean isAlive() {
-        for (Piece p : pieces) {
-            if (p.isAlive() == true) {
-                return true;
-            }
-        }
-        return false;
+    //getters
+    public ArrayList<Piece> getPieces() {
+        return pieces;
     }
+
+    //other methods
+    public boolean updateTo(Player player) {
+        return false; //TODO
+    }
+
 }
