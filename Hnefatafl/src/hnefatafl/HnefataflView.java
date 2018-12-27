@@ -22,13 +22,18 @@ public class HnefataflView extends Region {
         ArrayList<Piece> piecesModel = boardModel.getPieces();
         for (Piece p : piecesModel){
             PieceView pieceView = new PieceView(p);
-            pieceView.setTranslateX(p.getColumn()*70 + 10);
+            pieceView.setTranslateX(p.getColumn()*70 + 10); //one tile on the board is 70x70, +10 because a piece is 50x50
             pieceView.setTranslateY(p.getRow()*70 + 10);
             getChildren().add(pieceView);
         }
     }
 
-    public Piece getPieceOn(int x, int y){
-        return null; //TODO
+    public int getRow(int x){
+        return x/70;
     }
+
+    public int getColumn(int y){
+        return y/70;
+    }
+
 }
