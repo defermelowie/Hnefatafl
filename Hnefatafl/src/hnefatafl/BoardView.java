@@ -13,7 +13,7 @@ public class BoardView extends Region {
     }
 
     public void update() {
-        boardImageView = new ImageView("gameBoard.png");
+        boardImageView = new ImageView("resources/gameBoard.png");
         this.getChildren().add(boardImageView);
     }
 }

@@ -18,7 +18,6 @@ public class HnefataflView extends Region {
     }
 
     public Piece getPieceOn(int row, int column){
-        //TODO
         return null; //TODO
     }
 }
