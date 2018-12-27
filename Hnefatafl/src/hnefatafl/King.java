@@ -25,4 +25,9 @@ public class King extends Piece {
     public King(int coordinates[]) {
         super(coordinates, Color.WHITE);
     }
+
+    //Overridden methods
+    public String toString(){
+        return "Type: King | " + "Row: " + this.row + " | Column: " + this.column + " | Color: " + this.color;
+    }
 }

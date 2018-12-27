@@ -27,4 +27,9 @@ public class Pawn extends Piece {
     public Pawn(int coordinates[], Color color) {
         super(coordinates, color);
     }
+
+    //Overridden methods
+    public String toString(){
+        return "Type: pawn | " + "Row: " + this.row + " | Column: " + this.column + " | Color: " + this.color;
+    }
 }

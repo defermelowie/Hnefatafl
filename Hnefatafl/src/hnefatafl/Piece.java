@@ -4,10 +4,10 @@ package hnefatafl;
  * @author mikaz
  */
 public class Piece {
-    private int row;
-    private int column;
-    private Color color;
-    private Boolean alive;
+    protected int row;
+    protected int column;
+    protected Color color;
+    protected Boolean alive;
 
     /**
      * Constructor for piece
