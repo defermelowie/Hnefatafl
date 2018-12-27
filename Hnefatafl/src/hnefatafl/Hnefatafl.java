@@ -10,8 +10,25 @@ package hnefatafl;
  * @author mikaz
  */
 public class Hnefatafl {
-private Board board = new Board();
-private Player white;
-private Player black;
-    
+private Board board;
+private Player whitePlayer;
+private Player blackPlayer;
+
+    public Hnefatafl() {
+        this.board = new Board();
+        this.whitePlayer = new Player(Color.WHITE);
+        this.blackPlayer = new Player(Color.BLACK);
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public Player getWhitePlayer() {
+        return whitePlayer;
+    }
+
+    public Player getBlackPlayer() {
+        return blackPlayer;
+    }
 }

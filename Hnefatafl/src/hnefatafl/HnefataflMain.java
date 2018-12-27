@@ -18,10 +18,15 @@ public class HnefataflMain extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLHnefataflView.fxml"));
+        Hnefatafl hnefataflModel = new Hnefatafl();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHnefataflView.fxml"));
+        Parent root = loader.load();
+
+        HnefataflController hnefataflController = loader.getController();
+        hnefataflController.setModel(hnefataflModel);
         
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
         stage.show();
     }
