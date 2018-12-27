@@ -8,16 +8,21 @@ import java.util.ArrayList;
 public class Board {
     private ArrayList<Piece> pieces = new ArrayList<>();
     private int whitePawnStartCoordinates[][] = {
-            {6, 4}, {6, 5}, {6, 6},
-            {5, 4}, {5, 6},
-            {4, 4}, {4, 5}, {4, 6}
+            {3,3},
+            {4,3},
+            {5,3},
+            {5,4},
+            {5,5},
+            {4,5},
+            {3,5},
+            {3,4}
     };
-    private int whiteKingStartCoordinate[] = {5, 5,};
+    private int whiteKingStartCoordinate[] = {4, 4};
     private int blackPawnStartCoordinates[][] = {
-            {1, 4}, {1, 5}, {1, 6}, {2, 5},
-            {4, 1}, {5, 1}, {6, 1}, {5, 2},
-            {9, 4}, {9, 5}, {9, 6}, {8, 5},
-            {4, 9}, {5, 9}, {6, 9}, {5, 8},
+            {3,0},{4,0},{5,0},{4,1},
+            {0,3},{0,4},{0,5},{1,4},
+            {3,8},{4,8},{5,8},{4,7},
+            {8,3},{8,4},{8,5},{7,4}
     };
 
     public Board() {

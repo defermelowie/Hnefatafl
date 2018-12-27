@@ -1,7 +1,7 @@
 package hnefatafl;
 
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
+import javafx.scene.image.ImageView;
 
 public class BoardView extends Region {
     private Board boardModel;
