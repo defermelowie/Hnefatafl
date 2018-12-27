@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * @author mikaz
  */
 public class Board {
-    private ArrayList<Piece> pieces = new ArrayList<>();
     private int whitePawnStartCoordinates[][] = {
             {3,3},{3,4},{3,5},
             {4,3},      {4,5},
@@ -19,6 +18,8 @@ public class Board {
             {3,8},{4,8},{5,8},{4,7},
             {8,3},{8,4},{8,5},{7,4}
     };
+
+    private ArrayList<Piece> pieces = new ArrayList<>();
 
     public Board() {
 
