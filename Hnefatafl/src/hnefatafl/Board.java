@@ -3,7 +3,7 @@ package hnefatafl;
 import java.util.ArrayList;
 
 /**
- * @author mikaz
+ * @author Stef, Mika, Lowie
  */
 public class Board {
     private int whitePawnStartCoordinates[][] = {
@@ -20,9 +20,9 @@ public class Board {
     };
 
     private ArrayList<Piece> pieces = new ArrayList<>();
+    private Piece selectedPiece;
 
     public Board() {
-
         for (int i = 0; i < 8; i++) {
             pieces.add(new Pawn(whitePawnStartCoordinates[i], Color.WHITE));
         }
@@ -30,6 +30,7 @@ public class Board {
         for (int i = 0; i < 16; i++) {
             pieces.add(new Pawn(blackPawnStartCoordinates[i], Color.BLACK));
         }
+        selectedPiece = null;
     }
 
     //getters
@@ -54,5 +55,38 @@ public class Board {
             }
         }
         return null;
+    }
+
+    public Piece getSelectedPiece(){
+        return selectedPiece;
+    }
+
+    //other methods
+    public boolean isPieceSelected(){
+        return (selectedPiece != null);
+    }
+
+    public boolean selectPieceOn(int row, int column){
+        boolean succes = false;
+        selectedPiece = this.getPieceOn(row, column);
+            if (selectedPiece != null) {
+                succes = true;
+            }
+        return succes;
+    }
+
+    public boolean moveSelectedPieceTo(int row, int column){
+        boolean succes = false;
+        if (selectedPiece != null && getPieceOn(row, column) == null){
+            succes = getPieceOn(selectedPiece.getRow(),selectedPiece.getColumn()).moveTo(row, column);
+        }
+        if (succes == true){
+            selectedPiece = null;
+        }
+        return succes;
+    }
+
+    public void unSelectPiece() {
+        selectedPiece = null;
     }
 }

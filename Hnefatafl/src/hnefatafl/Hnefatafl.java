@@ -1,7 +1,7 @@
 package hnefatafl;
 
 /**
- * @author mikaz
+ * @author Stef, Mika, Lowie
  */
 public class Hnefatafl {
     private Board board;
@@ -11,6 +11,9 @@ public class Hnefatafl {
     private BlackPlayer blackPlayer;
     private Player CurrentPlayer;
 
+    /**
+     * Constructor for class Hnefatafl
+     */
     public Hnefatafl() {
         this.board = new Board();
         this.pieceIsSelected = false;
@@ -22,6 +25,7 @@ public class Hnefatafl {
     }
 
     //getters
+
     public Board getBoard() {
         return board;
     }
@@ -30,45 +34,7 @@ public class Hnefatafl {
         return whitePlayer;
     }
 
-    public Player getBlackPlayer() {
+    public BlackPlayer getBlackPlayer() {
         return blackPlayer;
-    }
-
-    public boolean isAPieceSelected() {
-        return pieceIsSelected;
-    }
-
-    public Piece getSelectedPiece() {
-        return selectedPiece;
-    }
-
-    //other methods
-    public boolean selectPiece(int row, int column) {
-        boolean succes = false;
-        if (!pieceIsSelected) {
-            selectedPiece = board.getPieceOn(row, column);
-            if (selectedPiece != null) {
-                pieceIsSelected = true;
-                succes = true;
-            }
-        }
-        return succes;
-    }
-
-    public boolean moveSelectedPieceTo(int row, int column) {
-        boolean succes = false;
-        if (pieceIsSelected && board.getPieceOn(row, column) == null) {
-            succes = board.getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
-            if (succes == true) {
-                pieceIsSelected = false;
-                selectedPiece = null;
-            }
-        }
-        return succes;
-    }
-
-    public void unSelectPiece(){
-        pieceIsSelected = false;
-        selectedPiece = null;
     }
 }

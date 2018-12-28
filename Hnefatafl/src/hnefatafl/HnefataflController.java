@@ -34,15 +34,15 @@ public class HnefataflController {
     public void handleMouseClick(MouseEvent mouseEvent) {
         int x = (int) mouseEvent.getX();
         int y = (int) mouseEvent.getY();
-        if (hnefataflModel.isAPieceSelected()) {
-            hnefataflModel.moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+        if (hnefataflModel.getBoard().isPieceSelected()) {
+            hnefataflModel.getBoard().moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
         } else {
-            hnefataflModel.selectPiece(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+            hnefataflModel.getBoard().selectPieceOn(hnefataflView.getRow(y), hnefataflView.getColumn(x));
         }
 
         //printout
-        if (hnefataflModel.isAPieceSelected()){
-            System.out.println("Selected Piece --> " + hnefataflModel.getSelectedPiece().toString());
+        if (hnefataflModel.getBoard().isPieceSelected()) {
+            System.out.println("Selected Piece --> " + hnefataflModel.getBoard().getSelectedPiece().toString());
         } else {
             System.out.println("No piece selected");
         }
@@ -50,8 +50,8 @@ public class HnefataflController {
         hnefataflView.update();
     }
 
-    public void handleUnselect(Event e){
-        hnefataflModel.unSelectPiece();
+    public void handleUnselect(Event e) {
+        hnefataflModel.getBoard().unSelectPiece();
     }
 }
 
