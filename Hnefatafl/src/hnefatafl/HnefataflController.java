@@ -51,7 +51,7 @@ public class HnefataflController {
     }
 
     public void handleDeSelect(Event e) {
-        hnefataflModel.getBoard().unSelectPiece();
+        hnefataflModel.getBoard().DeSelectPiece();
     }
 }
 

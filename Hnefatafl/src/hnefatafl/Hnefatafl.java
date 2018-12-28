@@ -1,6 +1,8 @@
 package hnefatafl;
 
 /**
+ * Main game class
+ *
  * @author Stef, Mika, Lowie
  */
 public class Hnefatafl {
@@ -10,7 +12,7 @@ public class Hnefatafl {
     private Player CurrentPlayer;
 
     /**
-     * Constructor for class Hnefatafl
+     * Constructor for Hnefatafl (game)
      */
     public Hnefatafl() {
         this.board = new Board();
@@ -22,14 +24,29 @@ public class Hnefatafl {
 
     //getters
 
+    /**
+     * Getter for the board that belongs to this game
+     *
+     * @return The board
+     */
     public Board getBoard() {
         return board;
     }
 
+    /**
+     * Getter for the white player
+     *
+     * @return The white player
+     */
     public Player getWhitePlayer() {
         return whitePlayer;
     }
 
+    /**
+     * Getter for the black player
+     *
+     * @return The black player
+     */
     public BlackPlayer getBlackPlayer() {
         return blackPlayer;
     }
