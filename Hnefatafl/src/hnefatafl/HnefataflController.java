@@ -1,8 +1,10 @@
 package hnefatafl;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Button;
 
 public class HnefataflController {
     Hnefatafl hnefataflModel;
@@ -11,10 +13,15 @@ public class HnefataflController {
     @FXML
     private AnchorPane gamePane;
 
+
+    @FXML
+    private Button unselectBtn;
+
     @FXML
     void initialize() {
         assert gamePane != null : "fx:id=\"gamePane\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
         gamePane.setOnMouseClicked(event -> handleMouseClick(event));
+        unselectBtn.setOnAction(event -> handleUnselect(event));
     }
 
     public void setModel(Hnefatafl hnefataflModel) {
@@ -41,6 +48,10 @@ public class HnefataflController {
         }
 
         hnefataflView.update();
+    }
+
+    public void handleUnselect(Event e){
+        hnefataflModel.unSelectPiece();
     }
 }
 

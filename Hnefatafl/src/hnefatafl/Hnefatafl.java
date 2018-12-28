@@ -66,4 +66,9 @@ public class Hnefatafl {
         }
         return succes;
     }
+
+    public void unSelectPiece(){
+        pieceIsSelected = false;
+        selectedPiece = null;
+    }
 }
