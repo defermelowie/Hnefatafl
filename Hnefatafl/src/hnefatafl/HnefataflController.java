@@ -39,7 +39,7 @@ public class HnefataflController {
         } else {
             System.out.println("No piece selected");
         }
-        
+
         hnefataflView.update();
     }
 }

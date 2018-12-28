@@ -57,7 +57,7 @@ public class Hnefatafl {
 
     public boolean moveSelectedPieceTo(int row, int column) {
         boolean succes = false;
-        if (pieceIsSelected) {
+        if (pieceIsSelected && board.getPieceOn(row, column) == null) {
             succes = board.getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
             if (succes == true) {
                 pieceIsSelected = false;
