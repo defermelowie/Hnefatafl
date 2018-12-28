@@ -1,9 +1,6 @@
 package hnefatafl;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -20,20 +17,30 @@ public class HnefataflController {
         gamePane.setOnMouseClicked(event -> handleMouseClick(event));
     }
 
-    public void setModel(Hnefatafl hnefataflModel){
+    public void setModel(Hnefatafl hnefataflModel) {
         this.hnefataflModel = hnefataflModel;
         hnefataflView = new HnefataflView(hnefataflModel);
         gamePane.getChildren().add(hnefataflView);
         gamePane.setFocusTraversable(true);
     }
 
-    public void handleMouseClick(MouseEvent mouseEvent){
-        int x = (int)mouseEvent.getX();
-        int y = (int)mouseEvent.getY();
-        Piece clickedPiece = hnefataflModel.getBoard().getPieceOn(hnefataflView.getRow(x),hnefataflView.getColumn(y));
-        if (clickedPiece != null){
-            System.out.println(clickedPiece.toString());
+    public void handleMouseClick(MouseEvent mouseEvent) {
+        int x = (int) mouseEvent.getX();
+        int y = (int) mouseEvent.getY();
+        if (hnefataflModel.isAPieceSelected()) {
+            hnefataflModel.moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+        } else {
+            hnefataflModel.selectPiece(hnefataflView.getRow(y), hnefataflView.getColumn(x));
         }
+
+        //printout
+        if (hnefataflModel.isAPieceSelected()){
+            System.out.println("Selected Piece --> " + hnefataflModel.getSelectedPiece().toString());
+        } else {
+            System.out.println("No piece selected");
+        }
+        
+        hnefataflView.update();
     }
 }
 
