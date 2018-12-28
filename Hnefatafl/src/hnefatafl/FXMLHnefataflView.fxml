@@ -6,6 +6,6 @@
 <AnchorPane id="AnchorPane" prefHeight="770.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hnefatafl.HnefataflController">
    <children>
       <AnchorPane fx:id="gamePane" layoutX="261.0" layoutY="320.0" prefHeight="630.0" prefWidth="630.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-      <Button fx:id="deSelectBtn" layoutX="534.0" layoutY="50.0" mnemonicParsing="false" text="Unselect piece" AnchorPane.rightAnchor="20.0" />
+      <Button fx:id="deSelectBtn" layoutX="534.0" layoutY="50.0" mnemonicParsing="false" text="deselect piece" AnchorPane.rightAnchor="20.0" />
    </children>
 </AnchorPane>
