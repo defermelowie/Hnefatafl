@@ -15,13 +15,13 @@ public class HnefataflController {
 
 
     @FXML
-    private Button unselectBtn;
+    private Button deSelectBtn;
 
     @FXML
     void initialize() {
         assert gamePane != null : "fx:id=\"gamePane\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
         gamePane.setOnMouseClicked(event -> handleMouseClick(event));
-        unselectBtn.setOnAction(event -> handleUnselect(event));
+        deSelectBtn.setOnAction(event -> handleDeSelect(event));
     }
 
     public void setModel(Hnefatafl hnefataflModel) {
@@ -50,7 +50,7 @@ public class HnefataflController {
         hnefataflView.update();
     }
 
-    public void handleUnselect(Event e) {
+    public void handleDeSelect(Event e) {
         hnefataflModel.getBoard().unSelectPiece();
     }
 }
