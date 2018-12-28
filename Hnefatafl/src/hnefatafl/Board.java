@@ -77,7 +77,7 @@ public class Board {
 
     public boolean moveSelectedPieceTo(int row, int column){
         boolean succes = false;
-        if (selectedPiece != null && getPieceOn(row, column) == null){
+        if (selectedPiece != null && isPathEmty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && getPieceOn(row, column) == null){
             succes = getPieceOn(selectedPiece.getRow(),selectedPiece.getColumn()).moveTo(row, column);
         }
         if (succes == true){
@@ -88,5 +88,19 @@ public class Board {
 
     public void unSelectPiece() {
         selectedPiece = null;
+    }
+
+    private boolean isPathEmty(int startRow, int startColumn, int endRow, int endColumn){
+        for (int i = Math.min(startRow, endRow)+1; i <= Math.max(startRow, endRow)-1; i++){
+            if (getPieceOn(i, startColumn) != null){
+                return false;
+            }
+        }
+        for (int j = Math.min(startColumn, endColumn)+1; j <= Math.max(startColumn, endColumn)-1; j++){
+            if (getPieceOn(startRow, j) != null){
+                return false;
+            }
+        }
+        return true;
     }
 }

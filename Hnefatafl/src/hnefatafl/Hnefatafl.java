@@ -5,8 +5,6 @@ package hnefatafl;
  */
 public class Hnefatafl {
     private Board board;
-    private boolean pieceIsSelected;
-    private Piece selectedPiece;
     private WhitePlayer whitePlayer;
     private BlackPlayer blackPlayer;
     private Player CurrentPlayer;
@@ -16,8 +14,6 @@ public class Hnefatafl {
      */
     public Hnefatafl() {
         this.board = new Board();
-        this.pieceIsSelected = false;
-        this.selectedPiece = null;
         this.whitePlayer = new WhitePlayer();
         this.whitePlayer.setPieces(board.getPiecesByColor(Color.WHITE));
         this.blackPlayer = new BlackPlayer();
