@@ -36,6 +36,8 @@ public class HnefataflController {
         int y = (int) mouseEvent.getY();
         if (hnefataflModel.getBoard().isPieceSelected()) {
             hnefataflModel.moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+            hnefataflModel.checkForCapturedPieces();
+            hnefataflModel.endTurn();
         } else {
             hnefataflModel.selectPieceOn(hnefataflView.getRow(y), hnefataflView.getColumn(x));
         }

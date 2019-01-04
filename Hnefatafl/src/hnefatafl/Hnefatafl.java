@@ -62,18 +62,21 @@ public class Hnefatafl {
     }
 
     public boolean moveSelectedPieceTo (int row, int column){
-        boolean success = board.moveSelectedPieceTo(row, column);
-        if (success) {
-            currentPlayer.setPieces(board.getPiecesByColor(currentPlayer.getColor()));
-            if (currentPlayer instanceof WhitePlayer){
-                whitePlayer.updateTo(currentPlayer);
-                currentPlayer = blackPlayer;
-            } else {
-                blackPlayer.updateTo(currentPlayer);
-                currentPlayer = whitePlayer;
-            }
-            board.checkCapturedPieces();
+        return board.moveSelectedPieceTo(row, column);
+    }
+
+    public void checkForCapturedPieces (){
+        board.checkCapturedPieces(currentPlayer.getColor());
+    }
+
+    public void endTurn(){
+        currentPlayer.setPieces(board.getPiecesByColor(currentPlayer.getColor()));
+        if (currentPlayer instanceof WhitePlayer){
+            whitePlayer.updateTo(currentPlayer);
+            currentPlayer = blackPlayer;
+        } else {
+            blackPlayer.updateTo(currentPlayer);
+            currentPlayer = whitePlayer;
         }
-        return success;
     }
 }
