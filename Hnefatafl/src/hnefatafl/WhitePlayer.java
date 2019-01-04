@@ -24,4 +24,10 @@ public class WhitePlayer extends Player {
             return false;
         }
     }
+
+    //overridden methods
+    @Override
+    public String toString(){
+        return "Type: WhitePlayer | Alive: " + this.isAlive();
+    }
 }

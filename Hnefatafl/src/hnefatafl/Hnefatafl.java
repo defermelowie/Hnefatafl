@@ -34,22 +34,8 @@ public class Hnefatafl {
         return board;
     }
 
-    /**
-     * Getter for the white player
-     *
-     * @return The white player
-     */
-    public Player getWhitePlayer() {
-        return whitePlayer;
-    }
-
-    /**
-     * Getter for the black player
-     *
-     * @return The black player
-     */
-    public BlackPlayer getBlackPlayer() {
-        return blackPlayer;
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 
     //other methods

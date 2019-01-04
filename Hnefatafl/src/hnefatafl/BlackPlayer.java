@@ -25,4 +25,10 @@ public class BlackPlayer extends Player {
             return false;
         }
     }
+
+    //overridden methods
+    @Override
+    public String toString(){
+        return "Type: BlackPlayer | Alive: " + this.isAlive();
+    }
 }
