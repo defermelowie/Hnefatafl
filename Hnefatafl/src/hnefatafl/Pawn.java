@@ -30,6 +30,6 @@ public class Pawn extends Piece {
 
     //Overridden methods
     public String toString(){
-        return "Type: Pawn | " + "Row: " + this.row + " | Column: " + this.column + " | Color: " + this.color;
+        return "Type: Pawn | " + "Row: " + this.getRow() + " | Column: " + this.getColumn() + " | Color: " + this.getColor();
     }
 }

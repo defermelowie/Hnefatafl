@@ -28,6 +28,6 @@ public class King extends Piece {
 
     //Overridden methods
     public String toString(){
-        return "Type: King | " + "Row: " + this.row + " | Column: " + this.column + " | Color: " + this.color;
+        return "Type: King | " + "Row: " + this.getRow() + " | Column: " + this.getColumn() + " | Color: " + this.getColor();
     }
 }

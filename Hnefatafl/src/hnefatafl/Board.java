@@ -126,7 +126,7 @@ public class Board {
      */
     public boolean moveSelectedPieceTo(int row, int column) {
         boolean succes = false;
-        if (selectedPiece != null && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && getPieceOn(row, column) == null) {
+        if (selectedPiece != null && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece)) {
             succes = getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
             if (succes == true) {
                 selectedPiece = null;
