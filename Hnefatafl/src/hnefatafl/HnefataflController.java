@@ -35,9 +35,9 @@ public class HnefataflController {
         int x = (int) mouseEvent.getX();
         int y = (int) mouseEvent.getY();
         if (hnefataflModel.getBoard().isPieceSelected()) {
-            hnefataflModel.getBoard().moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+            hnefataflModel.moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
         } else {
-            hnefataflModel.getBoard().selectPieceOn(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+            hnefataflModel.selectPieceOn(hnefataflView.getRow(y), hnefataflView.getColumn(x));
         }
 
         //printout
