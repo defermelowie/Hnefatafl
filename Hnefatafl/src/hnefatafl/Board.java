@@ -164,4 +164,33 @@ public class Board {
         }
         return true;
     }
+
+    public void checkCapturedPieces() {
+        for (Piece p : pieces) {
+            int rowP = p.getRow();
+            int columnP = p.getColumn();
+            boolean captured = false;
+            Piece pieceAbove = getPieceOn(rowP - 1, columnP);
+            Piece pieceUnder = getPieceOn(rowP + 1, columnP);
+            Piece pieceLeft = getPieceOn(rowP, columnP - 1);
+            Piece pieceRight = getPieceOn(rowP, columnP + 1);
+            if (p instanceof King) {
+                if (pieceAbove != null && pieceUnder != null && pieceLeft != null && pieceRight != null) {
+                    captured = pieceAbove.getColor() != p.getColor() &&
+                            pieceUnder.getColor() != p.getColor() &&
+                            pieceLeft.getColor() != p.getColor() &&
+                            pieceRight.getColor() != p.getColor();
+                }
+            } else {
+                if (pieceAbove != null && pieceUnder != null) {
+                    captured = pieceAbove.getColor() != p.getColor() && pieceUnder.getColor() != p.getColor();
+                } else if (pieceLeft != null && pieceRight != null){
+                    captured = pieceLeft.getColor() != p.getColor() && pieceRight.getColor() != p.getColor();
+                }
+            }
+            if (captured){
+                p.kill();
+            }
+        }
+    }
 }

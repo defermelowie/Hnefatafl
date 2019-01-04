@@ -59,6 +59,10 @@ public class Piece {
         this.column = column;
     }
 
+    public void setAliveTo(Boolean alive) {
+        this.alive = alive;
+    }
+
     //other methods
     public boolean moveTo(int row, int column) {
         if (this.row == row || this.column == column) {
@@ -67,6 +71,12 @@ public class Piece {
         } else {
             return false;
         }
+    }
+
+    public void kill(){
+        this.alive = false;
+        this.row = -1;
+        this.column = -1;
     }
 }
     

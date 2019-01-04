@@ -72,6 +72,7 @@ public class Hnefatafl {
                 blackPlayer.updateTo(currentPlayer);
                 currentPlayer = whitePlayer;
             }
+            board.checkCapturedPieces();
         }
         return success;
     }

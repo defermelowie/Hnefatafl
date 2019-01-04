@@ -13,17 +13,19 @@ public class PieceView extends Region {
     }
 
     public void update() {
-        if (pieceModel instanceof King) {
-            pieceImageView = new ImageView("resources/whiteKing.png");
-        } else {
-            if (pieceModel.getColor() == Color.WHITE) {
-                pieceImageView = new ImageView("resources/whitePawn.png");
+        if (pieceModel.isAlive()) {
+            if (pieceModel instanceof King) {
+                pieceImageView = new ImageView("resources/whiteKing.png");
             } else {
-                pieceImageView = new ImageView("resources/blackPawn.png");
-            }
+                if (pieceModel.getColor() == Color.WHITE) {
+                    pieceImageView = new ImageView("resources/whitePawn.png");
+                } else {
+                    pieceImageView = new ImageView("resources/blackPawn.png");
+                }
 
+            }
+            this.getChildren().add(pieceImageView);
         }
-        this.getChildren().add(pieceImageView);
     }
 }
 
