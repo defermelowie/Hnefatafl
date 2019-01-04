@@ -125,14 +125,14 @@ public class Board {
      * @return true if successful (false if illegal move)
      */
     public boolean moveSelectedPieceTo(int row, int column) {
-        boolean succes = false;
+        boolean success = false;
         if (selectedPiece != null && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece)) {
-            succes = getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
-            if (succes == true) {
+            success = getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
+            if (success == true) {
                 selectedPiece = null;
             }
         }
-        return succes;
+        return success;
     }
 
     /**
