@@ -128,7 +128,7 @@ public class Board {
         boolean success = false;
         if (selectedPiece != null && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece)) {
             success = getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
-            if (success == true) {
+            if (success) {
                 selectedPiece = null;
             }
         }

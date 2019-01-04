@@ -63,7 +63,7 @@ public class Hnefatafl {
 
     public boolean moveSelectedPieceTo (int row, int column){
         boolean success = board.moveSelectedPieceTo(row, column);
-        if (success == true) {
+        if (success) {
             currentPlayer.setPieces(board.getPiecesByColor(currentPlayer.getColor()));
             if (currentPlayer instanceof WhitePlayer){
                 whitePlayer.updateTo(currentPlayer);
