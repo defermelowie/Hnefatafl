@@ -3,12 +3,12 @@ package hnefatafl;
 public class WhitePlayer extends Player {
 
     public WhitePlayer() {
-        this.color = Color.WHITE;
+        super(Color.WHITE);
     }
 
     //other methods
     public boolean isAlive() {
-        for (Piece p : this.pieces) {
+        for (Piece p : this.getPieces()) {
             if (p instanceof King) {
                 return p.isAlive();
             }
@@ -18,7 +18,7 @@ public class WhitePlayer extends Player {
 
     public boolean updateTo(Player player) {
         if (player instanceof WhitePlayer) {
-            this.pieces = player.getPieces();
+            this.setPieces(player.getPieces());
             return true;
         } else {
             return false;
