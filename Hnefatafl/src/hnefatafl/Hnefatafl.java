@@ -51,8 +51,8 @@ public class Hnefatafl {
         return board.moveSelectedPieceTo(row, column);
     }
 
-    public void checkForCapturedPieces (){
-        board.checkCapturedPieces(currentPlayer.getColor());
+    public void killCapturedPieces(){
+        board.killCapturedPieces(currentPlayer.getColor());
     }
 
     public void endTurn(){

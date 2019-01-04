@@ -165,7 +165,7 @@ public class Board {
         return true;
     }
 
-    public void checkCapturedPieces(Color lastPlayedColor) {
+    public void killCapturedPieces(Color lastPlayedColor) {
         for (Piece p : getPiecesByColor(lastPlayedColor.opposite())) {
             int rowP = p.getRow();
             int columnP = p.getColumn();
