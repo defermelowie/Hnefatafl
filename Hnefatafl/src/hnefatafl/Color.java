@@ -13,6 +13,6 @@ public enum Color {
     };
 
     public Color opposite(){
-        return this;
+        return null;
     }
 }
