@@ -129,6 +129,8 @@ public class Board {
         }
         return succes;
     }
+    
+  
 
     /**
      * Method to move the selected piece to another field
@@ -147,6 +149,7 @@ public class Board {
         }
         return success;
     }
+    
 
     /**
      * Method to deselect the currently selected piece
