@@ -14,14 +14,14 @@ public class Board {
             {5, 3}, {5, 4}, {5, 5}
     };
     private int[] whiteKingStartCoordinate = {4, 4};    //holds the start coordinate of the king
-    private int[][] blackPawnStartCoordinates = {   //holds the start coordinates of the white pawns
+    private int[][] blackPawnStartCoordinates = {   //holds the start coordinates of the black pawns
             {3, 0}, {4, 0}, {5, 0}, {4, 1},
             {0, 3}, {0, 4}, {0, 5}, {1, 4},
             {3, 8}, {4, 8}, {5, 8}, {4, 7},
             {8, 3}, {8, 4}, {8, 5}, {7, 4}
     };
     
-    private int[][] BarrierStartCoordinates = {   //holds the start coordinates of the barrier
+    private int[][] barrierStartCoordinates = {   //holds the start coordinates of the barrier
             {-1,1}, {-1, 2},/*{-1,3}, {-1, 4},{-1,5},*/ {-1, 6},{-1,7},
             {1,9},{2,9},/*{3,9},{4,9},{5,9},*/{6,9},{7,9},
             {1,-1},{2,-1},/*{3,-1},{4,-1},{5,-1},*/{6,-1},{7,-1},
@@ -38,15 +38,15 @@ public class Board {
      * Constructor for Board
      */
     public Board() {
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < whitePawnStartCoordinates.length; i++) {
             pieces.add(new Piece (whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN));
         }
         pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING));
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < blackPawnStartCoordinates.length; i++) {
             pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN));
         }
-         for (int i = 0; i < 16; i++) {
-            pieces.add(new Piece(BarrierStartCoordinates[i], null, Type.BARRIER));
+         for (int i = 0; i < barrierStartCoordinates.length; i++) {
+            pieces.add(new Piece(barrierStartCoordinates[i], null, Type.BARRIER));
         }
         selectedPiece = null;
     }
