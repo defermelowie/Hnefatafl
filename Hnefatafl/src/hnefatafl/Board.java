@@ -176,6 +176,27 @@ public class Board {
         }
         return success;
     }
+        
+    public boolean isWhiteKingOnCorner(){
+        for (int[] e : SoftBarrierStartCoordinates){
+            int row = e[0];
+            int column = e[1];
+            if (this.getKing().getRow() == row && this.getKing().getColumn() == column){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+        public Piece getKing(){
+           for (Piece p:pieces){
+                if (p.getType() == Type.KING){
+                    return p;
+                }
+            }
+           return null;
+        }
     
     public void placeBarrier(int row, int column){
         pieces.add(new Piece(row, column, null, Type.BARRIER));
@@ -256,6 +277,13 @@ public class Board {
             }
         }
     }
+    
+    public void fillBoardWhitPieces(Color color){
+        for (int i = 0; i < 9; i++){
+            for(int j =0; j<9 ; j++) {
+            pieces.add(new Piece(i, j, color, Type.PAWN));
+    }
+        }}
     }
 
 

@@ -37,6 +37,7 @@ public class HnefataflController {
         if (hnefataflModel.getBoard().isPieceSelected()) {
             hnefataflModel.moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
             hnefataflModel.updateBoard();
+            hnefataflModel.isGameFinished();
             hnefataflModel.endTurn();
         } else {
             hnefataflModel.selectPieceOn(hnefataflView.getRow(y), hnefataflView.getColumn(x));

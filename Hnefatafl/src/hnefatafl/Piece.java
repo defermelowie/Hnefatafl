@@ -69,6 +69,10 @@ public class Piece {
         return this.color;
     }
 
+    public int[] getCoordinates(){
+        int[] c = {this.row , this.column};
+        return c;
+    }
     //setters
     private void setCoordinates(int row, int column) {
         this.row = row;
