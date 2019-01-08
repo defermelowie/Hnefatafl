@@ -8,6 +8,7 @@ public class Piece {
     private int column;
     private Color color;
     private Boolean alive;
+    private Type type;
 
     /**
      * Constructor for piece
@@ -16,12 +17,14 @@ public class Piece {
      * @param column Column on the board for the new piece
      * @param color  true if White, false if Black
      */
-    public Piece(int row, int column, Color color) {
+    public Piece(int row, int column, Color color, Type type) {
         this.row = row;
         this.column = column;
         this.color = color;
         this.alive = true;
+        this.type = type;
     }
+    
 
     /**
      * Constructor for piece
