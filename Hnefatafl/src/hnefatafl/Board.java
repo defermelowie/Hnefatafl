@@ -20,6 +20,16 @@ public class Board {
             {3, 8}, {4, 8}, {5, 8}, {4, 7},
             {8, 3}, {8, 4}, {8, 5}, {7, 4}
     };
+    
+    private int[][] BarrierStartCoordinates = {   //holds the start coordinates of the barrier
+            {-1,1}, {-1, 2},/*{-1,3}, {-1, 4},{-1,5},*/ {-1, 6},{-1,7},
+            {1,9},{2,9},/*{3,9},{4,9},{5,9},*/{6,9},{7,9},
+            {1,-1},{2,-1},/*{3,-1},{4,-1},{5,-1},*/{6,-1},{7,-1},
+            {9,1}, {9, 2},/*{9,3},{9, 4},{9,5},*/{9, 6},{9,7}
+            
+    };
+    
+    
 
     private ArrayList<Piece> pieces = new ArrayList<>();    //holds al the pieces on the board
     private Piece selectedPiece;    //holds a copy of the currently selected piece
@@ -34,6 +44,9 @@ public class Board {
         pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING));
         for (int i = 0; i < 16; i++) {
             pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN));
+        }
+         for (int i = 0; i < 16; i++) {
+            pieces.add(new Piece(BarrierStartCoordinates[i], null, Type.BARRIER));
         }
         selectedPiece = null;
     }

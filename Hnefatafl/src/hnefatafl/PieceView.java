@@ -16,7 +16,7 @@ public class PieceView extends Region {
         if (pieceModel.isAlive()) {
             if (pieceModel.getType()== Type.KING ){
                 pieceImageView = new ImageView("resources/whiteKing.png");
-            } else {
+            } else if (pieceModel.getType()==Type.PAWN){
                 if (pieceModel.getColor() == Color.WHITE) {
                     pieceImageView = new ImageView("resources/whitePawn.png");
                 } else {
@@ -24,6 +24,7 @@ public class PieceView extends Region {
                 }
 
             }
+            if (pieceModel.getType() != Type.BARRIER)
             this.getChildren().add(pieceImageView);
         }
     }
