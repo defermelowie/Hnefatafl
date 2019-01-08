@@ -9,7 +9,7 @@ public class WhitePlayer extends Player {
     //other methods
     public boolean isAlive() {
         for (Piece p : this.getPieces()) {
-            if (p instanceof King) {
+            if (p.getType()==Type.KING) {
                 return p.isAlive();
             }
         }

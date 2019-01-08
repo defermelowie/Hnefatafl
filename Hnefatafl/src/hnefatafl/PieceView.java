@@ -14,7 +14,7 @@ public class PieceView extends Region {
 
     public void update() {
         if (pieceModel.isAlive()) {
-            if (pieceModel instanceof King) {
+            if (pieceModel.getType()== Type.KING ){
                 pieceImageView = new ImageView("resources/whiteKing.png");
             } else {
                 if (pieceModel.getColor() == Color.WHITE) {

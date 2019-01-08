@@ -29,11 +29,11 @@ public class Board {
      */
     public Board() {
         for (int i = 0; i < 8; i++) {
-            pieces.add(new Pawn(whitePawnStartCoordinates[i], Color.WHITE));
+            pieces.add(new Piece (whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN));
         }
-        pieces.add(new King(whiteKingStartCoordinate));
+        pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING));
         for (int i = 0; i < 16; i++) {
-            pieces.add(new Pawn(blackPawnStartCoordinates[i], Color.BLACK));
+            pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN));
         }
         selectedPiece = null;
     }
@@ -174,7 +174,7 @@ public class Board {
             Piece pieceUnder = getPieceOn(rowP + 1, columnP);
             Piece pieceLeft = getPieceOn(rowP, columnP - 1);
             Piece pieceRight = getPieceOn(rowP, columnP + 1);
-            if (p instanceof King) {
+            if (p.getType() == Type.KING) {
                 if (pieceAbove != null && pieceUnder != null && pieceLeft != null && pieceRight != null) {
                     captured = pieceAbove.getColor() != p.getColor() &&
                             pieceUnder.getColor() != p.getColor() &&
