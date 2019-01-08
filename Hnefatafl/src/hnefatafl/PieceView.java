@@ -24,7 +24,7 @@ public class PieceView extends Region {
                 }
 
             }
-            if (pieceModel.getType() != Type.BARRIER)
+            if (pieceImageView != null)
             this.getChildren().add(pieceImageView);
         }
     }

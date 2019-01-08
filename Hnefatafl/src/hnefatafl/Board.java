@@ -1,5 +1,6 @@
 package hnefatafl;
 
+
 import java.util.ArrayList;
 
 /**
@@ -29,15 +30,29 @@ public class Board {
             
     };
     
+    private int[][] HorizontalbarriersToSet = {
+        {-1,3}, {-1, 4},{-1,5},
+        {9,3},{9, 4},{9,5},
+    };
+    
+       private int[][] VerticalbarriersToSet = {
+           {3,9},{4,9},{5,9},
+           {3,-1},{4,-1},{5,-1}
+           
+       };
+     
+    
+    
     
 
     private ArrayList<Piece> pieces = new ArrayList<>();    //holds al the pieces on the board
     private Piece selectedPiece;    //holds a copy of the currently selected piece
-
+    
     /**
      * Constructor for Board
      */
     public Board() {
+        
         for (int i = 0; i < whitePawnStartCoordinates.length; i++) {
             pieces.add(new Piece (whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN));
         }
@@ -150,7 +165,10 @@ public class Board {
         return success;
     }
     
-
+    public void placeBarrier(int row, int column){
+        pieces.add(new Piece(row, column, null, Type.BARRIER));
+    }
+ 
     /**
      * Method to deselect the currently selected piece
      */
@@ -209,4 +227,23 @@ public class Board {
             }
         }
     }
-}
+    
+    public void setBarriers(){
+        for (int[] c : HorizontalbarriersToSet){
+            int row = c[0];
+            int column = c[1];
+            if(this.getPieceOn(row + 1, column) == null && this.getPieceOn(row-1, column) == null){ //boven en onder
+                placeBarrier(c[0],c[1]);;
+            }
+        }
+        for (int[] d : VerticalbarriersToSet){
+            int row = d[0];
+            int column = d[1];
+            if(this.getPieceOn(row, column+1) == null && this.getPieceOn(row, column-1) == null){ //links en rechts
+                placeBarrier(d[0],d[1]);
+            }
+        }
+    }
+    }
+
+

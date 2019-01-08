@@ -54,6 +54,15 @@ public class Hnefatafl {
     public void killCapturedPieces(){
         board.killCapturedPieces(currentPlayer.getColor());
     }
+    
+    public void setBarriers(){
+        board.setBarriers();
+    }
+    
+    public void updateBoard(){
+        killCapturedPieces();
+        setBarriers();
+    }
 
     public void endTurn(){
         currentPlayer.setPieces(board.getPiecesByColor(currentPlayer.getColor()));
