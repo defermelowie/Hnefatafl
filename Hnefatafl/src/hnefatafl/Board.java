@@ -30,6 +30,11 @@ public class Board {
             
     };
     
+    private int [][] SoftBarrierStartCoordinates = {
+        {0,0},{8,0},{0,8},{8,8}
+        
+    };
+    
     private int[][] HorizontalbarriersToSet = {
         {-1,3}, {-1, 4},{-1,5},
         {9,3},{9, 4},{9,5},
@@ -63,8 +68,13 @@ public class Board {
          for (int i = 0; i < barrierStartCoordinates.length; i++) {
             pieces.add(new Piece(barrierStartCoordinates[i], null, Type.BARRIER));
         }
+        for (int i = 0; i < SoftBarrierStartCoordinates.length; i++) {
+            pieces.add(new Piece (SoftBarrierStartCoordinates[i], null, Type.SOFTBARRIER));
+        }
         selectedPiece = null;
     }
+    
+    
 
     //getters
 
@@ -156,11 +166,13 @@ public class Board {
      */
     public boolean moveSelectedPieceTo(int row, int column) {
         boolean success = false;
-        if (selectedPiece != null && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece)) {
+        if (selectedPiece.getType() == Type.KING && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece || getPieceOn(row, column).getType()==Type.SOFTBARRIER)) {
             success = getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
-            if (success) {
-                selectedPiece = null;
-            }
+        }else if (selectedPiece != null && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece)) {
+            success = getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
+        }
+        if (success){
+            selectedPiece = null;
         }
         return success;
     }
