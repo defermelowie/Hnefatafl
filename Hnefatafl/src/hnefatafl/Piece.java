@@ -18,13 +18,6 @@ public class Piece {
      * @param column Column on the board for the new piece
      * @param color  true if White, false if Black
      */
-    
-    
-    
-    public Type getType() {
-        return type;
-    }
-
     public Piece(int row, int column, Color color, Type type) {
         this.row = row;
         this.column = column;
@@ -72,6 +65,10 @@ public class Piece {
     public int[] getCoordinates(){
         int[] c = {this.row , this.column};
         return c;
+    }
+
+    public Type getType() {
+        return type;
     }
     //setters
     private void setCoordinates(int row, int column) {
