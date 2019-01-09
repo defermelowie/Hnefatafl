@@ -30,7 +30,7 @@ public class Board {
             
     };
     
-    private int [][] SoftBarrierStartCoordinates = {
+    private int [][] CornerCoordinates = {
         {0,0},{8,0},{0,8},{8,8}
         
     };
@@ -68,8 +68,8 @@ public class Board {
          for (int i = 0; i < barrierStartCoordinates.length; i++) {
             pieces.add(new Piece(barrierStartCoordinates[i], null, Type.BARRIER));
         }
-        for (int i = 0; i < SoftBarrierStartCoordinates.length; i++) {
-            pieces.add(new Piece (SoftBarrierStartCoordinates[i], null, Type.SOFTBARRIER));
+        for (int i = 0; i < CornerCoordinates.length; i++) {
+            pieces.add(new Piece (CornerCoordinates[i], null, Type.SOFTBARRIER));
         }
         selectedPiece = null;
     }
@@ -178,7 +178,7 @@ public class Board {
     }
         
     public boolean isWhiteKingOnCorner(){
-        for (int[] e : SoftBarrierStartCoordinates){
+        for (int[] e : CornerCoordinates){
             int row = e[0];
             int column = e[1];
             if (this.getKing().getRow() == row && this.getKing().getColumn() == column){
