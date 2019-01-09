@@ -76,15 +76,15 @@ public class Hnefatafl {
     }
     
     public boolean isGameFinished(){
-        System.out.println("checked for gamewon");
+        //System.out.println("checked for gamewon");
         if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner()==true){
-            System.out.println("hnefatafl game is finished:white player wins");
+            System.out.println("This Game has ended: White player wins");
             board.fillBoardWhitPieces(Color.WHITE);
             
             return true;
         }
         else if (whitePlayer.isAlive() == false){
-            System.out.println("hnefatafl game is finished:black player wins");
+            System.out.println("This Game has ended: Black player wins");
             board.fillBoardWhitPieces(Color.BLACK);
             return true;
         }

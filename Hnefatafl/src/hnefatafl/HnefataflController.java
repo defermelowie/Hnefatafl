@@ -47,7 +47,7 @@ public class HnefataflController {
         if (hnefataflModel.getBoard().isPieceSelected()) {
             System.out.println("Selected Piece --> " + hnefataflModel.getBoard().getSelectedPiece().toString());
         } else {
-            System.out.println("No piece selected");
+            //System.out.println("No piece selected");
             System.out.println("Current Player --> " + hnefataflModel.getCurrentPlayer());
         }
 
