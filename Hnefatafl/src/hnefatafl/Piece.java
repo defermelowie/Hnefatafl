@@ -25,7 +25,7 @@ public class Piece {
         this.alive = true;
         this.type = type;
     }
-    
+
 
     /**
      * Constructor for piece
@@ -45,8 +45,8 @@ public class Piece {
     public Boolean isAlive() {
         return alive;
     }
-    
-    public Boolean hasMoved(){
+
+    public Boolean hasMoved() {
         return moved;
     }
 
@@ -62,14 +62,15 @@ public class Piece {
         return this.color;
     }
 
-    public int[] getCoordinates(){
-        int[] c = {this.row , this.column};
+    public int[] getCoordinates() {
+        int[] c = {this.row, this.column};
         return c;
     }
 
     public Type getType() {
         return type;
     }
+
     //setters
     private void setCoordinates(int row, int column) {
         this.row = row;
@@ -91,10 +92,15 @@ public class Piece {
         }
     }
 
-    public void kill(){
+    public void kill() {
         this.alive = false;
         this.row = -1;
         this.column = -1;
+    }
+
+    @Override
+    public String toString() {
+        return "Type: " + this.type + " | Color: " + this.color + " | Row: " + this.row + " | Column: " + this.column + " | Alive: " + this.alive;
     }
 }
     
