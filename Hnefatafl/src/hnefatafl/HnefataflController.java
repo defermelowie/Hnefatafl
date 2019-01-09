@@ -35,10 +35,12 @@ public class HnefataflController {
         int x = (int) mouseEvent.getX();
         int y = (int) mouseEvent.getY();
         if (hnefataflModel.getBoard().isPieceSelected()) {
-            hnefataflModel.moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+            boolean madeTurn = hnefataflModel.moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
             hnefataflModel.updateBoard();
             hnefataflModel.isGameFinished();
-            hnefataflModel.endTurn();
+            if (madeTurn) {
+                hnefataflModel.endTurn();
+            }
         } else {
             hnefataflModel.selectPieceOn(hnefataflView.getRow(y), hnefataflView.getColumn(x));
         }

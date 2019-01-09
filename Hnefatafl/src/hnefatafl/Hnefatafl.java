@@ -65,6 +65,7 @@ public class Hnefatafl {
     }
 
     public void endTurn(){
+        System.out.println("Endturn is called");
         currentPlayer.setPieces(board.getPiecesByColor(currentPlayer.getColor()));
         if (currentPlayer instanceof WhitePlayer){
             whitePlayer.updateTo(currentPlayer);
