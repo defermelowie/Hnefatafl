@@ -14,18 +14,22 @@ public class PieceView extends Region {
 
     public void update() {
         if (pieceModel.isAlive()) {
-            if (pieceModel.getType()== Type.KING ){
+            if (pieceModel.getType() == Type.KING) {
                 pieceImageView = new ImageView("resources/whiteKing.png");
-            } else if (pieceModel.getType()==Type.PAWN){
+            } else if (pieceModel.getType() == Type.PAWN) {
                 if (pieceModel.getColor() == Color.WHITE) {
                     pieceImageView = new ImageView("resources/whitePawn.png");
                 } else {
                     pieceImageView = new ImageView("resources/blackPawn.png");
                 }
 
-            }
+            } /*else if (pieceModel.getType() == Type.BARRIER) {
+                pieceImageView = new ImageView("resources/hardBarrier.png");
+            } else if (pieceModel.getType() == Type.SOFTBARRIER) {
+                pieceImageView = new ImageView("resources/softBarrier.png");
+            }*/
             if (pieceImageView != null)
-            this.getChildren().add(pieceImageView);
+                this.getChildren().add(pieceImageView);
         }
     }
 }
