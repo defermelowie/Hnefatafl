@@ -278,7 +278,7 @@ public class Board {
         }
     }
     
-    public void fillBoardWhitPieces(Color color){
+    public void fillWithPieces(Color color){
         for (int i = 0; i < 9; i++){
             for(int j =0; j<9 ; j++) {
             pieces.add(new Piece(i, j, color, Type.PAWN));

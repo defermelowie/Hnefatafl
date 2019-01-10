@@ -84,13 +84,13 @@ public class Hnefatafl {
         //System.out.println("checked for gamewon");
         if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner()==true){
             System.out.println("This Game has ended: White player wins");
-            board.fillBoardWhitPieces(Color.WHITE);
+            board.fillWithPieces(Color.WHITE);
             
             return true;
         }
         else if (whitePlayer.isAlive() == false){
             System.out.println("This Game has ended: Black player wins");
-            board.fillBoardWhitPieces(Color.BLACK);
+            board.fillWithPieces(Color.BLACK);
             return true;
         }
         return false;
