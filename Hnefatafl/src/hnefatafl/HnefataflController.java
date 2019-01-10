@@ -75,8 +75,8 @@ public class HnefataflController {
     }
 
     public void updateTimers() {
-        timerWhiteLbl.setText("White playtime: " + hnefataflModel.getCurrentPlayer().getPlaytime());
-        timerBlackLbl.setText("Black playtime: " + hnefataflModel.getCurrentPlayer().getPlaytime());
+        timerWhiteLbl.setText("White playtime: " + hnefataflModel.getWhitePlayer().getPlaytime());
+        timerBlackLbl.setText("Black playtime: " + hnefataflModel.getBlackPlayer().getPlaytime());
     }
     
     public void handleDeSelect(Event e) {
