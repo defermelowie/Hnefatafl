@@ -17,10 +17,6 @@ public class Hnefatafl {
      * Constructor for Hnefatafl (game)
      */
     public Hnefatafl() {
-        this.start();
-    }
-
-    public void start() {
         this.board = new Board();
         this.whitePlayer = new WhitePlayer();
         this.whitePlayer.setPieces(board.getPiecesByColor(Color.WHITE));

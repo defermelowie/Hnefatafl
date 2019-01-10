@@ -25,7 +25,7 @@ public class PieceView extends Region {
 
             } /*else if (pieceModel.getType() == Type.BARRIER) {
                 pieceImageView = new ImageView("resources/hardBarrier.png");
-            } else if (pieceModel.getType() == Type.SOFTBARRIER) {
+            } else if (pieceModel.getType() == Type.SOFTBARRIER) {                      //uncomment to show barrier pieces
                 pieceImageView = new ImageView("resources/softBarrier.png");
             }*/
             if (pieceImageView != null)
