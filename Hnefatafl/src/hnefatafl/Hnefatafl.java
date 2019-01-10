@@ -59,7 +59,7 @@ public class Hnefatafl {
         board.killCapturedPieces(currentPlayer.getColor());
     }
     
-    public void setBarriers(){
+    private void setBarriers(){
         board.setBarriers();
     }
     

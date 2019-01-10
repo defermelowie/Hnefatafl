@@ -9,7 +9,6 @@ public class Piece {
     private Color color;
     private Boolean alive;
     private Type type;
-    private boolean moved;
 
     /**
      * Constructor for piece
@@ -44,10 +43,6 @@ public class Piece {
     //getters
     public Boolean isAlive() {
         return alive;
-    }
-
-    public Boolean hasMoved() {
-        return moved;
     }
 
     public int getRow() {
@@ -85,7 +80,6 @@ public class Piece {
     public boolean moveTo(int row, int column) {
         if (this.row == row || this.column == column) {
             setCoordinates(row, column);
-            moved = true;
             return true;
         } else {
             return false;
