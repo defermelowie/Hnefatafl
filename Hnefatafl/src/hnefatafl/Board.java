@@ -66,7 +66,7 @@ public class Board {
             pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN));
         }
          for (int i = 0; i < barrierStartCoordinates.length; i++) {
-            pieces.add(new Piece(barrierStartCoordinates[i], null, Type.BARRIER));
+            pieces.add(new Piece(barrierStartCoordinates[i], null, Type.HARDBARRIER));
         }
         for (int i = 0; i < CornerCoordinates.length; i++) {
             pieces.add(new Piece (CornerCoordinates[i], null, Type.SOFTBARRIER));
@@ -199,7 +199,7 @@ public class Board {
         }
     
     public void placeBarrier(int row, int column){
-        pieces.add(new Piece(row, column, null, Type.BARRIER));
+        pieces.add(new Piece(row, column, null, Type.HARDBARRIER));
     }
  
     /**

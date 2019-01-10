@@ -10,5 +10,5 @@ package hnefatafl;
  * @author mikaz
  */
 public enum Type {
-    KING, PAWN, BARRIER, SOFTBARRIER
+    KING, PAWN, HARDBARRIER, SOFTBARRIER
 }
