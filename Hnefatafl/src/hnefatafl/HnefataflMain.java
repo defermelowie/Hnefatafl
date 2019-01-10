@@ -36,6 +36,7 @@ public class HnefataflMain extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
     
 }

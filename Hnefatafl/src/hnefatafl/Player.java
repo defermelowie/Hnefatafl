@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Player {
     private ArrayList<Piece> pieces = new ArrayList<>();
     private Color color;
+    private int playTimeMilSec;
 
     public Player(Color color) {
         this.color = color;
+        this.playTimeMilSec = 0;
     }
 
     //setters
@@ -23,5 +25,14 @@ public class Player {
     public Color getColor() {
         return color;
     }
-
+    
+    public int getPlaytime(){
+        return playTimeMilSec/1000;
+    }
+    
+    //other methods
+    public void addToTimer(int milSec){
+        this.playTimeMilSec = this.playTimeMilSec + milSec;
+    
+    }
 }

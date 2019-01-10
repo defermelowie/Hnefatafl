@@ -10,6 +10,7 @@ public class Hnefatafl {
     private WhitePlayer whitePlayer;
     private BlackPlayer blackPlayer;
     private Player currentPlayer;
+    private Thread t;
 
     /**
      * Constructor for Hnefatafl (game)
@@ -21,6 +22,9 @@ public class Hnefatafl {
         this.blackPlayer = new BlackPlayer();
         this.blackPlayer.setPieces((board.getPiecesByColor(Color.BLACK)));
         this.currentPlayer = whitePlayer;
+        t = new Thread(new PlayerTimer(this));
+        t.setDaemon(true);
+        t.start();        
     }
 
     //getters
@@ -65,7 +69,7 @@ public class Hnefatafl {
     }
 
     public void endTurn(){
-        //System.out.println("Endturn is called");
+        //System.out.println("Endturn is called"); 
         currentPlayer.setPieces(board.getPiecesByColor(currentPlayer.getColor()));
         if (currentPlayer instanceof WhitePlayer){
             whitePlayer.updateTo(currentPlayer);

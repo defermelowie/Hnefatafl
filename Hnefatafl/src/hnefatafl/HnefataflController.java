@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class HnefataflController {
     Hnefatafl hnefataflModel;
@@ -14,14 +15,20 @@ public class HnefataflController {
     private AnchorPane gamePane;
 
 
+       @FXML
+    private Button restartBtn;
+
     @FXML
-    private Button deSelectBtn;
+    private Label timerWhiteLbl;
+
+    @FXML
+    private Label timerBlackLbl;
 
     @FXML
     void initialize() {
         assert gamePane != null : "fx:id=\"gamePane\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
         gamePane.setOnMouseClicked(event -> handleMouseClick(event));
-        deSelectBtn.setOnAction(event -> handleDeSelect(event));
+        //deSelectBtn.setOnAction(event -> handleDeSelect(event));
     }
 
     public void setModel(Hnefatafl hnefataflModel) {
@@ -39,6 +46,7 @@ public class HnefataflController {
             hnefataflModel.updateBoard();
             hnefataflModel.isGameFinished();
             if (madeTurn) {
+                this.updateTimers();
                 hnefataflModel.endTurn();
             }
         } else {
@@ -54,6 +62,14 @@ public class HnefataflController {
         }
 
         hnefataflView.update();
+    }
+    
+    public void updateTimers(){
+        if (hnefataflModel.getCurrentPlayer() instanceof WhitePlayer){
+            timerWhiteLbl.setText("White playtime: " + hnefataflModel.getCurrentPlayer().getPlaytime());
+        } else if (hnefataflModel.getCurrentPlayer() instanceof BlackPlayer){
+            timerBlackLbl.setText("Black playtime: " + hnefataflModel.getCurrentPlayer().getPlaytime());
+        }
     }
 
     public void handleDeSelect(Event e) {

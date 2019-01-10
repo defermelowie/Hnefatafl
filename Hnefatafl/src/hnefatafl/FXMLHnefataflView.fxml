@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="770.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hnefatafl.HnefataflController">
    <children>
       <AnchorPane fx:id="gamePane" layoutX="261.0" layoutY="320.0" prefHeight="630.0" prefWidth="630.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-      <Button fx:id="deSelectBtn" layoutX="534.0" layoutY="50.0" mnemonicParsing="false" text="deselect piece" AnchorPane.rightAnchor="20.0" />
+      <Button fx:id="restartBtn" layoutX="534.0" layoutY="50.0" mnemonicParsing="false" text="restart" AnchorPane.rightAnchor="20.0" />
+      <Label fx:id="timerWhiteLbl" layoutX="56.0" layoutY="40.0" text="Label" />
+      <Label fx:id="timerBlackLbl" layoutX="251.0" layoutY="40.0" text="Label" />
    </children>
 </AnchorPane>

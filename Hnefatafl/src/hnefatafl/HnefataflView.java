@@ -35,5 +35,4 @@ public class HnefataflView extends Region {
     public int getColumn(int y){
         return y/70;
     }
-
 }
