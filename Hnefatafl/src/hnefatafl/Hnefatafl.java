@@ -43,6 +43,14 @@ public class Hnefatafl {
         return currentPlayer;
     }
 
+    public WhitePlayer getWhitePlayer() {
+        return whitePlayer;
+    }
+
+    public BlackPlayer getBlackPlayer() {
+        return blackPlayer;
+    }
+
     //other methods
     public boolean selectPieceOn(int row, int column) {
         if (board.getPieceOn(row, column) != null && board.getPieceOn(row, column).getColor() == currentPlayer.getColor()) {
