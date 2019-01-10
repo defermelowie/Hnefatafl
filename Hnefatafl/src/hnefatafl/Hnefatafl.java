@@ -11,6 +11,7 @@ public class Hnefatafl {
     private WhitePlayer whitePlayer;
     private BlackPlayer blackPlayer;
     private Player currentPlayer;
+    private boolean showTimer;
 
 
     /**
@@ -25,6 +26,7 @@ public class Hnefatafl {
         this.whitePlayer = new WhitePlayer(board);
         this.blackPlayer = new BlackPlayer(board);
         this.currentPlayer = whitePlayer;
+        this.showTimer = true;
     }
 
     //getters
@@ -33,6 +35,13 @@ public class Hnefatafl {
      *
      * @return The board
      */
+    public boolean timerOn(){
+        return showTimer;
+    }
+    private void turnTimerOf(){
+        showTimer=false;
+    }
+    
     public Board getBoard() {
         return board;
     }
@@ -88,11 +97,12 @@ public class Hnefatafl {
         if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner() == true) {
             System.out.println("This Game has ended: White player wins");
             board.fillWithPieces(Color.WHITE);
-
+            turnTimerOf();
             return true;
         } else if (whitePlayer.isAlive() == false) {
             System.out.println("This Game has ended: Black player wins");
             board.fillWithPieces(Color.BLACK);
+            turnTimerOf();
             return true;
         }
         return false;
