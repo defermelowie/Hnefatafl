@@ -66,7 +66,11 @@ public class HnefataflController {
     }
 
     public void handleRestartBtn(Event e) {
-        this.setModel(new Hnefatafl());
+        hnefataflModel.startup();
+        boardView = new BoardView(hnefataflModel.getBoard());
+        gamePane.getChildren().add(boardView);
+        gamePane.setFocusTraversable(true);
+        this.updateTimers();
     }
 
     public void updateTimers() {

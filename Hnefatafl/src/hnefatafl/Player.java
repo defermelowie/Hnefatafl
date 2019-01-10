@@ -2,7 +2,7 @@ package hnefatafl;
 
 import java.util.ArrayList;
 
-public class Player {
+abstract public class Player {
     private ArrayList<Piece> pieces = new ArrayList<>();
     private Color color;
     private int playTimeMillis;
@@ -35,4 +35,8 @@ public class Player {
         this.playTimeMillis = this.playTimeMillis + milSec;
     
     }
+
+    //abstract methods
+    abstract public boolean isAlive();
+    abstract public String toString();
 }
