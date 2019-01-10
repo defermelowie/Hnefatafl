@@ -6,6 +6,7 @@ package hnefatafl;
  * @author Stef, Mika, Lowie
  */
 public class Hnefatafl {
+
     private Board board;
     private WhitePlayer whitePlayer;
     private BlackPlayer blackPlayer;
@@ -16,19 +17,22 @@ public class Hnefatafl {
      * Constructor for Hnefatafl (game)
      */
     public Hnefatafl() {
+        this.start();
+        t = new Thread(new PlayerTimer(this));
+        t.setDaemon(true);
+        t.start();
+    }
+
+    public void start() {
         this.board = new Board();
         this.whitePlayer = new WhitePlayer();
         this.whitePlayer.setPieces(board.getPiecesByColor(Color.WHITE));
         this.blackPlayer = new BlackPlayer();
         this.blackPlayer.setPieces((board.getPiecesByColor(Color.BLACK)));
         this.currentPlayer = whitePlayer;
-        t = new Thread(new PlayerTimer(this));
-        t.setDaemon(true);
-        t.start();        
     }
 
     //getters
-
     /**
      * Getter for the board that belongs to this game
      *
@@ -43,35 +47,35 @@ public class Hnefatafl {
     }
 
     //other methods
-    public boolean selectPieceOn(int row, int column){
-        if (board.getPieceOn(row, column) != null && board.getPieceOn(row,column).getColor() == currentPlayer.getColor()) {
+    public boolean selectPieceOn(int row, int column) {
+        if (board.getPieceOn(row, column) != null && board.getPieceOn(row, column).getColor() == currentPlayer.getColor()) {
             return board.selectPieceOn(row, column);
         } else {
             return false;
         }
     }
 
-    public boolean moveSelectedPieceTo (int row, int column){
+    public boolean moveSelectedPieceTo(int row, int column) {
         return board.moveSelectedPieceTo(row, column);
     }
 
-    public void killCapturedPieces(){
+    public void killCapturedPieces() {
         board.killCapturedPieces(currentPlayer.getColor());
     }
-    
-    private void setBarriers(){
+
+    private void setBarriers() {
         board.setBarriers();
     }
-    
-    public void updateBoard(){
+
+    public void updateBoard() {
         killCapturedPieces();
         setBarriers();
     }
 
-    public void endTurn(){
+    public void endTurn() {
         //System.out.println("Endturn is called"); 
         currentPlayer.setPieces(board.getPiecesByColor(currentPlayer.getColor()));
-        if (currentPlayer instanceof WhitePlayer){
+        if (currentPlayer instanceof WhitePlayer) {
             whitePlayer.updateTo(currentPlayer);
             currentPlayer = blackPlayer;
         } else {
@@ -79,16 +83,15 @@ public class Hnefatafl {
             currentPlayer = whitePlayer;
         }
     }
-    
-    public boolean isGameFinished(){
+
+    public boolean isGameFinished() {
         //System.out.println("checked for gamewon");
-        if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner()==true){
+        if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner() == true) {
             System.out.println("This Game has ended: White player wins");
             board.fillWithPieces(Color.WHITE);
-            
+
             return true;
-        }
-        else if (whitePlayer.isAlive() == false){
+        } else if (whitePlayer.isAlive() == false) {
             System.out.println("This Game has ended: Black player wins");
             board.fillWithPieces(Color.BLACK);
             return true;

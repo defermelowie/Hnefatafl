@@ -8,14 +8,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class HnefataflController {
+
     Hnefatafl hnefataflModel;
     HnefataflView hnefataflView;
 
     @FXML
     private AnchorPane gamePane;
 
-
-       @FXML
+    @FXML
     private Button restartBtn;
 
     @FXML
@@ -28,6 +28,7 @@ public class HnefataflController {
     void initialize() {
         assert gamePane != null : "fx:id=\"gamePane\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
         gamePane.setOnMouseClicked(event -> handleMouseClick(event));
+        restartBtn.setOnAction(event -> handleRestartBtn(event));
         //deSelectBtn.setOnAction(event -> handleDeSelect(event));
     }
 
@@ -36,6 +37,7 @@ public class HnefataflController {
         hnefataflView = new HnefataflView(hnefataflModel);
         gamePane.getChildren().add(hnefataflView);
         gamePane.setFocusTraversable(true);
+        updateTimers();
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) {
@@ -46,7 +48,7 @@ public class HnefataflController {
             hnefataflModel.updateBoard();
             hnefataflModel.isGameFinished();
             if (madeTurn) {
-                this.updateTimers();
+                this.updateTimer();
                 hnefataflModel.endTurn();
             }
         } else {
@@ -63,17 +65,27 @@ public class HnefataflController {
 
         hnefataflView.update();
     }
-    
-    public void updateTimers(){
-        if (hnefataflModel.getCurrentPlayer() instanceof WhitePlayer){
+
+    public void updateTimer() {
+        if (hnefataflModel.getCurrentPlayer() instanceof WhitePlayer) {
             timerWhiteLbl.setText("White playtime: " + hnefataflModel.getCurrentPlayer().getPlaytime());
-        } else if (hnefataflModel.getCurrentPlayer() instanceof BlackPlayer){
+        } else if (hnefataflModel.getCurrentPlayer() instanceof BlackPlayer) {
             timerBlackLbl.setText("Black playtime: " + hnefataflModel.getCurrentPlayer().getPlaytime());
         }
     }
 
+    public void updateTimers() {
+        timerWhiteLbl.setText("White playtime: " + hnefataflModel.getCurrentPlayer().getPlaytime());
+        timerBlackLbl.setText("Black playtime: " + hnefataflModel.getCurrentPlayer().getPlaytime());
+    }
+    
     public void handleDeSelect(Event e) {
         hnefataflModel.getBoard().DeSelectPiece();
     }
-}
 
+    public void handleRestartBtn(Event e) {
+        hnefataflModel.start();
+        hnefataflView.update();
+        this.updateTimers();
+    }
+}

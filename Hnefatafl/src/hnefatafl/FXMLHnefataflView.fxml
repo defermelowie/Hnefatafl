@@ -8,7 +8,7 @@
    <children>
       <AnchorPane fx:id="gamePane" layoutX="261.0" layoutY="320.0" prefHeight="630.0" prefWidth="630.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
       <Button fx:id="restartBtn" layoutX="534.0" layoutY="50.0" mnemonicParsing="false" text="restart" AnchorPane.rightAnchor="20.0" />
-      <Label fx:id="timerWhiteLbl" layoutX="56.0" layoutY="40.0" text="Label" />
-      <Label fx:id="timerBlackLbl" layoutX="251.0" layoutY="40.0" text="Label" />
+      <Label fx:id="timerWhiteLbl" layoutX="56.0" layoutY="40.0" text="white time:" />
+      <Label fx:id="timerBlackLbl" layoutX="251.0" layoutY="40.0" text="black time:" />
    </children>
 </AnchorPane>
