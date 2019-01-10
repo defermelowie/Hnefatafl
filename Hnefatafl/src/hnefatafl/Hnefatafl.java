@@ -22,10 +22,8 @@ public class Hnefatafl {
 
     public void startup(){
         this.board = new Board();
-        this.whitePlayer = new WhitePlayer();
-        this.whitePlayer.setPieces(board.getPiecesByColor(Color.WHITE));
-        this.blackPlayer = new BlackPlayer();
-        this.blackPlayer.setPieces((board.getPiecesByColor(Color.BLACK)));
+        this.whitePlayer = new WhitePlayer(board);
+        this.blackPlayer = new BlackPlayer(board);
         this.currentPlayer = whitePlayer;
     }
 
@@ -78,12 +76,9 @@ public class Hnefatafl {
     }
 
     public void endTurn() {
-        currentPlayer.setPieces(board.getPiecesByColor(currentPlayer.getColor()));
         if (currentPlayer instanceof WhitePlayer) {
-            whitePlayer.updateTo(currentPlayer);
             currentPlayer = blackPlayer;
         } else {
-            blackPlayer.updateTo(currentPlayer);
             currentPlayer = whitePlayer;
         }
     }

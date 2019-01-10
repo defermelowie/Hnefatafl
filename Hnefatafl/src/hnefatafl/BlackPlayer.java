@@ -2,8 +2,8 @@ package hnefatafl;
 
 public class BlackPlayer extends Player {
 
-    public BlackPlayer() {
-        super(Color.BLACK);
+    public BlackPlayer(Board board) {
+        super(Color.BLACK, board);
     }
 
     //other methods
@@ -15,15 +15,6 @@ public class BlackPlayer extends Player {
             }
         }
         return false;
-    }
-
-    public boolean updateTo(Player player) {
-        if (player instanceof BlackPlayer) {
-            this.setPieces(player.getPieces());
-            return true;
-        } else {
-            return false;
-        }
     }
 
     //overridden methods

@@ -2,8 +2,8 @@ package hnefatafl;
 
 public class WhitePlayer extends Player {
 
-    public WhitePlayer() {
-        super(Color.WHITE);
+    public WhitePlayer(Board board) {
+        super(Color.WHITE, board);
     }
 
     //other methods
@@ -14,15 +14,6 @@ public class WhitePlayer extends Player {
             }
         }
         return false;
-    }
-
-    public boolean updateTo(Player player) {
-        if (player instanceof WhitePlayer) {
-            this.setPieces(player.getPieces());
-            return true;
-        } else {
-            return false;
-        }
     }
 
     //overridden methods

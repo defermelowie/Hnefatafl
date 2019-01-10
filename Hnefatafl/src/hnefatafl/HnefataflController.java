@@ -11,7 +11,6 @@ public class HnefataflController {
     private Hnefatafl hnefataflModel;
 
     private BoardView boardView;
-    //private HnefataflView hnefataflView;
     @FXML
     private AnchorPane gamePane;
     @FXML
@@ -62,7 +61,6 @@ public class HnefataflController {
         }
 
         boardView.update();
-        //hnefataflView.update();
     }
 
     public void handleRestartBtn(Event e) {
