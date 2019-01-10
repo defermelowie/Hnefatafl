@@ -11,16 +11,13 @@ public class Hnefatafl {
     private WhitePlayer whitePlayer;
     private BlackPlayer blackPlayer;
     private Player currentPlayer;
-    private Thread t;
+
 
     /**
      * Constructor for Hnefatafl (game)
      */
     public Hnefatafl() {
         this.start();
-        t = new Thread(new PlayerTimer(this));
-        t.setDaemon(true);
-        t.start();
     }
 
     public void start() {

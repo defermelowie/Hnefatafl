@@ -44,7 +44,7 @@ public class HnefataflController {
         int x = (int) mouseEvent.getX();
         int y = (int) mouseEvent.getY();
         if (hnefataflModel.getBoard().isPieceSelected()) {
-            boolean madeTurn = hnefataflModel.moveSelectedPieceTo(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+            boolean madeTurn = hnefataflModel.moveSelectedPieceTo(hnefataflView.getBoardView().getRow(y), hnefataflView.getBoardView().getColumn(x));
             hnefataflModel.updateBoard();
             hnefataflModel.isGameFinished();
             if (madeTurn) {
@@ -52,7 +52,7 @@ public class HnefataflController {
                 hnefataflModel.endTurn();
             }
         } else {
-            hnefataflModel.selectPieceOn(hnefataflView.getRow(y), hnefataflView.getColumn(x));
+            hnefataflModel.selectPieceOn(hnefataflView.getBoardView().getRow(y), hnefataflView.getBoardView().getColumn(x));
         }
 
         //printout

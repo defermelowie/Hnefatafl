@@ -25,10 +25,16 @@ public class HnefataflMain extends Application {
 
         //Link model to controller
         hnefataflController.setModel(hnefataflModel);
-        
+
+        //show stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        //start timer thread
+        Thread t = new Thread(new PlayerTimer(hnefataflModel));
+        t.setDaemon(true);
+        t.start();
     }
 
     /**
