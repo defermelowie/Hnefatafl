@@ -32,7 +32,7 @@ public class HnefataflMain extends Application {
         stage.show();
 
         //start timer thread
-        Thread t = new Thread(new PlayerTimer(hnefataflModel));
+        Thread t = new Thread(new PlayerTimer(hnefataflModel, hnefataflController));
         t.setDaemon(true);
         t.start();
     }

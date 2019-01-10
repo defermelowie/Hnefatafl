@@ -12,11 +12,11 @@ import javafx.application.Platform;
  * @author Stef
  */
 public class PlayerTimer implements Runnable{
-    
     private Hnefatafl model;
-
-    public PlayerTimer(Hnefatafl model) {
+    private HnefataflController controller;
+    public PlayerTimer(Hnefatafl model, HnefataflController controller) {
         this.model = model;
+        this.controller = controller;
     }
     
     @Override
@@ -26,7 +26,7 @@ public class PlayerTimer implements Runnable{
             Thread.sleep(10) ;
             Player player = model.getCurrentPlayer();
             player.addToTimer(10);
-            //Platform.runLater( () -> );
+            Platform.runLater( () -> controller.updateTimer());
         } catch (InterruptedException e){
             //do nothing
         }
