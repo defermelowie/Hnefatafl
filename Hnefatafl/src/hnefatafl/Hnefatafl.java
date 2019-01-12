@@ -35,7 +35,7 @@ public class Hnefatafl {
      *
      * @return The board
      */
-    public boolean timerOn(){
+    public boolean isTimerOn(){
         return showTimer;
     }
     private void turnTimerOf(){
