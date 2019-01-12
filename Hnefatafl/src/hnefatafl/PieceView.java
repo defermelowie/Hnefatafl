@@ -23,11 +23,11 @@ public class PieceView extends Region {
                     pieceImageView = new ImageView("resources/blackPawn.png");
                 }
 
-            } /*else if (pieceModel.getType() == Type.BARRIER) {
+            } else if (pieceModel.getType() == Type.HARDBARRIER) {
                 pieceImageView = new ImageView("resources/hardBarrier.png");
             } else if (pieceModel.getType() == Type.SOFTBARRIER) {                      //uncomment to show barrier pieces
                 pieceImageView = new ImageView("resources/softBarrier.png");
-            }*/
+            }
             if (pieceImageView != null)
                 this.getChildren().add(pieceImageView);
         }
