@@ -59,17 +59,17 @@ public class Board {
     public Board() {
         
         for (int i = 0; i < whitePawnStartCoordinates.length; i++) {
-            pieces.add(new Piece (whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN));
+            pieces.add(new Piece (whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN, true));
         }
-        pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING));
+        pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING, true));
         for (int i = 0; i < blackPawnStartCoordinates.length; i++) {
-            pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN));
+            pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN, true));
         }
          for (int i = 0; i < barrierStartCoordinates.length; i++) {
-            pieces.add(new Piece(barrierStartCoordinates[i], null, Type.HARDBARRIER));
+            pieces.add(new Piece(barrierStartCoordinates[i], null, Type.HARDBARRIER, true));
         }
         for (int i = 0; i < CornerCoordinates.length; i++) {
-            pieces.add(new Piece (CornerCoordinates[i], null, Type.SOFTBARRIER));
+            pieces.add(new Piece (CornerCoordinates[i], null, Type.SOFTBARRIER, false));
         }
         selectedPiece = null;
     }
@@ -199,7 +199,7 @@ public class Board {
         }
     
     public void placeBarrier(int row, int column){
-        pieces.add(new Piece(row, column, null, Type.HARDBARRIER));
+        pieces.add(new Piece(row, column, null, Type.HARDBARRIER, false));
     }
  
     /**
@@ -232,6 +232,7 @@ public class Board {
         return true;
     }
 
+    @SuppressWarnings("null")
     public void killCapturedPieces(Color lastPlayedColor) {
         for (Piece p : getPiecesByColor(lastPlayedColor.opposite())) {
             int rowP = p.getRow();
@@ -239,20 +240,20 @@ public class Board {
             boolean captured = false;
             Piece pieceAbove = getPieceOn(rowP - 1, columnP);
             Piece pieceUnder = getPieceOn(rowP + 1, columnP);
-            Piece pieceLeft = getPieceOn(rowP, columnP - 1);
+            Piece pieceLeft =  getPieceOn(rowP, columnP - 1);
             Piece pieceRight = getPieceOn(rowP, columnP + 1);
             if (p.getType() == Type.KING) {
-                if (pieceAbove != null && pieceUnder != null && pieceLeft != null && pieceRight != null) {
+                if (pieceAbove.canKill() == true && pieceUnder.canKill() == true && pieceLeft.canKill() == true && pieceRight.canKill() == true) {
                     captured = pieceAbove.getColor() != p.getColor() &&
                             pieceUnder.getColor() != p.getColor() &&
                             pieceLeft.getColor() != p.getColor() &&
                             pieceRight.getColor() != p.getColor();
                 }
             } else {
-                if (pieceAbove != null && pieceUnder != null) {
-                    captured = pieceAbove.getColor() != p.getColor() && pieceUnder.getColor() != p.getColor();
-                } else if (pieceLeft != null && pieceRight != null){
-                    captured = pieceLeft.getColor() != p.getColor() && pieceRight.getColor() != p.getColor();
+                if (pieceAbove.canKill() == true /*&& pieceUnder.canKill() == true*/) {
+                    captured = pieceAbove.getColor() != p.getColor() /*&& pieceUnder.getColor() != p.getColor()*/;
+                } else if (pieceLeft.canKill() == true /*&& pieceRight.canKill() == true*/){
+                    captured = pieceLeft.getColor() != p.getColor() /*&& pieceRight.getColor() != p.getColor()*/;
                 }
             }
             if (captured){
@@ -281,7 +282,7 @@ public class Board {
     public void fillWithPieces(Color color){
         for (int i = 0; i < 9; i++){
             for(int j =0; j<9 ; j++) {
-            pieces.add(new Piece(i, j, color, Type.PAWN));
+            pieces.add(new Piece(i, j, color, Type.PAWN, false));
     }
         }}
     }
