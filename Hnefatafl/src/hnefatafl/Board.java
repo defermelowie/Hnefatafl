@@ -21,60 +21,56 @@ public class Board {
             {3, 8}, {4, 8}, {5, 8}, {4, 7},
             {8, 3}, {8, 4}, {8, 5}, {7, 4}
     };
-    
+
     private int[][] barrierStartCoordinates = {   //holds the start coordinates of the barrier
-            {-1,1}, {-1, 2},{-1, 6},{-1,7},
-            {1,9},{2,9},{6,9},{7,9},
-            {1,-1},{2,-1},{6,-1},{7,-1},
-            {9,1}, {9, 2},{9, 6},{9,7}
-            
+            {-1, 1}, {-1, 2}, {-1, 6}, {-1, 7},
+            {1, 9}, {2, 9}, {6, 9}, {7, 9},
+            {1, -1}, {2, -1}, {6, -1}, {7, -1},
+            {9, 1}, {9, 2}, {9, 6}, {9, 7}
+
     };
-    
-    private int [][] CornerCoordinates = {
-        {0,0},{8,0},{0,8},{8,8}
-        
+
+    private int[][] CornerCoordinates = {
+            {0, 0}, {8, 0}, {0, 8}, {8, 8}
+
     };
-    
+
     private int[][] HorizontalbarriersToSet = {
-        {-1,3}, {-1, 4},{-1,5},
-        {9,3},{9, 4},{9,5},
+            {-1, 3}, {-1, 4}, {-1, 5},
+            {9, 3}, {9, 4}, {9, 5},
     };
-    
-       private int[][] VerticalbarriersToSet = {
-           {3,9},{4,9},{5,9},
-           {3,-1},{4,-1},{5,-1}
-           
-       };
-     
-    
-    
-    
+
+    private int[][] VerticalbarriersToSet = {
+            {3, 9}, {4, 9}, {5, 9},
+            {3, -1}, {4, -1}, {5, -1}
+
+    };
+
 
     private ArrayList<Piece> pieces = new ArrayList<>();    //holds al the pieces on the board
     private Piece selectedPiece;    //holds a copy of the currently selected piece
-    
+
     /**
      * Constructor for Board
      */
     public Board() {
-        
+
         for (int i = 0; i < whitePawnStartCoordinates.length; i++) {
-            pieces.add(new Piece (whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN, true));
+            pieces.add(new Piece(whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN));
         }
-        pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING, true));
+        pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING));
         for (int i = 0; i < blackPawnStartCoordinates.length; i++) {
-            pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN, true));
+            pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN));
         }
-         for (int i = 0; i < barrierStartCoordinates.length; i++) {
-            pieces.add(new Piece(barrierStartCoordinates[i], null, Type.HARDBARRIER, true));
+        for (int i = 0; i < barrierStartCoordinates.length; i++) {
+            pieces.add(new Piece(barrierStartCoordinates[i], null, Type.HARDBARRIER));
         }
         for (int i = 0; i < CornerCoordinates.length; i++) {
-            pieces.add(new Piece (CornerCoordinates[i], null, Type.SOFTBARRIER, false));
+            pieces.add(new Piece(CornerCoordinates[i], null, Type.SOFTBARRIER));
         }
         selectedPiece = null;
     }
-    
-    
+
 
     //getters
 
@@ -154,8 +150,7 @@ public class Board {
         }
         return succes;
     }
-    
-  
+
 
     /**
      * Method to move the selected piece to another field
@@ -166,42 +161,42 @@ public class Board {
      */
     public boolean moveSelectedPieceTo(int row, int column) {
         boolean success = false;
-        if (selectedPiece.getType() == Type.KING && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece || getPieceOn(row, column).getType()==Type.SOFTBARRIER)) {
+        if (selectedPiece.getType() == Type.KING && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece || getPieceOn(row, column).getType() == Type.SOFTBARRIER)) {
             success = getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
-        }else if (selectedPiece != null && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece)) {
+        } else if (selectedPiece != null && isPathEmpty(selectedPiece.getRow(), selectedPiece.getColumn(), row, column) && (getPieceOn(row, column) == null || getPieceOn(row, column) == selectedPiece)) {
             success = getPieceOn(selectedPiece.getRow(), selectedPiece.getColumn()).moveTo(row, column);
         }
-        if (success){
+        if (success) {
             selectedPiece = null;
         }
         return success;
     }
-        
-    public boolean isWhiteKingOnCorner(){
-        for (int[] e : CornerCoordinates){
+
+    public boolean isWhiteKingOnCorner() {
+        for (int[] e : CornerCoordinates) {
             int row = e[0];
             int column = e[1];
-            if (this.getKing().getRow() == row && this.getKing().getColumn() == column){
+            if (this.getKing().getRow() == row && this.getKing().getColumn() == column) {
                 return true;
             }
         }
         return false;
     }
-    
-    
-        public Piece getKing(){
-           for (Piece p:pieces){
-                if (p.getType() == Type.KING){
-                    return p;
-                }
+
+
+    public Piece getKing() {
+        for (Piece p : pieces) {
+            if (p.getType() == Type.KING) {
+                return p;
             }
-           return null;
         }
-    
-    public void placeBarrier(int row, int column){
-        pieces.add(new Piece(row, column, null, Type.HARDBARRIER, false));
+        return null;
     }
- 
+
+    public void placeBarrier(int row, int column) {
+        pieces.add(new Piece(row, column, null, Type.HARDBARRIER));
+    }
+
     /**
      * Method to deselect the currently selected piece
      */
@@ -240,51 +235,55 @@ public class Board {
             boolean captured = false;
             Piece pieceAbove = getPieceOn(rowP - 1, columnP);
             Piece pieceUnder = getPieceOn(rowP + 1, columnP);
-            Piece pieceLeft =  getPieceOn(rowP, columnP - 1);
+            Piece pieceLeft = getPieceOn(rowP, columnP - 1);
             Piece pieceRight = getPieceOn(rowP, columnP + 1);
             if (p.getType() == Type.KING) {
-                if (pieceAbove.canKill() == true && pieceUnder.canKill() == true && pieceLeft.canKill() == true && pieceRight.canKill() == true) {
-                    captured = pieceAbove.getColor() != p.getColor() &&
-                            pieceUnder.getColor() != p.getColor() &&
-                            pieceLeft.getColor() != p.getColor() &&
-                            pieceRight.getColor() != p.getColor();
+                if (pieceAbove != null && pieceUnder != null && pieceLeft != null && pieceRight != null) {
+                    captured = pieceAbove.getColor() != p.getColor() && pieceAbove.canKill() &&
+                            pieceUnder.getColor() != p.getColor() && pieceUnder.canKill() &&
+                            pieceLeft.getColor() != p.getColor() && pieceLeft.canKill() &&
+                            pieceRight.getColor() != p.getColor() && pieceRight.canKill();
                 }
             } else {
-                if (pieceAbove.canKill() == true /*&& pieceUnder.canKill() == true*/) {
-                    captured = pieceAbove.getColor() != p.getColor() /*&& pieceUnder.getColor() != p.getColor()*/;
-                } else if (pieceLeft.canKill() == true /*&& pieceRight.canKill() == true*/){
-                    captured = pieceLeft.getColor() != p.getColor() /*&& pieceRight.getColor() != p.getColor()*/;
+                if (pieceAbove != null && pieceUnder != null) {
+                    captured = pieceAbove.getColor() != p.getColor() && pieceAbove.canKill() &&
+                            pieceUnder.getColor() != p.getColor() && pieceUnder.canKill();
+                } else if (pieceLeft != null && pieceRight != null) {
+                    captured = pieceLeft.getColor() != p.getColor() && pieceLeft.canKill() &&
+                            pieceRight.getColor() != p.getColor() && pieceRight.canKill();
                 }
             }
-            if (captured){
+            if (captured) {
                 p.kill();
             }
         }
     }
-    
-    public void setBarriers(){
-        for (int[] c : HorizontalbarriersToSet){
+
+    public void setBarriers() {
+        for (int[] c : HorizontalbarriersToSet) {
             int row = c[0];
             int column = c[1];
-            if(this.getPieceOn(row + 1, column) == null && this.getPieceOn(row-1, column) == null){ //boven en onder
-                placeBarrier(c[0],c[1]);;
+            if (this.getPieceOn(row + 1, column) == null && this.getPieceOn(row - 1, column) == null) { //boven en onder
+                placeBarrier(c[0], c[1]);
+                ;
             }
         }
-        for (int[] d : VerticalbarriersToSet){
+        for (int[] d : VerticalbarriersToSet) {
             int row = d[0];
             int column = d[1];
-            if(this.getPieceOn(row, column+1) == null && this.getPieceOn(row, column-1) == null){ //links en rechts
-                placeBarrier(d[0],d[1]);
+            if (this.getPieceOn(row, column + 1) == null && this.getPieceOn(row, column - 1) == null) { //links en rechts
+                placeBarrier(d[0], d[1]);
             }
         }
     }
-    
-    public void fillWithPieces(Color color){
-        for (int i = 0; i < 9; i++){
-            for(int j =0; j<9 ; j++) {
-            pieces.add(new Piece(i, j, color, Type.PAWN, false));
+
+    public void fillWithPieces(Color color) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                pieces.add(new Piece(i, j, color, Type.PAWN));
+            }
+        }
     }
-        }}
-    }
+}
 
 
