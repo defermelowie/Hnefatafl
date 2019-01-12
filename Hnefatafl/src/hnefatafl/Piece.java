@@ -92,10 +92,20 @@ public class Piece {
         this.column = -1;
     }
 
+    public boolean canKill() {
+        if (this.type == Type.SOFTBARRIER) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     @Override
     public String toString() {
         return "Type: " + this.type + " | Color: " + this.color + " | Row: " + this.row + " | Column: " + this.column + " | Alive: " + this.alive;
     }
+
+
 }
     
     
