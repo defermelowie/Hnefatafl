@@ -2,6 +2,7 @@ package hnefatafl;
 
 import javafx.scene.layout.Region;
 import javafx.scene.image.ImageView;
+import java.awt.Image;
 
 public class PieceView extends Region {
     private Piece pieceModel;
@@ -31,6 +32,6 @@ public class PieceView extends Region {
             if (pieceImageView != null)
                 this.getChildren().add(pieceImageView);
         }
-    }
+    }                           
 }
 
