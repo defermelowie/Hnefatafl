@@ -45,7 +45,10 @@ public class HnefataflController {
         if (hnefataflModel.getBoard().isPieceSelected()) {
             boolean madeTurn = hnefataflModel.moveSelectedPieceTo(boardView.getRow(y), boardView.getColumn(x));
             hnefataflModel.updateBoard();
-            hnefataflModel.isGameFinished();
+            if(hnefataflModel.isGameFinished()){
+                boardView.update();
+                new EndView(hnefataflModel.getCurrentPlayer());
+            };
             if (madeTurn) {
                 hnefataflModel.endTurn();
             }

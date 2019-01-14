@@ -1,5 +1,9 @@
 package hnefatafl;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javax.swing.JOptionPane;
+
 /**
  * Main game class
  *
@@ -98,13 +102,12 @@ public class Hnefatafl {
             System.out.println("This Game has ended: White player wins");
             board.fillWithPieces(Color.WHITE);
             turnTimerOf();
-            JOptionPane.showMessageDialog(null,"White Player wins!!!");
+  
             return true;
         } else if (whitePlayer.isAlive() == false) {
             System.out.println("This Game has ended: Black player wins");
             board.fillWithPieces(Color.BLACK);
             turnTimerOf();
-            JOptionPane.showMessageDialog(null, "Black Player wins!!!");
             return true;
         }
         return false;
