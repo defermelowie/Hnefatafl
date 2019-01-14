@@ -97,7 +97,6 @@ public class Hnefatafl {
     }
 
     public boolean isGameFinished() {
-        //System.out.println("checked for gamewon");
         if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner() == true) {
             System.out.println("This Game has ended: White player wins");
             board.fillWithPieces(Color.WHITE);
