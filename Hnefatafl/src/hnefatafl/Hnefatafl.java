@@ -40,6 +40,11 @@ public class Hnefatafl {
         this.showTimer = true;
     }
 
+    //static methods
+    public static void loadFromJson() {
+        //TODO
+    }
+
     //getters
     /**
      * Getter for the board that belongs to this game
