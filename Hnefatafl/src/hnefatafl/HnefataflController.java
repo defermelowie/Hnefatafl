@@ -19,6 +19,8 @@ public class HnefataflController {
     private Label timerWhiteLbl;
     @FXML
     private Label timerBlackLbl;
+    @FXML
+    private Button loadBtn;
 
     @FXML
     void initialize() {
@@ -26,8 +28,11 @@ public class HnefataflController {
         assert restartBtn != null : "fx:id=\"restartBtn\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
         assert timerWhiteLbl != null : "fx:id=\"timerWhiteLbl\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
         assert timerBlackLbl != null : "fx:id=\"timerBlackLbl\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
+        assert loadBtn != null : "fx:id=\"loadBtn\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
+
         gamePane.setOnMouseClicked(event -> handleMouseClick(event));
         restartBtn.setOnAction(event -> handleRestartBtn(event));
+        loadBtn.setOnAction(event -> handleLoadBtn(event));
     }
 
     public void setModel(Hnefatafl hnefataflModel) {
@@ -54,6 +59,8 @@ public class HnefataflController {
         } else {
             hnefataflModel.selectPieceOn(boardView.getRow(y), boardView.getColumn(x));
         }
+        hnefataflModel.saveToJson();
+        boardView.update();
 
         //printout
         if (hnefataflModel.getBoard().isPieceSelected()) {
@@ -61,8 +68,6 @@ public class HnefataflController {
         } else {
             System.out.println("Current Player --> " + hnefataflModel.getCurrentPlayer());
         }
-
-        boardView.update();
     }
 
     public void handleRestartBtn(Event e) {
@@ -80,6 +85,10 @@ public class HnefataflController {
         gamePane.setFocusTraversable(true);
         this.updateTimers();
         
+    }
+
+    public void handleLoadBtn(Event e){
+        hnefataflModel.loadFromJson();
     }
     
     public void updateTimers() {

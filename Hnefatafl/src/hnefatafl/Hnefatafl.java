@@ -1,8 +1,15 @@
 package hnefatafl;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonWriter;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+
 import javax.swing.JOptionPane;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * Main game class
@@ -25,7 +32,7 @@ public class Hnefatafl {
         this.startup();
     }
 
-    public void startup(){
+    public void startup() {
         this.board = new Board();
         this.whitePlayer = new WhitePlayer(board);
         this.blackPlayer = new BlackPlayer(board);
@@ -39,13 +46,14 @@ public class Hnefatafl {
      *
      * @return The board
      */
-    public boolean isTimerOn(){
+    public boolean isTimerOn() {
         return showTimer;
     }
-    private void turnTimerOf(){
-        showTimer=false;
+
+    private void turnTimerOf() {
+        showTimer = false;
     }
-    
+
     public Board getBoard() {
         return board;
     }
@@ -63,6 +71,17 @@ public class Hnefatafl {
     }
 
     //other methods
+    public void saveToJson() {
+        Gson gsonner = new GsonBuilder().setPrettyPrinting().create();
+        String json = gsonner.toJson(this);
+        try {
+            JsonWriter writer = gsonner.newJsonWriter(new FileWriter("savedModel.json.txt"));
+            writer.jsonValue(json);
+        } catch (java.io.IOException e) {
+            // do nothing
+        }
+    }
+
     public boolean selectPieceOn(int row, int column) {
         if (board.getPieceOn(row, column) != null && board.getPieceOn(row, column).getColor() == currentPlayer.getColor()) {
             return board.selectPieceOn(row, column);
@@ -101,7 +120,7 @@ public class Hnefatafl {
             System.out.println("This Game has ended: White player wins");
             board.fillWithPieces(Color.WHITE);
             turnTimerOf();
-  
+
             return true;
         } else if (whitePlayer.isAlive() == false) {
             System.out.println("This Game has ended: Black player wins");
