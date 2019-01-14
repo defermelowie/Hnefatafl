@@ -47,9 +47,8 @@ public class HnefataflController {
             hnefataflModel.updateBoard();
             if(hnefataflModel.isGameFinished()){
                 boardView.update();
-                new EndView(hnefataflModel.getCurrentPlayer());
-            };
-            if (madeTurn) {
+                new EndDialogBox(hnefataflModel.getCurrentPlayer(), this);
+            }else if (madeTurn) {
                 hnefataflModel.endTurn();
             }
         } else {
@@ -74,6 +73,15 @@ public class HnefataflController {
         this.updateTimers();
     }
 
+    public void handleRestartBtn() {
+        hnefataflModel.startup();
+        boardView = new BoardView(hnefataflModel.getBoard());
+        gamePane.getChildren().add(boardView);
+        gamePane.setFocusTraversable(true);
+        this.updateTimers();
+        
+    }
+    
     public void updateTimers() {
         timerWhiteLbl.setText("White playtime: " + hnefataflModel.getWhitePlayer().getPlaytime());
         timerBlackLbl.setText("Black playtime: " + hnefataflModel.getBlackPlayer().getPlaytime());
