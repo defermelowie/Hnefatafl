@@ -227,7 +227,6 @@ public class Board {
         return true;
     }
 
-    @SuppressWarnings("null")
     public void killCapturedPieces(Color lastPlayedColor) {
         for (Piece p : getPiecesByColor(lastPlayedColor.opposite())) {
             int rowP = p.getRow();
