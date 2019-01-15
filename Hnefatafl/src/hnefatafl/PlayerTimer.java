@@ -26,9 +26,7 @@ public class PlayerTimer implements Runnable {
                 Thread.sleep(10);
                 Player player = model.getCurrentPlayer();
                 player.addToTimer(10);
-                if (model.isTimerOn()) {
-                    Platform.runLater(() -> controller.updateTimers());
-                }
+                Platform.runLater(() -> controller.updateTimers());
             } catch (InterruptedException e) {
                 //do nothing
             }

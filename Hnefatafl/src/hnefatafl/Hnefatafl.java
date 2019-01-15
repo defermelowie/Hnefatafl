@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Main game class
@@ -21,7 +20,6 @@ public class Hnefatafl {
     private WhitePlayer whitePlayer;
     private BlackPlayer blackPlayer;
     private Player currentPlayer;
-    private boolean showTimer;
 
 
     /**
@@ -36,15 +34,13 @@ public class Hnefatafl {
         this.whitePlayer = new WhitePlayer();
         this.blackPlayer = new BlackPlayer();
         this.currentPlayer = whitePlayer;
-        this.showTimer = true;
     }
 
-    public void updateTo(Hnefatafl newHnefatafl){
+    public void updateTo(Hnefatafl newHnefatafl) {
         this.board = newHnefatafl.getBoard();
         this.whitePlayer = newHnefatafl.getWhitePlayer();
         this.blackPlayer = newHnefatafl.getBlackPlayer();
         this.currentPlayer = newHnefatafl.getCurrentPlayer();
-        this.showTimer = true;
     }
 
     //Json methods
@@ -74,18 +70,12 @@ public class Hnefatafl {
     }
 
     //getters
+
     /**
      * Getter for the board that belongs to this game
      *
      * @return The board
      */
-    public boolean isTimerOn() {
-        return showTimer;
-    }
-
-    private void turnTimerOff() {
-        showTimer = false;
-    }
 
     public Board getBoard() {
         return board;
@@ -143,12 +133,10 @@ public class Hnefatafl {
         if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner()) {
             System.out.println("This Game has ended: White player wins");
             board.fillWithPieces(Color.WHITE);
-            turnTimerOff();
             return true;
         } else if (whitePlayer.isAlive() == false) {
             System.out.println("This Game has ended: Black player wins");
             board.fillWithPieces(Color.BLACK);
-            turnTimerOff();
             return true;
         }
         return false;
