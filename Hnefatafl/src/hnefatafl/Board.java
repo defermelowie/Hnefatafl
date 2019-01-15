@@ -31,21 +31,12 @@ public class Board {
     private int[][] CornerCoordinates = {
             {0, 0}, {8, 0}, {0, 8}, {8, 8}
     };
-    private int[][] HorizontalbarriersToSet = {
-            {-1, 3}, {-1, 4}, {-1, 5},
-            {9, 3}, {9, 4}, {9, 5},
-    };
-    private int[][] VerticalbarriersToSet = {
-            {3, 9}, {4, 9}, {5, 9},
-            {3, -1}, {4, -1}, {5, -1}
-    };
 
     private ArrayList<Piece> pieces = new ArrayList<>();    //holds al the pieces on the board
-    private Piece selectedPiece;    //holds a copy of the currently selected piece
+    private Piece selectedPiece;    //the currently selected piece
 
-    //constructor
     /**
-     * Constructor for Board
+     * Constructor for board class
      */
     public Board() {
         for (int i = 0; i < whitePawnStartCoordinates.length; i++) {
@@ -64,7 +55,6 @@ public class Board {
         selectedPiece = null;
     }
 
-
     //getters
     /**
      * Getter for all the pieces on the board
@@ -76,7 +66,7 @@ public class Board {
     }
 
     /**
-     * Getter for the pieces with a certain color
+     * Gets all the pieces with a certain color
      *
      * @param color Color of the pieces to return
      * @return All the pieces on the board with a color specified by the color parameter
@@ -92,7 +82,7 @@ public class Board {
     }
 
     /**
-     * Getter for a piece with a certain coordinate
+     * Gets the piece with certain coordinates
      *
      * @param row    Row-coordinate of piece
      * @param column Column-coordinate of piece
@@ -110,18 +100,17 @@ public class Board {
     /**
      * Getter for the selected piece
      *
-     * @return A copy of the selected piece
+     * @return The selected piece
      */
     public Piece getSelectedPiece() {
         return selectedPiece;
     }
 
     //other methods
-
     /**
      * Method to check if there is a piece selected
      *
-     * @return true if there i a piece selected
+     * @return True if there is a piece selected
      */
     public boolean isPieceSelected() {
         return (selectedPiece != null);
@@ -132,7 +121,7 @@ public class Board {
      *
      * @param row    The row of the piece to select
      * @param column The column of the piece to select
-     * @return true  if successful
+     * @return True if successful
      */
     public boolean selectPieceOn(int row, int column) {
         boolean succes = false;
@@ -149,7 +138,7 @@ public class Board {
      *
      * @param row    Row to move the piece to
      * @param column Column to move the piece to
-     * @return true if successful (false if illegal move)
+     * @return True if successful (false if illegal move)
      */
     public boolean moveSelectedPieceTo(int row, int column) {
         boolean success = false;
@@ -164,6 +153,10 @@ public class Board {
         return success;
     }
 
+    /**
+     * Checks if the white king has reached the corner
+     * @return True is the white king has reached the corner
+     */
     public boolean isWhiteKingOnCorner() {
         for (int[] e : CornerCoordinates) {
             int row = e[0];
@@ -175,8 +168,12 @@ public class Board {
         return false;
     }
 
-
-    public Piece getKing() {
+    /**
+     * Gets the king piece
+     *
+     * @return The king piece
+     */
+    private Piece getKing() {
         for (Piece p : pieces) {
             if (p.getType() == Type.KING) {
                 return p;
@@ -185,6 +182,12 @@ public class Board {
         return null;
     }
 
+    /**
+     * Places a hard barrier piece on a specific tile
+     *
+     * @param row The row to place the barrier on
+     * @param column The column to place the barrier on
+     */
     public void placeBarrier(int row, int column) {
         pieces.add(new Piece(row, column, null, Type.HARDBARRIER));
     }
@@ -192,12 +195,12 @@ public class Board {
     /**
      * Method to deselect the currently selected piece
      */
-    public void DeSelectPiece() {
+    public void deSelectPiece() {
         selectedPiece = null;
     }
 
     /**
-     * Private method to check if the path between two fields is obstructed by a piece(s)
+     * Checks if the path between two fields is obstructed by a piece(s)
      *
      * @param startRow    Row-coordinate of the start field
      * @param startColumn Column-coordinate of the start field
@@ -219,6 +222,11 @@ public class Board {
         return true;
     }
 
+    /**
+     * Kills the captured pieces of the player that hasn't just played
+     *
+     * @param lastPlayedColor The color of the player that has played last
+     */
     public void killCapturedPieces(Color lastPlayedColor) {
         Iterator<Piece> pieces = getPiecesByColor(lastPlayedColor.opposite());
         while (pieces.hasNext()) {
@@ -252,7 +260,18 @@ public class Board {
         }
     }
 
+    /**
+     * Places necessary hard barriers around the board
+     */
     public void setBarriers() {
+        int[][] HorizontalbarriersToSet = {
+                {-1, 3}, {-1, 4}, {-1, 5},
+                {9, 3}, {9, 4}, {9, 5},
+        };
+        int[][] VerticalbarriersToSet = {
+                {3, 9}, {4, 9}, {5, 9},
+                {3, -1}, {4, -1}, {5, -1}
+        };
         for (int[] c : HorizontalbarriersToSet) {
             int row = c[0];
             int column = c[1];
@@ -270,6 +289,11 @@ public class Board {
         }
     }
 
+    /**
+     * Fills the bord with pieces of a certain color
+     *
+     * @param color The color of the pieces to fill the board with
+     */
     public void fillWithPieces(Color color) {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
