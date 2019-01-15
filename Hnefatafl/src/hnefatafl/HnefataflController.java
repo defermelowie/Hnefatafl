@@ -21,6 +21,8 @@ public class HnefataflController {
     private Label timerBlackLbl;
     @FXML
     private Button loadBtn;
+    @FXML
+    private Button saveBtn;
 
     @FXML
     void initialize() {
@@ -33,6 +35,7 @@ public class HnefataflController {
         gamePane.setOnMouseClicked(event -> handleMouseClick(event));
         restartBtn.setOnAction(event -> handleRestartBtn(event));
         loadBtn.setOnAction(event -> handleLoadBtn(event));
+        saveBtn.setOnAction(event -> handleSaveBtn(event));
     }
 
     public void setModel(Hnefatafl hnefataflModel) {
@@ -59,7 +62,6 @@ public class HnefataflController {
         } else {
             hnefataflModel.selectPieceOn(boardView.getRow(y), boardView.getColumn(x));
         }
-        hnefataflModel.saveToJson();
         boardView.update();
 
         //printout
@@ -89,6 +91,10 @@ public class HnefataflController {
 
     public void handleLoadBtn(Event e){
         hnefataflModel.loadFromJson();
+    }
+
+    private void handleSaveBtn(Event e){
+        hnefataflModel.saveToJson();
     }
     
     public void updateTimers() {
