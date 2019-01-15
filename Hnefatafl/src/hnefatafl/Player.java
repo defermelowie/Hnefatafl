@@ -47,17 +47,6 @@ abstract public class Player {
         return alive;
     }
 
-    //setters
-
-    /**
-     * Setter for playTime
-     *
-     * @param playTime The new time this player has played
-     */
-    public void setPlayTime(int playTime) {
-        this.playTimeMillis = playTime;
-    }
-
     //other methods
 
     /**
