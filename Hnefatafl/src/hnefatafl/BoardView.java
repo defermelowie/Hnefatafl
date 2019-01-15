@@ -66,7 +66,7 @@ public class BoardView extends Region {
     }
 
     /**
-     * moves a selected piece to a chosen row and column
+     * Gets the piece that's on the selected coordinates
      *
      * @param x X-coordinate of the place you want to move the piece to
      * @param y Y-coordinate of the place you want to move the piece to
