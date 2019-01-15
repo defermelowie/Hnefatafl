@@ -11,6 +11,7 @@ public class PlayerDeSerialiser implements JsonDeserializer<Player> {
         int playTime = jsonObject.get("playTimeMillis").getAsInt();
         Gson gson = new Gson();
         Player p;
+        if (color.equals("WHITE")) {
             p = new WhitePlayer();
             p.setPlayTime(playTime);
         } else {

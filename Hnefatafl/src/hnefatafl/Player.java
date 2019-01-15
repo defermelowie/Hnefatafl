@@ -47,6 +47,13 @@ abstract public class Player {
         return alive;
     }
 
+    //setters
+
+    public void setPlayTime(int playTime) {
+        this.playTimeMillis = playTime;
+    }
+
+
     //other methods
 
     /**
