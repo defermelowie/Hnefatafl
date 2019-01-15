@@ -53,7 +53,7 @@ public class Hnefatafl {
             return loadedModel;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return null;
+            return new Hnefatafl();
         }
     }
 

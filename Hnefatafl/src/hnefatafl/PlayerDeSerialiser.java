@@ -8,11 +8,15 @@ public class PlayerDeSerialiser implements JsonDeserializer<Player> {
     public Player deserialize(JsonElement json, java.lang.reflect.Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
         String color = jsonObject.get("color").getAsString();
+        int playTime = jsonObject.get("playTimeMillis").getAsInt();
         Gson gson = new Gson();
-        if (color == "WHITE") {
-            return new WhitePlayer();
+        Player p;
+            p = new WhitePlayer();
+            p.setPlayTime(playTime);
         } else {
-            return new BlackPlayer();
+            p = new BlackPlayer();
+            p.setPlayTime(playTime);
         }
+        return p;
     }
 }
