@@ -1,6 +1,5 @@
 package hnefatafl;
 
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -166,25 +165,14 @@ public class Board {
         for (int[] e : CornerCoordinates) {
             int row = e[0];
             int column = e[1];
-            if (this.getKing().getRow() == row && this.getKing().getColumn() == column) {
-                return true;
+            for (Piece p : pieces) {
+                if (p.getType() == Type.KING && p.getRow() == row && p.getColumn() == column) {
+                    return true;
+                }
             }
+
         }
         return false;
-    }
-
-    /**
-     * Gets the king piece
-     *
-     * @return The king piece
-     */
-    private Piece getKing() {
-        for (Piece p : pieces) {
-            if (p.getType() == Type.KING) {
-                return p;
-            }
-        }
-        return null;
     }
 
     /**
