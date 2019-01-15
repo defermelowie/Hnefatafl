@@ -90,11 +90,11 @@ public class HnefataflController {
     }
 
     public void handleLoadBtn(Event e){
-        hnefataflModel.loadFromJson();
+       // hnefataflModel.loadFromJson();
     }
 
     private void handleSaveBtn(Event e){
-        hnefataflModel.saveToJson();
+       // hnefataflModel.saveToJson();
     }
     
     public void updateTimers() {

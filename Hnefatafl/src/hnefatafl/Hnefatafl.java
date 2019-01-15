@@ -46,8 +46,6 @@ public class Hnefatafl {
         this.showTimer = true;
     }
 
-    }
-
     //getters
     /**
      * Getter for the board that belongs to this game
