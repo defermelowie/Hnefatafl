@@ -1,5 +1,7 @@
 package hnefatafl;
 
+import java.util.Iterator;
+
 public class BlackPlayer extends Player {
 
     public BlackPlayer(Board board) {
@@ -9,8 +11,10 @@ public class BlackPlayer extends Player {
     //other methods
     public boolean isAlive() {
         boolean alive = true;
-        for (Piece p : getPieces()) {
-            if (p.isAlive() == true) {
+        Iterator<Piece> pieces = getPieces();
+        while (pieces.hasNext()) {
+            Piece p = pieces.next();
+            if (p.isAlive()) {
                 return true;
             }
         }

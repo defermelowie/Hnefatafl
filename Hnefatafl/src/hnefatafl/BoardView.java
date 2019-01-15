@@ -1,6 +1,7 @@
 package hnefatafl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javafx.scene.layout.Region;
 import javafx.scene.image.ImageView;
@@ -18,8 +19,9 @@ public class BoardView extends Region {
         boardImageView = new ImageView("resources/gameBoard.png");
         this.getChildren().add(boardImageView);
 
-        ArrayList<Piece> piecesModel = boardModel.getPieces();
-        for (Piece p : piecesModel) {
+        Iterator<Piece> piecesModel = boardModel.getPieces();
+        while (piecesModel.hasNext()) {
+            Piece p = piecesModel.next();
             PieceView pieceView = new PieceView(p);
             pieceView.setTranslateX(p.getColumn() * 70 + 10); //one tile on the board is 70x70, +10 because a piece is 50x50
             pieceView.setTranslateY(p.getRow() * 70 + 10);

@@ -2,6 +2,7 @@ package hnefatafl;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Class for a board on which the game is played
@@ -79,8 +80,8 @@ public class Board {
      *
      * @return All the pieces on the board
      */
-    public ArrayList<Piece> getPieces() {
-        return pieces;
+    public Iterator<Piece> getPieces() {
+        return pieces.iterator();
     }
 
     /**
@@ -89,14 +90,14 @@ public class Board {
      * @param color Color of the pieces to return
      * @return All the pieces on the board with a color specified by the color parameter
      */
-    public ArrayList<Piece> getPiecesByColor(Color color) {
+    public Iterator<Piece> getPiecesByColor(Color color) {
         ArrayList<Piece> pieces = new ArrayList<>();
         for (Piece p : this.pieces) {
             if (p.getColor() == color) {
                 pieces.add(p);
             }
         }
-        return pieces;
+        return pieces.iterator();
     }
 
     /**
@@ -228,7 +229,9 @@ public class Board {
     }
 
     public void killCapturedPieces(Color lastPlayedColor) {
-        for (Piece p : getPiecesByColor(lastPlayedColor.opposite())) {
+        Iterator<Piece> pieces = getPiecesByColor(lastPlayedColor.opposite());
+        while (pieces.hasNext()) {
+            Piece p = pieces.next();
             int rowP = p.getRow();
             int columnP = p.getColumn();
             boolean captured = false;

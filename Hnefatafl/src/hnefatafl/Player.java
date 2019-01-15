@@ -1,6 +1,6 @@
 package hnefatafl;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 
 abstract public class Player {
     private Board board;
@@ -28,7 +28,7 @@ abstract public class Player {
     
     }
 
-    public ArrayList<Piece> getPieces(){
+    public Iterator<Piece> getPieces(){
         return board.getPiecesByColor(this.color);
     }
 

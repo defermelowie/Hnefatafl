@@ -1,5 +1,7 @@
 package hnefatafl;
 
+import java.util.Iterator;
+
 public class WhitePlayer extends Player {
 
     public WhitePlayer(Board board) {
@@ -8,7 +10,9 @@ public class WhitePlayer extends Player {
 
     //other methods
     public boolean isAlive() {
-        for (Piece p : this.getPieces()) {
+        Iterator<Piece> pieces = super.getPieces();
+        while (pieces.hasNext()) {
+            Piece p = pieces.next();
             if (p.getType()==Type.KING) {
                 return p.isAlive();
             }
