@@ -40,7 +40,6 @@ public class HnefataflController {
 
     public void setModel(Hnefatafl hnefataflModel) {
         this.hnefataflModel = hnefataflModel;
-
         boardView = new BoardView(hnefataflModel.getBoard());
         gamePane.getChildren().add(boardView);
         gamePane.setFocusTraversable(true);
@@ -90,7 +89,11 @@ public class HnefataflController {
     }
 
     public void handleLoadBtn(Event e){
-        hnefataflModel.loadFromJson();
+        hnefataflModel.updateTo(Hnefatafl.loadFromJson());
+        boardView = new BoardView(hnefataflModel.getBoard());
+        gamePane.getChildren().add(boardView);
+        gamePane.setFocusTraversable(true);
+        this.updateTimers();
     }
 
     private void handleSaveBtn(Event e){
@@ -98,8 +101,8 @@ public class HnefataflController {
     }
     
     public void updateTimers() {
-        timerWhiteLbl.setText("White playtime: " + hnefataflModel.getWhitePlayer().getPlaytime());
-        timerBlackLbl.setText("Black playtime: " + hnefataflModel.getBlackPlayer().getPlaytime());
+        timerWhiteLbl.setText("White playtime: " + hnefataflModel.getWhitePlayer().getPlayTime());
+        timerBlackLbl.setText("Black playtime: " + hnefataflModel.getBlackPlayer().getPlayTime());
     }
 
 

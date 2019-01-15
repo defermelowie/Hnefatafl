@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Main game class
@@ -46,6 +47,30 @@ public class Hnefatafl {
         this.showTimer = true;
     }
 
+    //Json methods
+    public static Hnefatafl loadFromJson() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Player.class, new PlayerDeSerialiser());
+        Gson gson = gsonBuilder.create();
+        try {
+            Hnefatafl loadedModel = gson.fromJson(new FileReader("ModelSave.json.txt"), Hnefatafl.class);
+            return loadedModel;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void saveToJson() {
+        Gson gsonner = new GsonBuilder().setPrettyPrinting().create();
+        String json = gsonner.toJson(this);
+        try {
+            JsonWriter writer = gsonner.newJsonWriter(new FileWriter("ModelSave.json.txt"));
+            writer.jsonValue(json);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //getters
