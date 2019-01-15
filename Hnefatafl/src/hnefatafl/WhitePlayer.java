@@ -4,25 +4,24 @@ import java.util.Iterator;
 
 public class WhitePlayer extends Player {
 
-    public WhitePlayer(Board board) {
-        super(Color.WHITE, board);
+    public WhitePlayer() {
+        super(Color.WHITE);
     }
 
     //other methods
-    public boolean isAlive() {
-        Iterator<Piece> pieces = super.getPieces();
-        while (pieces.hasNext()) {
-            Piece p = pieces.next();
-            if (p.getType()==Type.KING) {
-                return p.isAlive();
+    public void checkDeath(Iterator<Piece> playerPieces) {
+        System.out.println("checked white death");
+        while (playerPieces.hasNext()) {
+            Piece p = playerPieces.next();
+            if (p.getType() == Type.KING && !p.isAlive()) {
+                super.kill();
             }
         }
-        return false;
     }
 
     //overridden methods
     @Override
-    public String toString(){
-        return "Type: WhitePlayer | Alive: " + this.isAlive();
+    public String toString() {
+        return "Type: WhitePlayer | Alive: " + super.isAlive();
     }
 }

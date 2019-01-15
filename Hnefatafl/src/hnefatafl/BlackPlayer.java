@@ -4,26 +4,25 @@ import java.util.Iterator;
 
 public class BlackPlayer extends Player {
 
-    public BlackPlayer(Board board) {
-        super(Color.BLACK, board);
+    public BlackPlayer() {
+        super(Color.BLACK);
     }
 
     //other methods
-    public boolean isAlive() {
-        boolean alive = true;
-        Iterator<Piece> pieces = getPieces();
-        while (pieces.hasNext()) {
-            Piece p = pieces.next();
+    public void checkDeath(Iterator<Piece> playerPieces) {
+        System.out.println("checked back death");
+        while (playerPieces.hasNext()) {
+            Piece p = playerPieces.next();
             if (p.isAlive()) {
-                return true;
+                return;
             }
         }
-        return false;
+        super.kill();
     }
 
     //overridden methods
     @Override
     public String toString(){
-        return "Type: BlackPlayer | Alive: " + this.isAlive();
+        return "Type: BlackPlayer | Alive: " + super.isAlive();
     }
 }

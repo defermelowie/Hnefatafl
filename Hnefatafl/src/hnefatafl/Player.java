@@ -3,13 +3,14 @@ package hnefatafl;
 import java.util.Iterator;
 
 abstract public class Player {
-    private Board board;
     private Color color;
     private int playTimeMillis;
+    private boolean alive;
 
-    public Player(Color color, Board board) {
+    //Constructors
+    public Player(Color color) {
         this.color = color;
-        this.board = board;
+        this.alive = true;
         this.playTimeMillis = 0;
     }
 
@@ -21,18 +22,26 @@ abstract public class Player {
     public int getPlaytime(){
         return playTimeMillis/1000;
     }
-    
+
+    public boolean isAlive(){
+        return alive;
+    }
+
+    //setters
+    public void setPlayTime(int playTime) {
+        this.playTimeMillis = playTime;
+    }
+
     //other methods
     public void addToTimer(int milSec){
         this.playTimeMillis = this.playTimeMillis + milSec;
-    
     }
 
-    public Iterator<Piece> getPieces(){
-        return board.getPiecesByColor(this.color);
+    public void kill(){
+        alive = false;
     }
 
     //abstract methods
-    abstract public boolean isAlive();
+    abstract public void checkDeath(Iterator<Piece> playerPieces);
     abstract public String toString();
 }

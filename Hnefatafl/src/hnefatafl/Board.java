@@ -22,40 +22,32 @@ public class Board {
             {3, 8}, {4, 8}, {5, 8}, {4, 7},
             {8, 3}, {8, 4}, {8, 5}, {7, 4}
     };
-
     private int[][] barrierStartCoordinates = {   //holds the start coordinates of the barrier
             {-1, 1}, {-1, 2}, {-1, 6}, {-1, 7},
             {1, 9}, {2, 9}, {6, 9}, {7, 9},
             {1, -1}, {2, -1}, {6, -1}, {7, -1},
             {9, 1}, {9, 2}, {9, 6}, {9, 7}
-
     };
-
     private int[][] CornerCoordinates = {
             {0, 0}, {8, 0}, {0, 8}, {8, 8}
-
     };
-
     private int[][] HorizontalbarriersToSet = {
             {-1, 3}, {-1, 4}, {-1, 5},
             {9, 3}, {9, 4}, {9, 5},
     };
-
     private int[][] VerticalbarriersToSet = {
             {3, 9}, {4, 9}, {5, 9},
             {3, -1}, {4, -1}, {5, -1}
-
     };
-
 
     private ArrayList<Piece> pieces = new ArrayList<>();    //holds al the pieces on the board
     private Piece selectedPiece;    //holds a copy of the currently selected piece
 
+    //constructor
     /**
      * Constructor for Board
      */
     public Board() {
-
         for (int i = 0; i < whitePawnStartCoordinates.length; i++) {
             pieces.add(new Piece(whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN));
         }
@@ -74,7 +66,6 @@ public class Board {
 
 
     //getters
-
     /**
      * Getter for all the pieces on the board
      *
