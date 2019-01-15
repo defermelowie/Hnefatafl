@@ -56,6 +56,7 @@ public class Board {
     }
 
     //getters
+
     /**
      * Getter for all the pieces on the board
      *
@@ -107,6 +108,7 @@ public class Board {
     }
 
     //other methods
+
     /**
      * Method to check if there is a piece selected
      *
@@ -155,6 +157,7 @@ public class Board {
 
     /**
      * Checks if the white king has reached the corner
+     *
      * @return True is the white king has reached the corner
      */
     public boolean isWhiteKingOnCorner() {
@@ -185,7 +188,7 @@ public class Board {
     /**
      * Places a hard barrier piece on a specific tile
      *
-     * @param row The row to place the barrier on
+     * @param row    The row to place the barrier on
      * @param column The column to place the barrier on
      */
     public void placeBarrier(int row, int column) {

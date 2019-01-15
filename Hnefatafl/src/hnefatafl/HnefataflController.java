@@ -52,10 +52,10 @@ public class HnefataflController {
         if (hnefataflModel.getBoard().isPieceSelected()) {
             boolean madeTurn = hnefataflModel.moveSelectedPieceTo(boardView.getRow(y), boardView.getColumn(x));
             hnefataflModel.updateBoard();
-            if(hnefataflModel.isGameFinished()){
+            if (hnefataflModel.isGameFinished()) {
                 boardView.update();
                 new EndDialogBox(hnefataflModel.getCurrentPlayer(), this);
-            }else if (madeTurn) {
+            } else if (madeTurn) {
                 hnefataflModel.endTurn();
             }
         } else {
@@ -85,10 +85,10 @@ public class HnefataflController {
         gamePane.getChildren().add(boardView);
         gamePane.setFocusTraversable(true);
         this.updateTimers();
-        
+
     }
 
-    public void handleLoadBtn(Event e){
+    public void handleLoadBtn(Event e) {
         hnefataflModel.updateTo(Hnefatafl.loadFromJson());
         boardView = new BoardView(hnefataflModel.getBoard());
         gamePane.getChildren().add(boardView);
@@ -96,10 +96,10 @@ public class HnefataflController {
         this.updateTimers();
     }
 
-    private void handleSaveBtn(Event e){
+    private void handleSaveBtn(Event e) {
         hnefataflModel.saveToJson();
     }
-    
+
     public void updateTimers() {
         timerWhiteLbl.setText("White playtime: " + hnefataflModel.getWhitePlayer().getPlayTime());
         timerBlackLbl.setText("Black playtime: " + hnefataflModel.getBlackPlayer().getPlayTime());

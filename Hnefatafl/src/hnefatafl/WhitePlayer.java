@@ -12,6 +12,7 @@ public class WhitePlayer extends Player {
     }
 
     //other methods
+
     /**
      * Kills the player if he is dead
      *
@@ -27,6 +28,7 @@ public class WhitePlayer extends Player {
     }
 
     //overridden methods
+
     /**
      * Method to get a formatted string
      *

@@ -12,6 +12,7 @@ public class BlackPlayer extends Player {
     }
 
     //other methods
+
     /**
      * Kills the player if he is dead
      *
@@ -28,13 +29,14 @@ public class BlackPlayer extends Player {
     }
 
     //overridden methods
+
     /**
      * Method to get a formatted string
      *
      * @return A String with type and alive data
      */
     @Override
-    public String toString(){
+    public String toString() {
         return "Type: BlackPlayer | Alive: " + super.isAlive();
     }
 }

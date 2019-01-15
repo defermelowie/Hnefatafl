@@ -19,6 +19,7 @@ abstract public class Player {
     }
 
     //getters
+
     /**
      * Getter for the color
      *
@@ -33,8 +34,8 @@ abstract public class Player {
      *
      * @return The time this player has played
      */
-    public int getPlayTime(){
-        return playTimeMillis/1000;
+    public int getPlayTime() {
+        return playTimeMillis / 1000;
     }
 
     /**
@@ -42,11 +43,12 @@ abstract public class Player {
      *
      * @return True if the player is alive, false otherwise
      */
-    public boolean isAlive(){
+    public boolean isAlive() {
         return alive;
     }
 
     //setters
+
     /**
      * Setter for playTime
      *
@@ -57,23 +59,25 @@ abstract public class Player {
     }
 
     //other methods
+
     /**
      * Adds some amount to the player's timer
      *
      * @param milSec The amount to add
      */
-    public void addToTimer(int milSec){
+    public void addToTimer(int milSec) {
         this.playTimeMillis = this.playTimeMillis + milSec;
     }
 
     /**
      * Sets alive to false
      */
-    public void kill(){
+    public void kill() {
         alive = false;
     }
 
     //abstract methods
+
     /**
      * Kills the player if he is dead
      *

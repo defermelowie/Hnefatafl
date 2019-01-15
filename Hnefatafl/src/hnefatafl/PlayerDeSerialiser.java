@@ -9,10 +9,10 @@ public class PlayerDeSerialiser implements JsonDeserializer<Player> {
         JsonObject jsonObject = json.getAsJsonObject();
         String color = jsonObject.get("color").getAsString();
         Gson gson = new Gson();
-        if (color == "WHITE"){
+        if (color == "WHITE") {
             return new WhitePlayer();
         } else {
-            return  new BlackPlayer();
+            return new BlackPlayer();
         }
     }
 }
