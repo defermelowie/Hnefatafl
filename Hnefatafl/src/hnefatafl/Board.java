@@ -242,7 +242,8 @@ public class Board {
                 if (pieceAbove != null && pieceUnder != null) {
                     captured = pieceAbove.getColor() != p.getColor() && pieceAbove.canKill() &&
                             pieceUnder.getColor() != p.getColor() && pieceUnder.canKill();
-                } else if (pieceLeft != null && pieceRight != null) {
+                }
+                if (pieceLeft != null && pieceRight != null) {
                     captured = pieceLeft.getColor() != p.getColor() && pieceLeft.canKill() &&
                             pieceRight.getColor() != p.getColor() && pieceRight.canKill();
                 }
