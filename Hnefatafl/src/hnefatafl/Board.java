@@ -10,28 +10,6 @@ import java.util.Iterator;
  * @author Stef, Mika, Lowie
  */
 public class Board {
-    private int[][] whitePawnStartCoordinates = {   //holds the start coordinates of the white pawns
-            {3, 3}, {3, 4}, {3, 5},
-            {4, 3}, {4, 5},
-            {5, 3}, {5, 4}, {5, 5}
-    };
-    private int[] whiteKingStartCoordinate = {4, 4};    //holds the start coordinate of the king
-    private int[][] blackPawnStartCoordinates = {   //holds the start coordinates of the black pawns
-            {3, 0}, {4, 0}, {5, 0}, {4, 1},
-            {0, 3}, {0, 4}, {0, 5}, {1, 4},
-            {3, 8}, {4, 8}, {5, 8}, {4, 7},
-            {8, 3}, {8, 4}, {8, 5}, {7, 4}
-    };
-    private int[][] barrierStartCoordinates = {   //holds the start coordinates of the barrier
-            {-1, 1}, {-1, 2}, {-1, 6}, {-1, 7},
-            {1, 9}, {2, 9}, {6, 9}, {7, 9},
-            {1, -1}, {2, -1}, {6, -1}, {7, -1},
-            {9, 1}, {9, 2}, {9, 6}, {9, 7}
-    };
-    private int[][] CornerCoordinates = {
-            {0, 0}, {8, 0}, {0, 8}, {8, 8}
-    };
-
     private ArrayList<Piece> pieces = new ArrayList<>();    //holds al the pieces on the board
     private Piece selectedPiece;    //the currently selected piece
 
@@ -39,18 +17,39 @@ public class Board {
      * Constructor for board class
      */
     public Board() {
-        for (int i = 0; i < whitePawnStartCoordinates.length; i++) {
-            pieces.add(new Piece(whitePawnStartCoordinates[i], Color.WHITE, Type.PAWN));
+        int[][] whitePawnStartCoordinates = {   //holds the start coordinates of the white pawns
+                {3, 3}, {3, 4}, {3, 5},
+                {4, 3}, {4, 5},
+                {5, 3}, {5, 4}, {5, 5}
+        };
+        int[] whiteKingStartCoordinate = {4, 4};    //holds the start coordinate of the king
+        int[][] blackPawnStartCoordinates = {   //holds the start coordinates of the black pawns
+                {3, 0}, {4, 0}, {5, 0}, {4, 1},
+                {0, 3}, {0, 4}, {0, 5}, {1, 4},
+                {3, 8}, {4, 8}, {5, 8}, {4, 7},
+                {8, 3}, {8, 4}, {8, 5}, {7, 4}
+        };
+        int[][] barrierStartCoordinates = {   //holds the start coordinates of the barrier
+                {-1, 1}, {-1, 2}, {-1, 6}, {-1, 7},
+                {1, 9}, {2, 9}, {6, 9}, {7, 9},
+                {1, -1}, {2, -1}, {6, -1}, {7, -1},
+                {9, 1}, {9, 2}, {9, 6}, {9, 7}
+        };
+        int[][] CornerCoordinates = {
+                {0, 0}, {8, 0}, {0, 8}, {8, 8}
+        };
+        for (int[] whitePawnStartCoordinate : whitePawnStartCoordinates) {
+            pieces.add(new Piece(whitePawnStartCoordinate, Color.WHITE, Type.PAWN));
         }
         pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING));
-        for (int i = 0; i < blackPawnStartCoordinates.length; i++) {
-            pieces.add(new Piece(blackPawnStartCoordinates[i], Color.BLACK, Type.PAWN));
+        for (int[] blackPawnStartCoordinate : blackPawnStartCoordinates) {
+            pieces.add(new Piece(blackPawnStartCoordinate, Color.BLACK, Type.PAWN));
         }
-        for (int i = 0; i < barrierStartCoordinates.length; i++) {
-            pieces.add(new Piece(barrierStartCoordinates[i], null, Type.HARDBARRIER));
+        for (int[] barrierStartCoordinate : barrierStartCoordinates) {
+            pieces.add(new Piece(barrierStartCoordinate, null, Type.HARDBARRIER));
         }
-        for (int i = 0; i < CornerCoordinates.length; i++) {
-            pieces.add(new Piece(CornerCoordinates[i], null, Type.SOFTBARRIER));
+        for (int[] cornerCoordinate : CornerCoordinates) {
+            pieces.add(new Piece(cornerCoordinate, null, Type.SOFTBARRIER));
         }
         selectedPiece = null;
     }
@@ -161,6 +160,9 @@ public class Board {
      * @return True is the white king has reached the corner
      */
     public boolean isWhiteKingOnCorner() {
+        int[][] CornerCoordinates = {
+                {0, 0}, {8, 0}, {0, 8}, {8, 8}
+        };
         for (int[] e : CornerCoordinates) {
             int row = e[0];
             int column = e[1];
