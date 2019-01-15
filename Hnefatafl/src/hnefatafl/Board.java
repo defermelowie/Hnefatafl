@@ -121,7 +121,7 @@ public class Board {
     /**
      * Method to check if there is a piece selected
      *
-     * @return true if there i a piece selected
+     * @return true if there is a piece selected
      */
     public boolean isPieceSelected() {
         return (selectedPiece != null);
