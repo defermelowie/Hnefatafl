@@ -4,26 +4,37 @@ import java.util.Iterator;
 
 public class BlackPlayer extends Player {
 
-    public BlackPlayer(Board board) {
-        super(Color.BLACK, board);
+    /**
+     * Constructor for BlackPlayer
+     */
+    public BlackPlayer() {
+        super(Color.BLACK);
     }
 
     //other methods
-    public boolean isAlive() {
-        boolean alive = true;
-        Iterator<Piece> pieces = getPieces();
-        while (pieces.hasNext()) {
-            Piece p = pieces.next();
+    /**
+     * Kills the player if he is dead
+     *
+     * @param playerPieces The pieces of this player
+     */
+    public void checkDeath(Iterator<Piece> playerPieces) {
+        while (playerPieces.hasNext()) {
+            Piece p = playerPieces.next();
             if (p.isAlive()) {
-                return true;
+                return;
             }
         }
-        return false;
+        super.kill();
     }
 
     //overridden methods
+    /**
+     * Method to get a formatted string
+     *
+     * @return A String with type and alive data
+     */
     @Override
     public String toString(){
-        return "Type: BlackPlayer | Alive: " + this.isAlive();
+        return "Type: BlackPlayer | Alive: " + super.isAlive();
     }
 }
