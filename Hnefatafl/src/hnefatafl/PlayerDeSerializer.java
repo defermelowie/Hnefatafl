@@ -3,7 +3,20 @@ package hnefatafl;
 
 import com.google.gson.*;
 
-public class PlayerDeSerialiser implements JsonDeserializer<Player> {
+/**
+ * @author Steve, Lowie, Mika
+ *
+ * The deserializer for the players
+ */
+public class PlayerDeSerializer implements JsonDeserializer<Player> {
+    /**
+     *
+     * @param json
+     * @param type
+     * @param jsonDeserializationContext
+     * @return
+     * @throws JsonParseException
+     */
     @Override
     public Player deserialize(JsonElement json, java.lang.reflect.Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
