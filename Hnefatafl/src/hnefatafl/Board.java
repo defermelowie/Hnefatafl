@@ -110,7 +110,11 @@ public class Board {
     /**
      * Method to check if there is a piece selected
      *
+<<<<<<< HEAD
      * @return True if there is a piece selected
+=======
+     * @return true if there is a piece selected
+>>>>>>> NoBoardMemberInPlayer
      */
     public boolean isPieceSelected() {
         return (selectedPiece != null);
