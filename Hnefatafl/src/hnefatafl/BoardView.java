@@ -1,6 +1,5 @@
 package hnefatafl;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import javafx.scene.layout.Region;
