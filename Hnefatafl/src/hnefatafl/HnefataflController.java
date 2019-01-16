@@ -80,7 +80,6 @@ public class HnefataflController {
         setModel(hnefataflModel);
     }
 
-<<<<<<< HEAD
     public void handleLoadBtn(Event e) {
         hnefataflModel.updateTo(Hnefatafl.loadFromJson());
         setModel(hnefataflModel);
@@ -88,14 +87,6 @@ public class HnefataflController {
 
     private void handleSaveBtn(Event e) {
         hnefataflModel.saveToJson();
-=======
-    public void handleLoadBtn(Event e){
-       // hnefataflModel.loadFromJson();
-    }
-
-    private void handleSaveBtn(Event e){
-       // hnefataflModel.saveToJson();
->>>>>>> NoBoardMemberInPlayer
     }
 
     public void updateTimers() {
