@@ -2,6 +2,12 @@ package hnefatafl;
 
 import java.util.Iterator;
 
+
+/**
+ * Class for the white player
+ *
+ * @author Stef, Mika, Lowie
+ */
 public class WhitePlayer extends Player {
 
     /**
@@ -14,7 +20,7 @@ public class WhitePlayer extends Player {
     //other methods
 
     /**
-     * Kills the player if he is dead
+     * Kills the white player if his king is death
      *
      * @param playerPieces The pieces of this player
      */
@@ -30,7 +36,7 @@ public class WhitePlayer extends Player {
     //overridden methods
 
     /**
-     * Method to get a formatted string
+     * Gets a formatted string
      *
      * @return A String with type and alive data
      */
