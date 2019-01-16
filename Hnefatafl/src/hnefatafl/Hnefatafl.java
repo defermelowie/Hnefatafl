@@ -179,9 +179,8 @@ public class Hnefatafl {
     }
 
     /**
-     * method to change the current player after a turn
+     * Changes the current player after a turn
      *
-     * @return blackplayer is current player if a white player has moved a piece, else it's still the white player's turn
      */
     public void endTurn() {
         if (currentPlayer instanceof WhitePlayer) {
@@ -192,9 +191,9 @@ public class Hnefatafl {
     }
 
     /**
-     * method to check if the game is finished
+     * Checks if the game is finished
      *
-     * @return true if one of the players is death or the white king is on a corner, false if both players are alive or the king isn't on a corner
+     * @return true if the game is finished, false otherwise 
      */
     public boolean isGameFinished() {
         blackPlayer.checkDeath(board.getPiecesByColor(Color.BLACK));
