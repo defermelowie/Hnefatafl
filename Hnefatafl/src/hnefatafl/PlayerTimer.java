@@ -8,17 +8,26 @@ package hnefatafl;
 import javafx.application.Platform;
 
 /**
- * @author Stef
+ * @author Stef, Lowie, Mika
  */
 public class PlayerTimer implements Runnable {
     private Hnefatafl model;
     private HnefataflController controller;
 
+    /**
+     * Creates a new timer
+     *
+     * @param model      The model that this timer should change
+     * @param controller The controller that this timer should use to change the view
+     */
     public PlayerTimer(Hnefatafl model, HnefataflController controller) {
         this.model = model;
         this.controller = controller;
     }
 
+    /**
+     * Implementation of the run method of the interface Runnable
+     */
     @Override
     public void run() {
         while (true) {
