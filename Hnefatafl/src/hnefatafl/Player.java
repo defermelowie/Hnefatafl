@@ -26,16 +26,16 @@ abstract public class Player {
     //getters
 
     /**
-     * Getter for the color of the player
+     * Gets the color of this player
      *
-     * @return the color of the player
+     * @return the color of this player
      */
     public Color getColor() {
         return color;
     }
 
     /**
-     * Getter for the time the game has lasted
+     * Gets the time the game has lasted
      *
      * @return the time the game has lasted in seconds
      */
@@ -45,9 +45,9 @@ abstract public class Player {
 
 
     /**
-     * Getter to check if the player is alive
+     * Checks if this player is alive
      *
-     * @return true if the player is alive, false if the player is death
+     * @return true if this player is alive, false if this player is death
      */
     public boolean isAlive(){
         return alive;
@@ -55,7 +55,7 @@ abstract public class Player {
 
     //setters
     /**
-     * setter to set the maximum playtime of the game
+     * Sets the maximum playtime of the game
      *
      * @param playTime maximumtime in miliseconden you want the game to last
      */
@@ -67,7 +67,7 @@ abstract public class Player {
     //other methods
 
     /**
-     * method to add time to the timer
+     * Adds time to the timer
      *
      * @param milSec the time in miliseconds you want to add to the timer
      */
@@ -76,7 +76,7 @@ abstract public class Player {
     }
 
     /**
-     * Sets alive to false
+     * Kills this player
      */
     public void kill() {
         alive = false;
@@ -85,14 +85,14 @@ abstract public class Player {
     //abstract methods
 
     /**
-     * Kills the player if he is dead
+     * Checks if this player is death
      *
      * @param playerPieces The pieces of this player
      */
     abstract public void checkDeath(Iterator<Piece> playerPieces);
 
     /**
-     * Method to get a formatted string
+     * Gets a formatted string
      *
      * @return A String with type and alive data
      */
