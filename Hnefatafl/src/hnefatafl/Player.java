@@ -39,8 +39,8 @@ abstract public class Player {
      *
      * @return the time the game has lasted in seconds
      */
-    public int getPlayTime(){
-        return playTimeMillis/1000;
+    public int getPlayTime() {
+        return playTimeMillis / 1000;
     }
 
 
@@ -49,11 +49,12 @@ abstract public class Player {
      *
      * @return true if this player is alive, false if this player is death
      */
-    public boolean isAlive(){
+    public boolean isAlive() {
         return alive;
     }
 
     //setters
+
     /**
      * Sets the maximum playtime of the game
      *
@@ -71,7 +72,7 @@ abstract public class Player {
      *
      * @param milSec the time in miliseconds you want to add to the timer
      */
-    public void addToTimer(int milSec){
+    public void addToTimer(int milSec) {
         this.playTimeMillis = this.playTimeMillis + milSec;
     }
 

@@ -4,9 +4,9 @@ package hnefatafl;
 import com.google.gson.*;
 
 /**
- * @author Steve, Lowie, Mika
- * 
  * The deserializer for the players
+ *
+ * @author Steve, Lowie, Mika
  */
 public class PlayerDeSerializer implements JsonDeserializer<Player> {
     /**

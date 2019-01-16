@@ -4,13 +4,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hnefatafl.HnefataflController">
-   <children>
-      <AnchorPane fx:id="gamePane" layoutY="140.0" prefHeight="630.0" prefWidth="630.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-      <Button fx:id="restartBtn" layoutX="397.0" layoutY="35.0" mnemonicParsing="false" text="Restart" AnchorPane.leftAnchor="397.0" AnchorPane.topAnchor="35.0" />
-      <Label fx:id="timerWhiteLbl" layoutX="54.0" layoutY="67.0" text="white time:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="40.0" />
-      <Label fx:id="timerBlackLbl" layoutX="205.0" layoutY="40.0" text="black time:" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="40.0" />
-      <Button fx:id="loadBtn" layoutX="578.0" layoutY="35.0" mnemonicParsing="false" text="Load game" AnchorPane.leftAnchor="556.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="35.0" />
-      <Button fx:id="saveBtn" layoutX="464.0" layoutY="35.0" mnemonicParsing="false" text="Save game" AnchorPane.leftAnchor="464.0" AnchorPane.topAnchor="35.0" />
-   </children>
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hnefatafl.HnefataflController">
+    <children>
+        <AnchorPane fx:id="gamePane" layoutY="140.0" prefHeight="630.0" prefWidth="630.0" AnchorPane.bottomAnchor="20.0"
+                    AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"/>
+        <Button fx:id="restartBtn" layoutX="397.0" layoutY="35.0" mnemonicParsing="false" text="Restart"
+                AnchorPane.leftAnchor="397.0" AnchorPane.topAnchor="35.0"/>
+        <Label fx:id="timerWhiteLbl" layoutX="54.0" layoutY="67.0" text="white time:" AnchorPane.leftAnchor="20.0"
+               AnchorPane.topAnchor="40.0"/>
+        <Label fx:id="timerBlackLbl" layoutX="205.0" layoutY="40.0" text="black time:" AnchorPane.leftAnchor="200.0"
+               AnchorPane.topAnchor="40.0"/>
+        <Button fx:id="loadBtn" layoutX="578.0" layoutY="35.0" mnemonicParsing="false" text="Load game"
+                AnchorPane.leftAnchor="556.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="35.0"/>
+        <Button fx:id="saveBtn" layoutX="464.0" layoutY="35.0" mnemonicParsing="false" text="Save game"
+                AnchorPane.leftAnchor="464.0" AnchorPane.topAnchor="35.0"/>
+    </children>
 </AnchorPane>

@@ -6,7 +6,8 @@
 package hnefatafl;
 
 /**
- * Enum Type defines which type of Pieces there are 
+ * Enum Type defines which type of Pieces there are
+ *
  * @author Mika, Lowie, Stef
  */
 public enum Type {

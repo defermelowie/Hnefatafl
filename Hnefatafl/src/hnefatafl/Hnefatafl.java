@@ -28,9 +28,8 @@ public class Hnefatafl {
         this.startup();
     }
 
-      /**
+    /**
      * Starts up the game
-     *
      */
     public void startup() {
         this.board = new Board();
@@ -40,11 +39,12 @@ public class Hnefatafl {
     }
 
 
-      /**
+    /**
      * Updates the game to a new model
-     *@param newHnefatafl new hnefatafl game
+     *
+     * @param newHnefatafl new hnefatafl game
      */
-    public void updateTo(Hnefatafl newHnefatafl){
+    public void updateTo(Hnefatafl newHnefatafl) {
         this.board = newHnefatafl.getBoard();
         this.whitePlayer = newHnefatafl.getWhitePlayer();
         this.blackPlayer = newHnefatafl.getBlackPlayer();
@@ -52,10 +52,10 @@ public class Hnefatafl {
     }
 
     //Json methods
-    
- /**
- *Loads the Json file into the model 
- */
+
+    /**
+     * Loads the Json file into the model
+     */
     public static Hnefatafl loadFromJson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Player.class, new PlayerDeSerializer());
@@ -68,10 +68,10 @@ public class Hnefatafl {
             return new Hnefatafl();
         }
     }
-/**
- *Saves the model to ModelSave.json.txt in Json format
- * 
- */
+
+    /**
+     * Saves the model to ModelSave.json.txt in Json format
+     */
     public void saveToJson() {
         Gson gsonner = new GsonBuilder().setPrettyPrinting().create();
         String json = gsonner.toJson(this);
@@ -86,7 +86,7 @@ public class Hnefatafl {
 
     //getters
 
-     /**
+    /**
      * Gets the board where's currently played on
      *
      * @return The board
@@ -95,7 +95,7 @@ public class Hnefatafl {
         return board;
     }
 
-     /**
+    /**
      * Gets the current player
      *
      * @return The current player
@@ -105,7 +105,7 @@ public class Hnefatafl {
         return currentPlayer;
     }
 
-     /**
+    /**
      * Gets the white player
      *
      * @return The white player
@@ -114,7 +114,7 @@ public class Hnefatafl {
         return whitePlayer;
     }
 
-     /**
+    /**
      * Gets the black player
      *
      * @return The black player
@@ -126,12 +126,12 @@ public class Hnefatafl {
 
     //other methods
 
-     /**
+    /**
      * selects a certain piece
      *
      * @param row    Row-coordinate of piece
      * @param column Column-coordinate of piece
-     * @return true if the piece is succesfully selected, false otherwise 
+     * @return true if the piece is succesfully selected, false otherwise
      */
     public boolean selectPieceOn(int row, int column) {
         if (board.getPieceOn(row, column) != null && board.getPieceOn(row, column).getColor() == currentPlayer.getColor()) {
@@ -141,7 +141,7 @@ public class Hnefatafl {
         }
     }
 
-     /**
+    /**
      * Moves a selected piece to a new row and column
      *
      * @param row    Row-coordinate of piece
@@ -152,15 +152,14 @@ public class Hnefatafl {
         return board.moveSelectedPieceTo(row, column);
     }
 
-     /**
+    /**
      * Kills a captured piece
-     *
      */
     public void killCapturedPieces() {
         board.killCapturedPieces(currentPlayer.getColor());
     }
 
-     /**
+    /**
      * Sets for the hardbarriers around the board
      *
      * @return The barriers are placed
@@ -171,7 +170,6 @@ public class Hnefatafl {
 
     /**
      * Updates the board
-     *
      */
     public void updateBoard() {
         killCapturedPieces();
@@ -180,7 +178,6 @@ public class Hnefatafl {
 
     /**
      * Changes the current player after a turn
-     *
      */
     public void endTurn() {
         if (currentPlayer instanceof WhitePlayer) {
@@ -193,7 +190,7 @@ public class Hnefatafl {
     /**
      * Checks if the game is finished
      *
-     * @return true if the game is finished, false otherwise 
+     * @return true if the game is finished, false otherwise
      */
     public boolean isGameFinished() {
         blackPlayer.checkDeath(board.getPiecesByColor(Color.BLACK));

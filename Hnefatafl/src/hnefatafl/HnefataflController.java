@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.event.Event;
+
 /**
  * Controller class for the game
  *
@@ -32,7 +33,6 @@ public class HnefataflController {
      * Connects the events to the functions that handle it
      */
     @FXML
-            
     void initialize() {
         assert gamePane != null : "fx:id=\"gamePane\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
         assert restartBtn != null : "fx:id=\"restartBtn\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";

@@ -2,6 +2,7 @@ package hnefatafl;
 
 /**
  * Class for a piece which is used in the game
+ *
  * @author mika, stef, lowie
  */
 public class Piece {
@@ -17,7 +18,7 @@ public class Piece {
      * @param row    Row on the board for the new piece
      * @param column Column on the board for the new piece
      * @param color  true if White, false if Black
-     * @param type type of piece
+     * @param type   type of piece
      */
     public Piece(int row, int column, Color color, Type type) {
         this.row = row;
@@ -33,7 +34,7 @@ public class Piece {
      *
      * @param coordinates Array with {row, column}
      * @param color       true if White, false if Black
-     * @param type        type of piece 
+     * @param type        type of piece
      */
     public Piece(int[] coordinates, Color color, Type type) {
         this.row = coordinates[0];
@@ -44,8 +45,8 @@ public class Piece {
     }
 
     //getters
-    
-   /**
+
+    /**
      * Checks if this piece is alive
      *
      * @return true if this piece is alive, false otherwise
@@ -53,12 +54,12 @@ public class Piece {
     public Boolean isAlive() {
         return alive;
     }
-    
-    
+
+
     /**
      * Gets the row of this piece
      *
-     * @return the row of this piece 
+     * @return the row of this piece
      */
     public int getRow() {
         return row;
@@ -67,7 +68,7 @@ public class Piece {
     /**
      * Gets the column of this piece
      *
-     * @return the column of this piece 
+     * @return the column of this piece
      */
     public int getColumn() {
         return column;
@@ -76,7 +77,7 @@ public class Piece {
     /**
      * Gets the color of this piece
      *
-     * @return the color of this piece 
+     * @return the color of this piece
      */
     public Color getColor() {
         return this.color;
@@ -91,7 +92,7 @@ public class Piece {
         int[] c = {this.row, this.column};
         return c;
     }
- 
+
     /**
      * Gets the type of this piece
      *
@@ -102,11 +103,12 @@ public class Piece {
     }
 
     //setters
+
     /**
      * Sets the coordinates of this piece
-     * 
-     *@param row  Row-coordinate of this piece
-     *@param column  Column-coordinate of this piece
+     *
+     * @param row    Row-coordinate of this piece
+     * @param column Column-coordinate of this piece
      */
     private void setCoordinates(int row, int column) {
         this.row = row;
@@ -115,22 +117,20 @@ public class Piece {
 
     /**
      * Setter to change player in dead or alive
-     * 
-     *@param alive  true is player is alive, false if player isn't alive
      *
+     * @param alive true is player is alive, false if player isn't alive
      */
     public void setAliveTo(Boolean alive) {
         this.alive = alive;
     }
 
     //other methods
-    
+
     /**
      * Moves this piece
-     * 
-     *@param row  Row-coordinate of new place
-     *@param column  Column-coordinate of new place
-     * 
+     *
+     * @param row    Row-coordinate of new place
+     * @param column Column-coordinate of new place
      * @return true if this piece is moved, false if this piece isn't moved
      */
     public boolean moveTo(int row, int column) {
@@ -144,7 +144,6 @@ public class Piece {
 
     /**
      * kills this piece
-     * 
      */
     public void kill() {
         this.alive = false;
@@ -154,8 +153,8 @@ public class Piece {
 
     /**
      * Check if this piece can kill other pieces
-     * 
-     *@return false if this piece is a softbarrier, else true
+     *
+     * @return false if this piece is a softbarrier, else true
      */
     public boolean canKill() {
         if (this.type == Type.SOFTBARRIER) {
@@ -164,6 +163,7 @@ public class Piece {
             return true;
         }
     }
+
     /**
      * Overrides standard string method and makes a formatted string of this object
      */
