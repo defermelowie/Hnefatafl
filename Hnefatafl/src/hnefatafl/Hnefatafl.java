@@ -29,7 +29,7 @@ public class Hnefatafl {
     }
 
       /**
-     * method to start up the game
+     * Starts up the game
      *
      */
     public void startup() {
@@ -41,9 +41,8 @@ public class Hnefatafl {
 
 
       /**
-     * method to update the game
-     *
-     * @return game is updated
+     * Updates the game to a new model
+     *@param newHnefatafl new hnefatafl game
      */
     public void updateTo(Hnefatafl newHnefatafl){
         this.board = newHnefatafl.getBoard();
@@ -53,6 +52,10 @@ public class Hnefatafl {
     }
 
     //Json methods
+    
+ /**
+ *Loads the Json file into the model 
+ */
     public static Hnefatafl loadFromJson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Player.class, new PlayerDeSerialiser());
@@ -65,7 +68,10 @@ public class Hnefatafl {
             return new Hnefatafl();
         }
     }
-
+/**
+ *Saves the model to ModelSave.json.txt in Json format
+ * 
+ */
     public void saveToJson() {
         Gson gsonner = new GsonBuilder().setPrettyPrinting().create();
         String json = gsonner.toJson(this);
@@ -80,14 +86,8 @@ public class Hnefatafl {
 
     //getters
 
-    /**
-     * Getter for the board that belongs to this game
-     *
-     * @return timer is showed
-     */
-
      /**
-     * Getter for the board that belongs to this game
+     * Gets the board where's currently played on
      *
      * @return The board
      */
@@ -96,7 +96,7 @@ public class Hnefatafl {
     }
 
      /**
-     * Getter for the current player
+     * Gets the current player
      *
      * @return The current player
      */
@@ -106,7 +106,7 @@ public class Hnefatafl {
     }
 
      /**
-     * Getter for the white player
+     * Gets the white player
      *
      * @return The white player
      */
@@ -115,7 +115,7 @@ public class Hnefatafl {
     }
 
      /**
-     * Getter for the black player
+     * Gets the black player
      *
      * @return The black player
      */
@@ -127,11 +127,11 @@ public class Hnefatafl {
     //other methods
 
      /**
-     * method to select a certain piece
+     * selects a certain piece
      *
      * @param row    Row-coordinate of piece
      * @param column Column-coordinate of piece
-     * @return The piece with the coordinates specified by the parameters, returns false if it's a piece from the other player or if ther's no piece on the selected place
+     * @return true if the piece is succesfully selected, false otherwise 
      */
     public boolean selectPieceOn(int row, int column) {
         if (board.getPieceOn(row, column) != null && board.getPieceOn(row, column).getColor() == currentPlayer.getColor()) {
@@ -142,7 +142,7 @@ public class Hnefatafl {
     }
 
      /**
-     * method to move a selected piece to a new row and column
+     * Moves a selected piece to a new row and column
      *
      * @param row    Row-coordinate of piece
      * @param column Column-coordinate of piece
@@ -153,16 +153,15 @@ public class Hnefatafl {
     }
 
      /**
-     * method to kill a capture piece
+     * Kills a captured piece
      *
-     * @return The piece is killed
      */
     public void killCapturedPieces() {
         board.killCapturedPieces(currentPlayer.getColor());
     }
 
      /**
-     * Setter for the barriers around the board
+     * Sets for the hardbarriers around the board
      *
      * @return The barriers are placed
      */
@@ -171,7 +170,7 @@ public class Hnefatafl {
     }
 
     /**
-     * method to update the board (check if any pieces are killed and place barrier where needed)
+     * Updates the board
      *
      */
     public void updateBoard() {

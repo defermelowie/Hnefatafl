@@ -17,7 +17,7 @@ public class BlackPlayer extends Player {
 
     //other methods
      /**
-     * Method to check if player is death
+     * checks if player is death
      *
      * @param playerPieces
      */
@@ -34,7 +34,7 @@ public class BlackPlayer extends Player {
     //overridden methods
 
     /**
-     * Method to get a formatted string
+     * gets a formatted string
      *
      * @return A String with type and alive data
      */
