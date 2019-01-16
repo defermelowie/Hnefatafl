@@ -24,8 +24,7 @@ public class PieceView extends Region {
     
     
     /**
-     * update function for the view of the piece
-     * 
+     * updates the view of the piece
      * 
      */
     public void update() {
