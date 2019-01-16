@@ -56,7 +56,7 @@ public class Board {
     //getters
 
     /**
-     * Getter for all the pieces on the board
+     * Gets all the pieces on the board
      *
      * @return All the pieces on the board
      */
@@ -97,7 +97,7 @@ public class Board {
     }
 
     /**
-     * Getter for the selected piece
+     * Gets the selected piece
      *
      * @return The selected piece
      */
@@ -108,7 +108,7 @@ public class Board {
     //other methods
 
     /**
-     * Method to check if there is a piece selected
+     * Checks if there is a piece selected
      *
      * @return true if there is a piece selected
      */
@@ -117,7 +117,7 @@ public class Board {
     }
 
     /**
-     * Method to select a piece
+     * Selects a piece based on its coordinates
      *
      * @param row    The row of the piece to select
      * @param column The column of the piece to select
@@ -134,7 +134,7 @@ public class Board {
 
 
     /**
-     * Method to move the selected piece to another field
+     * Moves the selected piece to another field
      *
      * @param row    Row to move the piece to
      * @param column Column to move the piece to
@@ -154,8 +154,7 @@ public class Board {
     }
 
     /**
-     * Method to check if the king is on one of the corners
-     *
+     * Checks if the king is on one of the corners
      *
      * @return true if king is on one of the corners, false otherwise
      */
@@ -193,13 +192,13 @@ public class Board {
     }
 
     /**
-     * Checks if the path between two fields is obstructed by a piece(s)
+     * Checks if the path between two tiles is obstructed by a piece(s)
      *
      * @param startRow    Row-coordinate of the start field
      * @param startColumn Column-coordinate of the start field
      * @param endRow      Row-coordinate of the end field
      * @param endColumn   Column-coordinate of the end field
-     * @return true if not obstructed (false if there is a piece in the path)
+     * @return true if not obstructed (false if there is a piece on the path)
      */
     private boolean isPathEmpty(int startRow, int startColumn, int endRow, int endColumn) {
         for (int i = Math.min(startRow, endRow) + 1; i <= Math.max(startRow, endRow) - 1; i++) {
