@@ -154,9 +154,10 @@ public class Board {
     }
 
     /**
-     * Checks if the white king has reached the corner
+     * Method to check if the king is on one of the corners
      *
-     * @return True is the white king has reached the corner
+     *
+     * @return true if king is on one of the corners, false otherwise
      */
     public boolean isWhiteKingOnCorner() {
         int[][] CornerCoordinates = {
@@ -170,7 +171,6 @@ public class Board {
                     return true;
                 }
             }
-
         }
         return false;
     }
