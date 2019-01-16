@@ -39,7 +39,7 @@ abstract public class Player {
      *
      * @return the time the game has lasted in seconds
      */
-    public int getPlaytime(){
+    public int getPlayTime(){
         return playTimeMillis/1000;
     }
 
