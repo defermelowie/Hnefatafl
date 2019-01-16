@@ -5,7 +5,7 @@ import com.google.gson.*;
 
 /**
  * @author Steve, Lowie, Mika
- * <p>
+ * 
  * The deserializer for the players
  */
 public class PlayerDeSerializer implements JsonDeserializer<Player> {
