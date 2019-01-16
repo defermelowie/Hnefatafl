@@ -1,3 +1,8 @@
+/* Verdeling tijd taak java:
+    Mika Zimmermann --> 35%
+    Lowie Deferme --> 45%
+    Stef Loos --> 20%
+ */
 package hnefatafl;
 
 import javafx.application.Application;
@@ -7,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * @author Stef, Mika, Lowie
+ * @author Stef Loos, Mika Zimmermann, Lowie Deferme
  */
 public class HnefataflMain extends Application {
     /**
