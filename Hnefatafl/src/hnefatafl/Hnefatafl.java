@@ -21,7 +21,6 @@ public class Hnefatafl {
     private BlackPlayer blackPlayer;
     private Player currentPlayer;
 
-
     /**
      * Constructor for Hnefatafl (game)
      */
@@ -29,6 +28,10 @@ public class Hnefatafl {
         this.startup();
     }
 
+      /**
+     * method to start up the game
+     *
+     */
     public void startup() {
         this.board = new Board();
         this.whitePlayer = new WhitePlayer();
@@ -36,7 +39,13 @@ public class Hnefatafl {
         this.currentPlayer = whitePlayer;
     }
 
-    public void updateTo(Hnefatafl newHnefatafl) {
+
+      /**
+     * method to update the game
+     *
+     * @return game is updated
+     */
+    public void updateTo(Hnefatafl newHnefatafl){
         this.board = newHnefatafl.getBoard();
         this.whitePlayer = newHnefatafl.getWhitePlayer();
         this.blackPlayer = newHnefatafl.getBlackPlayer();
@@ -74,26 +83,56 @@ public class Hnefatafl {
     /**
      * Getter for the board that belongs to this game
      *
-     * @return The board
+     * @return timer is showed
      */
 
+     /**
+     * Getter for the board that belongs to this game
+     *
+     * @return The board
+     */
     public Board getBoard() {
         return board;
     }
+
+     /**
+     * Getter for the current player
+     *
+     * @return The current player
+     */
 
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
+     /**
+     * Getter for the white player
+     *
+     * @return The white player
+     */
     public WhitePlayer getWhitePlayer() {
         return whitePlayer;
     }
+
+     /**
+     * Getter for the black player
+     *
+     * @return The black player
+     */
 
     public BlackPlayer getBlackPlayer() {
         return blackPlayer;
     }
 
     //other methods
+
+     /**
+     * method to select a certain piece
+     *
+     * @param row    Row-coordinate of piece
+     * @param column Column-coordinate of piece
+     * @return The piece with the coordinates specified by the parameters, returns false if it's a piece from the other player or if ther's no piece on the selected place
+     */
     public boolean selectPieceOn(int row, int column) {
         if (board.getPieceOn(row, column) != null && board.getPieceOn(row, column).getColor() == currentPlayer.getColor()) {
             return board.selectPieceOn(row, column);
@@ -102,23 +141,49 @@ public class Hnefatafl {
         }
     }
 
+     /**
+     * method to move a selected piece to a new row and column
+     *
+     * @param row    Row-coordinate of piece
+     * @param column Column-coordinate of piece
+     * @return The piece moves to the new row and column
+     */
     public boolean moveSelectedPieceTo(int row, int column) {
         return board.moveSelectedPieceTo(row, column);
     }
 
+     /**
+     * method to kill a capture piece
+     *
+     * @return The piece is killed
+     */
     public void killCapturedPieces() {
         board.killCapturedPieces(currentPlayer.getColor());
     }
 
+     /**
+     * Setter for the barriers around the board
+     *
+     * @return The barriers are placed
+     */
     private void setBarriers() {
         board.setBarriers();
     }
 
+    /**
+     * method to update the board (check if any pieces are killed and place barrier where needed)
+     *
+     */
     public void updateBoard() {
         killCapturedPieces();
         setBarriers();
     }
 
+    /**
+     * method to change the current player after a turn
+     *
+     * @return blackplayer is current player if a white player has moved a piece, else it's still the white player's turn
+     */
     public void endTurn() {
         if (currentPlayer instanceof WhitePlayer) {
             currentPlayer = blackPlayer;
@@ -127,6 +192,11 @@ public class Hnefatafl {
         }
     }
 
+    /**
+     * method to check if the game is finished
+     *
+     * @return true if one of the players is death or the white king is on a corner, false if both players are alive or the king isn't on a corner
+     */
     public boolean isGameFinished() {
         blackPlayer.checkDeath(board.getPiecesByColor(Color.BLACK));
         whitePlayer.checkDeath(board.getPiecesByColor(Color.WHITE));

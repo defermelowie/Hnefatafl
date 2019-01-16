@@ -2,6 +2,11 @@ package hnefatafl;
 
 import java.util.Iterator;
 
+/**
+ * abstract class for a player who's playing the game
+ *
+ * @author Stef, Mika, Lowie
+ */
 abstract public class Player {
     private Color color;
     private int playTimeMillis;
@@ -21,34 +26,39 @@ abstract public class Player {
     //getters
 
     /**
-     * Getter for the color
+     * Getter for the color of the player
      *
-     * @return
+     * @return the color of the player
      */
     public Color getColor() {
         return color;
     }
 
     /**
-     * Getter for playTime
+     * Getter for the time the game has lasted
      *
-     * @return The time this player has played
+     * @return the time the game has lasted in seconds
      */
-    public int getPlayTime() {
-        return playTimeMillis / 1000;
+    public int getPlaytime(){
+        return playTimeMillis/1000;
     }
 
+
     /**
-     * Getter for alive
+     * Getter to check if the player is alive
      *
-     * @return True if the player is alive, false otherwise
+     * @return true if the player is alive, false if the player is death
      */
-    public boolean isAlive() {
+    public boolean isAlive(){
         return alive;
     }
 
     //setters
-
+    /**
+     * setter to set the maximum playtime of the game
+     *
+     * @param playTime maximumtime in miliseconden you want the game to last
+     */
     public void setPlayTime(int playTime) {
         this.playTimeMillis = playTime;
     }
@@ -57,11 +67,11 @@ abstract public class Player {
     //other methods
 
     /**
-     * Adds some amount to the player's timer
+     * method to add time to the timer
      *
-     * @param milSec The amount to add
+     * @param milSec the time in miliseconds you want to add to the timer
      */
-    public void addToTimer(int milSec) {
+    public void addToTimer(int milSec){
         this.playTimeMillis = this.playTimeMillis + milSec;
     }
 

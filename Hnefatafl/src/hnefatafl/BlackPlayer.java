@@ -1,7 +1,11 @@
 package hnefatafl;
 
 import java.util.Iterator;
-
+/**
+ * Class for the black player
+ *
+ * @author Stef, Mika, Lowie
+ */
 public class BlackPlayer extends Player {
 
     /**
@@ -12,11 +16,10 @@ public class BlackPlayer extends Player {
     }
 
     //other methods
-
-    /**
-     * Kills the player if he is dead
+     /**
+     * Method to check if player is death
      *
-     * @param playerPieces The pieces of this player
+     * @param playerPieces
      */
     public void checkDeath(Iterator<Piece> playerPieces) {
         while (playerPieces.hasNext()) {
@@ -36,7 +39,13 @@ public class BlackPlayer extends Player {
      * @return A String with type and alive data
      */
     @Override
-    public String toString() {
+
+     /**
+     * Method that print's out if the black player is still alive or not
+     *
+     *@return Type: BlackPlayer | Alive: true if the player is alive, else false
+     */
+    public String toString(){
         return "Type: BlackPlayer | Alive: " + super.isAlive();
     }
 }
