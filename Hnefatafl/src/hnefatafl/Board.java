@@ -164,6 +164,12 @@ public class Board {
         return success;
     }
 
+    /**
+     * Method to check if the king is on one of the corners
+     *
+     * 
+     * @return true if king is on one of the corners, else false
+     */
     public boolean isWhiteKingOnCorner() {
         for (int[] e : CornerCoordinates) {
             int row = e[0];
@@ -175,7 +181,12 @@ public class Board {
         return false;
     }
 
-
+/**
+     * Getter for the king
+     *
+     * 
+     * @return the king, else return null
+     */
     public Piece getKing() {
         for (Piece p : pieces) {
             if (p.getType() == Type.KING) {
