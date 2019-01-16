@@ -6,8 +6,8 @@
 package hnefatafl;
 
 /**
- *
- * @author mikaz
+ * Enum Type defines which type of Pieces there are 
+ * @author Mika, Lowie, Stef
  */
 public enum Type {
     KING, PAWN, HARDBARRIER, SOFTBARRIER
