@@ -10,8 +10,9 @@ import com.google.gson.*;
  */
 public class PlayerDeSerializer implements JsonDeserializer<Player> {
     /**
+     * Deserializes a json element representing a player class
      *
-     * @param json
+     * @param json The JsonElement to deserialize
      * @param type
      * @param jsonDeserializationContext
      * @return

@@ -4,15 +4,30 @@ import javafx.scene.layout.Region;
 import javafx.scene.image.ImageView;
 import java.awt.Image;
 
+/**
+ * Class for a view of a piece which is used in the game
+ *
+ * @author Stef, Mika, Lowie
+ */
 public class PieceView extends Region {
     private Piece pieceModel;
     private ImageView pieceImageView;
 
+    
+     /**
+     * Constructor for PieceView
+     */
     public PieceView(Piece piece) {
         this.pieceModel = piece;
         this.update();
     }
-
+    
+    
+    /**
+     * update function for the view of the piece
+     * 
+     * 
+     */
     public void update() {
         if (pieceModel.isAlive()) {
             if (pieceModel.getType() == Type.KING) {
