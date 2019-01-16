@@ -58,7 +58,7 @@ public class Hnefatafl {
  */
     public static Hnefatafl loadFromJson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Player.class, new PlayerDeSerialiser());
+        gsonBuilder.registerTypeAdapter(Player.class, new PlayerDeSerializer());
         Gson gson = gsonBuilder.create();
         try {
             Hnefatafl loadedModel = gson.fromJson(new FileReader("ModelSave.json.txt"), Hnefatafl.class);

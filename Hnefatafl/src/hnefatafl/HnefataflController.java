@@ -24,6 +24,9 @@ public class HnefataflController {
     @FXML
     private Button saveBtn;
 
+    /**
+     * Connects the events to the functions that handle it
+     */
     @FXML
     void initialize() {
         assert gamePane != null : "fx:id=\"gamePane\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
