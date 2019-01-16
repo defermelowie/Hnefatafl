@@ -10,11 +10,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
 /**
- *
- * @author mikaz
+ *Class for the dialog box at the end of the game
+ * @author Mika, Lowie, Stef
  */
 public class EndDialogBox {
-
+/**
+ *Constructor for the end dialog box
+ * @param winner plaer that has won the game
+ * @param c controller to control the view
+ */
     public EndDialogBox(Player winner, HnefataflController c) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("The game has ended!");
