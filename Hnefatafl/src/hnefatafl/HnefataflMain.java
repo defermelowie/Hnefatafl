@@ -10,7 +10,9 @@ import javafx.stage.Stage;
  * @author Stef, Mika, Lowie
  */
 public class HnefataflMain extends Application {
-    
+    /**
+     * Starts the application
+     */
     @Override
     public void start(Stage stage) throws Exception {
         //Model
@@ -42,7 +44,7 @@ public class HnefataflMain extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        
+
     }
-    
+
 }
