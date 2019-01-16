@@ -41,12 +41,6 @@ public class BlackPlayer extends Player {
      * @return A String with type and alive data
      */
     @Override
-
-    /**
-     * Method that print's out if the black player is still alive or not
-     *
-     *@return Type: BlackPlayer | Alive: true if the player is alive, else false
-     */
     public String toString() {
         return "Type: BlackPlayer | Alive: " + super.isAlive();
     }
