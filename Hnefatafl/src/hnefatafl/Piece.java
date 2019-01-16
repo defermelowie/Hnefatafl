@@ -46,9 +46,9 @@ public class Piece {
     //getters
     
    /**
-     * Getter to check if player is alive
+     * Checks if this piece is alive
      *
-     * @return true if player is alive, false if player isn't alive
+     * @return true if this piece is alive, false otherwise
      */
     public Boolean isAlive() {
         return alive;
@@ -56,46 +56,46 @@ public class Piece {
     
     
     /**
-     * Getter for the row of a selected piece
+     * Gets the row of this piece
      *
-     * @return the row of the selected piece 
+     * @return the row of this piece 
      */
     public int getRow() {
         return row;
     }
 
     /**
-     * Getter for the column of a selected piece
+     * Gets the column of this piece
      *
-     * @return the column of the selected piece 
+     * @return the column of this piece 
      */
     public int getColumn() {
         return column;
     }
 
     /**
-     * Getter for the color of a selected piece
+     * Gets the color of this piece
      *
-     * @return the color of the selected piece 
+     * @return the color of this piece 
      */
     public Color getColor() {
         return this.color;
     }
 
     /**
-     * Getter for the coordinates of a selected piece
+     * Gets the coordinates of this piece
      *
-     * @return an array with the row and the column of the selected piece
+     * @return an array with the row and the column of a selected piece
      */
     public int[] getCoordinates() {
         int[] c = {this.row, this.column};
         return c;
     }
-
+ 
     /**
-     * Getter for the type of a selected piece
+     * Gets the type of this piece
      *
-     * @return king if the selected piece is a king, pawn if the selected piece is a pawn
+     * @return king if this piece is a king, pawn if this piece is a pawn
      */
     public Type getType() {
         return type;
@@ -103,10 +103,10 @@ public class Piece {
 
     //setters
     /**
-     * Setter for the coordinates of a piece
+     * Sets the coordinates of this piece
      * 
-     *@param row  Row-coordinate of piece
-     *@param column  Column-coordinate of piece
+     *@param row  Row-coordinate of this piece
+     *@param column  Column-coordinate of this piece
      */
     private void setCoordinates(int row, int column) {
         this.row = row;
@@ -126,12 +126,12 @@ public class Piece {
     //other methods
     
     /**
-     * Method to move a selected piece
+     * Moves this piece
      * 
      *@param row  Row-coordinate of new place
      *@param column  Column-coordinate of new place
      * 
-     * @return true if piece is moved, false if piece isn't moved
+     * @return true if this piece is moved, false if this piece isn't moved
      */
     public boolean moveTo(int row, int column) {
         if (this.row == row || this.column == column) {
@@ -143,7 +143,7 @@ public class Piece {
     }
 
     /**
-     * Method to kill a certain piece
+     * kills this piece
      * 
      */
     public void kill() {
@@ -153,9 +153,9 @@ public class Piece {
     }
 
     /**
-     * Method to check if a piece can kill another piece
+     * Check if this piece can kill other pieces
      * 
-     *@return false if the piece is a softbarrier, else true
+     *@return false if this piece is a softbarrier, else true
      */
     public boolean canKill() {
         if (this.type == Type.SOFTBARRIER) {
@@ -164,7 +164,9 @@ public class Piece {
             return true;
         }
     }
-
+    /**
+     * Overrides standard string method and makes a formatted string of this object
+     */
     @Override
     public String toString() {
         return "Type: " + this.type + " | Color: " + this.color + " | Row: " + this.row + " | Column: " + this.column + " | Alive: " + this.alive;
