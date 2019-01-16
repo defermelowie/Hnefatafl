@@ -5,25 +5,23 @@ import com.google.gson.*;
 
 /**
  * @author Steve, Lowie, Mika
- *
+ * <p>
  * The deserializer for the players
  */
 public class PlayerDeSerializer implements JsonDeserializer<Player> {
     /**
      * Deserializes a json element representing a player class
      *
-     * @param json The JsonElement to deserialize
-     * @param type
-     * @param jsonDeserializationContext
-     * @return
-     * @throws JsonParseException
+     * @param json                       The JsonElement to deserialize
+     * @param type                       Not relevant, Uitleg pagina 176 in de cursus
+     * @param jsonDeserializationContext Uitleg pagina 176 in de cursus
+     * @return An instance of the right player subclass
      */
     @Override
     public Player deserialize(JsonElement json, java.lang.reflect.Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
         String color = jsonObject.get("color").getAsString();
         int playTime = jsonObject.get("playTimeMillis").getAsInt();
-        Gson gson = new Gson();
         Player p;
         if (color.equals("WHITE")) {
             p = new WhitePlayer();
