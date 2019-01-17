@@ -243,8 +243,9 @@ public class Board {
                             pieceUnder.getColor() != p.getColor() && pieceUnder.canKill();
                 }
                 if (pieceLeft != null && pieceRight != null) {
-                    captured = pieceLeft.getColor() != p.getColor() && pieceLeft.canKill() &&
-                            pieceRight.getColor() != p.getColor() && pieceRight.canKill();
+                    captured = captured ||
+                            (pieceLeft.getColor() != p.getColor() && pieceLeft.canKill() &&
+                            pieceRight.getColor() != p.getColor() && pieceRight.canKill());
                 }
             }
             if (captured) {
