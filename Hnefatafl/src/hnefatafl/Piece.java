@@ -134,7 +134,7 @@ public class Piece {
      * @return true if this piece is moved, false if this piece isn't moved
      */
     public boolean moveTo(int row, int column) {
-        if (this.row == row || this.column == column) {
+        if (this.row == row || this.column == column) {     //test om te weten of het stuk volgens de regels wil beweegen(horizontaal of verticaal)
             setCoordinates(row, column);
             return true;
         } else {

@@ -43,7 +43,7 @@ public class Board {
         pieces.add(new Piece(whiteKingStartCoordinate, Color.WHITE, Type.KING));
         for (int[] blackPawnStartCoordinate : blackPawnStartCoordinates) {
             pieces.add(new Piece(blackPawnStartCoordinate, Color.BLACK, Type.PAWN));
-        }
+        }                                                                                                      //voegt de juiste stukken toe op de juiste plaats op het bord
         for (int[] barrierStartCoordinate : barrierStartCoordinates) {
             pieces.add(new Piece(barrierStartCoordinate, null, Type.HARDBARRIER));
         }

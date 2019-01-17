@@ -23,7 +23,7 @@ public class BlackPlayer extends Player {
      *
      * @param playerPieces
      */
-    public void checkDeath(Iterator<Piece> playerPieces) {
+    public void checkDeath(Iterator<Piece> playerPieces) {      //kills de zwarte speler als al zijn stukken dood zijn
         while (playerPieces.hasNext()) {
             Piece p = playerPieces.next();
             if (p.isAlive()) {

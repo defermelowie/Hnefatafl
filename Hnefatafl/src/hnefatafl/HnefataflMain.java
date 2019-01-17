@@ -33,12 +33,12 @@ public class HnefataflMain extends Application {
         //Link model to controller
         hnefataflController.setModel(hnefataflModel);
 
-        //show stage
+        //Show stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
-        //start timer thread
+        //Start timer thread
         Thread t = new Thread(new PlayerTimer(hnefataflModel, hnefataflController));
         t.setDaemon(true);
         t.start();
@@ -49,7 +49,6 @@ public class HnefataflMain extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-
     }
 
 }

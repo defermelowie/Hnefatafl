@@ -40,37 +40,37 @@ public class HnefataflController {
         assert timerBlackLbl != null : "fx:id=\"timerBlackLbl\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
         assert loadBtn != null : "fx:id=\"loadBtn\" was not injected: check your FXML file 'FXMLHnefataflView.fxml'.";
 
-        gamePane.setOnMouseClicked(event -> handleMouseClick(event));
-        restartBtn.setOnAction(event -> handleRestartBtn(event));
-        loadBtn.setOnAction(event -> handleLoadBtn(event));
-        saveBtn.setOnAction(event -> handleSaveBtn(event));
+        gamePane.setOnMouseClicked(event -> handleMouseClick(event));       //links de juiste (handler)functie met een voorval/event
+        restartBtn.setOnAction(event -> handleRestartBtn(event));           //links de juiste (handler)functie met een voorval/event
+        loadBtn.setOnAction(event -> handleLoadBtn(event));                 //links de juiste (handler)functie met een voorval/event
+        saveBtn.setOnAction(event -> handleSaveBtn(event));                 //links de juiste (handler)functie met een voorval/event
     }
 
     public void setModel(Hnefatafl hnefataflModel) {
-        this.hnefataflModel = hnefataflModel;
-        boardView = new BoardView(hnefataflModel.getBoard());
-        gamePane.getChildren().add(boardView);
-        gamePane.setFocusTraversable(true);
+        this.hnefataflModel = hnefataflModel;                               //sets het model
+        boardView = new BoardView(hnefataflModel.getBoard());               //maakt een nieuwe bordView aan de hand van het model
+        gamePane.getChildren().add(boardView);                              //voegt die bordview toe aan gamePane
+        gamePane.setFocusTraversable(true);                                 //zorgt ervoor dat een muisklik op gamePane geregistreerd wordt
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) {
-        int x = (int) mouseEvent.getX();
-        int y = (int) mouseEvent.getY();
-        if (hnefataflModel.getBoard().isPieceSelected()) {
-            boolean madeTurn = hnefataflModel.moveSelectedPieceTo(boardView.getRow(y), boardView.getColumn(x));
-            hnefataflModel.updateBoard();
-            if (hnefataflModel.isGameFinished()) {
-                boardView.update();
-                new EndDialogBox(hnefataflModel.getCurrentPlayer(), this);
-            } else if (madeTurn) {
-                hnefataflModel.endTurn();
+        int x = (int) mouseEvent.getX();                                    //gets the x-coordinaat van de pixel waarop geklikt is
+        int y = (int) mouseEvent.getY();                                    //gets the y-coordinaat van de pixel waarop geklikt is
+        if (hnefataflModel.getBoard().isPieceSelected()) {                  //als er een stuk geselelcteerd is
+            boolean madeTurn = hnefataflModel.moveSelectedPieceTo(boardView.getRow(y), boardView.getColumn(x)); //probeer het stuk te bewegen en sla "succes" op in de variable madeTurn
+            hnefataflModel.updateBoard();                                   //update het bordModel
+            if (hnefataflModel.isGameFinished()) {                          //als het spel gedaan is
+                boardView.update();                                         //update de bordView
+                new EndDialogBox(hnefataflModel.getCurrentPlayer(), this);  //maak de end popup
+            } else if (madeTurn) {                                          //als het spel nog niet gedaan is maar de beurd is afgelopen (het stuk is succesvol verplaatst)
+                hnefataflModel.endTurn();                                   //laat het model weten dat de beurt gedaan is
             }
-        } else {
-            hnefataflModel.selectPieceOn(boardView.getRow(y), boardView.getColumn(x));
+        } else {                                                            //als er geen stuk geselecteerd was
+            hnefataflModel.selectPieceOn(boardView.getRow(y), boardView.getColumn(x)); //selecteer een stuk
         }
-        boardView.update();
+        boardView.update();                                                 //update de bordView
 
-        //printout
+        //Methods to print the status into the console output
         if (hnefataflModel.getBoard().isPieceSelected()) {
             System.out.println("Selected Piece --> " + hnefataflModel.getBoard().getSelectedPiece());
         } else {
@@ -78,28 +78,28 @@ public class HnefataflController {
         }
     }
 
-    public void handleRestartBtn(Event e) {
+    public void handleRestartBtn(Event e) {                                 //handles de restart button in het gamevenster
         hnefataflModel.startup();
         setModel(hnefataflModel);
     }
 
-    public void handleRestartBtn() {
+    public void handleRestartBtn() {                                        //handles de restart button in de endDialogBox
         hnefataflModel.startup();
         setModel(hnefataflModel);
     }
 
     public void handleLoadBtn(Event e) {
-        hnefataflModel.updateTo(Hnefatafl.loadFromJson());
-        setModel(hnefataflModel);
+        hnefataflModel.updateTo(Hnefatafl.loadFromJson());                  //updates het model naar een nieuw ingeladen model
+        setModel(hnefataflModel);                                           //zorgt dat de controller het juiste (pas ingeladen) model heeft
     }
 
     private void handleSaveBtn(Event e) {
-        hnefataflModel.saveToJson();
+        hnefataflModel.saveToJson();                                        //slaat het model op
     }
 
     public void updateTimers() {
-        timerWhiteLbl.setText("White playtime: " + hnefataflModel.getWhitePlayer().getPlayTime());
-        timerBlackLbl.setText("Black playtime: " + hnefataflModel.getBlackPlayer().getPlayTime());
+        timerWhiteLbl.setText("White playtime: " + hnefataflModel.getWhitePlayer().getPlayTime());  //updates het label dat de witte speeltijd weergeeft
+        timerBlackLbl.setText("Black playtime: " + hnefataflModel.getBlackPlayer().getPlayTime());  //updates het label dat de zwarte speeltijd weergeeft
     }
 
 

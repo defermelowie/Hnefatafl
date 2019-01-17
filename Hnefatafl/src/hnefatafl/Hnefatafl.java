@@ -35,7 +35,7 @@ public class Hnefatafl {
         this.board = new Board();
         this.whitePlayer = new WhitePlayer();
         this.blackPlayer = new BlackPlayer();
-        this.currentPlayer = whitePlayer;
+        this.currentPlayer = whitePlayer;                               //witte speler begint te spelen
     }
 
 
@@ -44,7 +44,7 @@ public class Hnefatafl {
      *
      * @param newHnefatafl new hnefatafl game
      */
-    public void updateTo(Hnefatafl newHnefatafl) {
+    public void updateTo(Hnefatafl newHnefatafl) {                      //updates het huidige model naar het model in de parameter
         this.board = newHnefatafl.getBoard();
         this.whitePlayer = newHnefatafl.getWhitePlayer();
         this.blackPlayer = newHnefatafl.getBlackPlayer();
@@ -57,7 +57,7 @@ public class Hnefatafl {
      * Loads the Json file into the model
      */
     public static Hnefatafl loadFromJson() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
+        GsonBuilder gsonBuilder = new GsonBuilder();                    //nodig omdat we erving toepassen zie cursus p
         gsonBuilder.registerTypeAdapter(Player.class, new PlayerDeSerializer());
         Gson gson = gsonBuilder.create();
         try {
@@ -73,7 +73,7 @@ public class Hnefatafl {
      * Saves the model to ModelSave.json.txt in Json format
      */
     public void saveToJson() {
-        Gson gsonner = new GsonBuilder().setPrettyPrinting().create();
+        Gson gsonner = new GsonBuilder().setPrettyPrinting().create();  //uitleg cursus p
         String json = gsonner.toJson(this);
         try {
             JsonWriter writer = gsonner.newJsonWriter(new FileWriter("ModelSave.json.txt"));
@@ -193,17 +193,18 @@ public class Hnefatafl {
      * @return true if the game is finished, false otherwise
      */
     public boolean isGameFinished() {
-        blackPlayer.checkDeath(board.getPiecesByColor(Color.BLACK));
-        whitePlayer.checkDeath(board.getPiecesByColor(Color.WHITE));
-        if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner()) {
+        blackPlayer.checkDeath(board.getPiecesByColor(Color.BLACK));            //controleer of de zwarte speler dood is
+        whitePlayer.checkDeath(board.getPiecesByColor(Color.WHITE));            //idem voor wit
+        if (blackPlayer.isAlive() == false || board.isWhiteKingOnCorner()) {    //als de zwarte speler dood is of de witte koning heeft het hoekpunt berijkt
             System.out.println("This Game has ended: White player wins");
-            board.fillWithPieces(Color.WHITE);
-            return true;
-        } else if (whitePlayer.isAlive() == false) {
+            board.fillWithPieces(Color.WHITE);                                  //vul het bord met witte stukken
+            return true;                                                        //return true --> spel is gedaan
+        } else if (whitePlayer.isAlive() == false) {                            //als de witte speler dood is
             System.out.println("This Game has ended: Black player wins");
-            board.fillWithPieces(Color.BLACK);
-            return true;
+            board.fillWithPieces(Color.BLACK);                                  //vul het bord met witte stukken
+            return true;                                                        //return true --> spel is gedaan
+        } else {                                                                //als geen van bovenstaande dingen waar is dan is het spel niet gedaan
+            return false;                                                       //return false --> spel is niet gedaan
         }
-        return false;
     }
 }

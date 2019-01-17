@@ -28,14 +28,14 @@ public class PieceView extends Region {
      * updates the view of the piece
      */
     public void update() {
-        if (pieceModel.isAlive()) {
-            if (pieceModel.getType() == Type.KING) {
-                pieceImageView = new ImageView("resources/whiteKing.png");
-            } else if (pieceModel.getType() == Type.PAWN) {
-                if (pieceModel.getColor() == Color.WHITE) {
-                    pieceImageView = new ImageView("resources/whitePawn.png");
-                } else {
-                    pieceImageView = new ImageView("resources/blackPawn.png");
+        if (pieceModel.isAlive()) {                                                     //als het stuk leeft:
+            if (pieceModel.getType() == Type.KING) {                                    //en het stuk is een konging
+                pieceImageView = new ImageView("resources/whiteKing.png");          //teken een koning
+            } else if (pieceModel.getType() == Type.PAWN) {                             //en als het stuk een pion is
+                if (pieceModel.getColor() == Color.WHITE) {                             //en het is wit
+                    pieceImageView = new ImageView("resources/whitePawn.png");      //teken een witte pion
+                } else {                                                                //anders (stuk is zwart)
+                    pieceImageView = new ImageView("resources/blackPawn.png");      //teken een zwarte pion
                 }
 
             } /*else if (pieceModel.getType() == Type.BARRIER) {
@@ -43,8 +43,8 @@ public class PieceView extends Region {
             } else if (pieceModel.getType() == Type.SOFTBARRIER) {                      //uncomment to show barrier pieces
                 pieceImageView = new ImageView("resources/softBarrier.png");
             }*/
-            if (pieceImageView != null)
-                this.getChildren().add(pieceImageView);
+            if (pieceImageView != null)                                                 //als er een foto ingeladen is (de ingelade foto != null)
+                this.getChildren().add(pieceImageView);                                 //voeg de foto toe aan pieceView
         }
     }
 }

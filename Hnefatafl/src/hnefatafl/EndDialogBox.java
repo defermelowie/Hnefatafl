@@ -22,7 +22,7 @@ public class EndDialogBox {
      * @param winner plaer that has won the game
      * @param c      controller to control the view
      */
-    public EndDialogBox(Player winner, HnefataflController c) {
+    public EndDialogBox(Player winner, HnefataflController c) {     //maakt de popup op het einde van het spel
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("The game has ended!");
         alert.setHeaderText(null);

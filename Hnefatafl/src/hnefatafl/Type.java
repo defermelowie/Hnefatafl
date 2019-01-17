@@ -11,5 +11,8 @@ package hnefatafl;
  * @author Mika, Lowie, Stef
  */
 public enum Type {
-    KING, PAWN, HARDBARRIER, SOFTBARRIER
+    KING,
+    PAWN,
+    HARDBARRIER,    //barrier die mee kan helpen een stuk te slaan
+    SOFTBARRIER     //barrier die niet mee kan helpen een stuk te slaan
 }

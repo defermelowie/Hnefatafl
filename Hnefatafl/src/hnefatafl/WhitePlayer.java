@@ -24,7 +24,7 @@ public class WhitePlayer extends Player {
      *
      * @param playerPieces The pieces of this player
      */
-    public void checkDeath(Iterator<Piece> playerPieces) {
+    public void checkDeath(Iterator<Piece> playerPieces) {      //kills de witte speler als zijn koning dood is
         while (playerPieces.hasNext()) {
             Piece p = playerPieces.next();
             if (p.getType() == Type.KING && !p.isAlive()) {

@@ -6,7 +6,7 @@ package hnefatafl;
 public enum Color {
     WHITE {
         /**
-         * returns oppisite color
+         * returns opposite color
          * @return black if color is white
          */
         public Color opposite() {
@@ -15,15 +15,12 @@ public enum Color {
     },
     BLACK {
         /**
-         * returns oppisite color
+         * returns opposite color
          * @return white if color is white
          */
         public Color opposite() {
             return WHITE;
         }
     };
-
     abstract public Color opposite();
-
-
 }

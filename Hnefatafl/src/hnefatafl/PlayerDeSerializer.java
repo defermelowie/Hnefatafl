@@ -1,5 +1,5 @@
 package hnefatafl;
-//Dit is nodig omdat we voor de players erving toepassen, uitleg staat op pagina 175 tot 177 in de cursus
+//Deze klasse is nodig omdat we voor de players erving toepassen, uitleg staat op pagina 175 tot 177 in de cursus
 
 import com.google.gson.*;
 
