@@ -1,7 +1,0 @@
-java classes nodig: plaats.java
-		    king.java
-		    pawn.java
-		    board.java
-	 	    piece.java (met welk stuk spelen? king of pawn, is availlable?,...)
-		    speler.java
-		    Hnefatafl.java
