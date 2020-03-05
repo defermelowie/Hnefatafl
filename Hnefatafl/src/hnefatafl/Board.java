@@ -271,7 +271,6 @@ public class Board {
             int column = c[1];
             if (this.getPieceOn(row + 1, column) == null && this.getPieceOn(row - 1, column) == null) { //boven en onder
                 placeBarrier(c[0], c[1]);
-                ;
             }
         }
         for (int[] d : VerticalbarriersToSet) {

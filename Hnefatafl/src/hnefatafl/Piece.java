@@ -157,11 +157,7 @@ public class Piece {
      * @return false if this piece is a softbarrier, else true
      */
     public boolean canKill() {
-        if (this.type == Type.SOFTBARRIER) {
-            return false;
-        } else {
-            return true;
-        }
+        return this.type != Type.SOFTBARRIER;
     }
 
     /**
